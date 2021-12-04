@@ -7,12 +7,10 @@ public class Child {
     private int childId;
     private String name;
     private int minutes;
-    private Map<Book, Integer> bookMinutes;
+    private Map<String, Integer> bookMinutes;
 
 
-    public int getChildId() {
-        return childId;
-    }
+    public int getChildId() { return childId; }
 
     public void setChildId(int childId) {
         this.childId = childId;
@@ -34,11 +32,11 @@ public class Child {
         this.minutes = minutes;
     }
 
-    public Map<Book, Integer> getBookMinutes() {
+    public Map<String, Integer> getBookMinutes() {
         return bookMinutes;
     }
 
-    public void setBookMinutes(Map<Book, Integer> bookMinutes) {
+    public void setBookMinutes(Map<String, Integer> bookMinutes) {
         this.bookMinutes = bookMinutes;
     }
 }
