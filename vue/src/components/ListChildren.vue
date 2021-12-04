@@ -17,29 +17,31 @@ export default {
                 {
                     childId: 1,
                     name: 'Anna',
-                    minutes: 65,
-                    bookMinutes: [
+                    minutes: 80,
+                    bookMinutes: new Map([
                         ['9780060207052', 20],
+                        ['9780060006983', 15],
                         ['9780399208539', 45]
-                    ]
+                    ])
                 },
                 {
                     childId: 2,
                     name: 'David',
                     minutes: 40,
-                    bookMinutes: [
+                    bookMinutes: new Map([
                         ['9780060207052', 10],
                         ['9780399208539', 30]
-                    ]
+                    ])
                 },
                 {
                     childId: 3,
                     name: 'Emily',
-                    minutes: 50,
-                    bookMinutes: [
+                    minutes: 105,
+                    bookMinutes: new Map([
                         ['9780060207052', 45],
-                        ['9780399208539', 5]
-                    ]
+                        ['9780399208539', 5],
+                        ['9780449810866', 55]
+                    ])
                 }
             ]
         }
