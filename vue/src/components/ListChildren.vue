@@ -55,6 +55,6 @@ export default {
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 5%;
-    padding: 50px 10px;
+    padding: 15px;
 }
 </style>
