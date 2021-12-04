@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="child-container">
       <img src="../assets/face-icon.jpg" alt="face icon">
-      <h3>{{name}}</h3>
+      <h3 id="child-name">{{name}}</h3>
   </div>
 </template>
 
@@ -18,5 +18,12 @@ export default {
 img{
     height: 150px;
     width: auto;
+    border-radius: 50%;
+}
+#child-name{
+    text-align: center;
+}
+#child-container{
+    display: inline-block;
 }
 </style>
