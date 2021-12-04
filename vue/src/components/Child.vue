@@ -25,5 +25,6 @@ img{
 }
 #child-container{
     display: inline-block;
+    padding: 10px;
 }
 </style>
