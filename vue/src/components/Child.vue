@@ -1,7 +1,7 @@
 <template>
   <div id="child-container">
       <img src="../assets/face-icon.jpg" alt="face icon">
-      <h3 id="child-name">{{name}}</h3>
+      <h3 id="child-name">{{child.name}}</h3>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
     name: 'child',
     props: [
-        'name'
+        'child'
     ]
 }
 </script>
@@ -25,6 +25,6 @@ img{
 }
 #child-container{
     display: inline-block;
-    padding: 10px;
+    padding: 25px;
 }
 </style>

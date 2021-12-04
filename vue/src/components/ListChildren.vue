@@ -1,6 +1,6 @@
 <template>
   <div id="list-children-container">
-      <child v-for="child in children" v-bind:key="child.childId" v-bind:name="child.name" />
+    <child v-for="child in children" v-bind:key="child.childId" v-bind:child="child" />
   </div>
 </template>
 
@@ -54,7 +54,7 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 50%;
+    margin: 5%;
+    padding: 50px 10px;
 }
-
 </style>
