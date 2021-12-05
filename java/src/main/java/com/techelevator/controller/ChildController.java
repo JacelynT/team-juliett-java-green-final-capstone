@@ -4,6 +4,7 @@ import com.techelevator.dao.ChildDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.Child;
 import com.techelevator.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,7 @@ import java.util.List;
 @CrossOrigin
 public class ChildController {
 
+    @Autowired
     private ChildDAO childDAO;
     private UserDAO userDAO;
 
