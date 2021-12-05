@@ -24,8 +24,9 @@ public class ChildController {
 
     @RequestMapping(path = "/account", method  = RequestMethod.GET)
     public List<Child> listAllChildren(Principal familyAccount) {
-        int familyAccountId = userDAO.findIdByUsername(familyAccount.getName());
-        return childDAO.listAllChildren(familyAccountId);
+        //int familyAccountId = userDAO.findIdByUsername(familyAccount.getName());
+        int temporaryId = 1;
+        return childDAO.listAllChildren(temporaryId);
     }
 
 }
