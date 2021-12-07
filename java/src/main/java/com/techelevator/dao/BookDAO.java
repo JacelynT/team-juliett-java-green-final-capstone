@@ -8,6 +8,6 @@ public interface BookDAO {
 
     public List<Book> listAllBookLogs(int childId);
 
-    public List<Book> listCurrentBooks(int childId);
+    public List<Book> listAllBooks(int childId);
 
 }

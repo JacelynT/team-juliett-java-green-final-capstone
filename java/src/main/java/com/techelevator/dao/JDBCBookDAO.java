@@ -19,13 +19,14 @@ public class JDBCBookDAO implements BookDAO{
     public List<Book> listAllBookLogs(int childId) {
         List<Book> bookList = new ArrayList<>();
 
-        String sql = "SELECT *\n" +
+        String sql = "SELECT book.*, child_book.*\n" +
                 "FROM book\n" +
                 "JOIN child_book ON book.isbn = child_book.isbn\n" +
                 "WHERE child_id = ?\n";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, childId);
         while (result.next()){
             Book book = mapRowToBook(result);
+            book.setMinutes(result.getInt("minutes"));
             bookList.add(book);
         }
 
@@ -33,7 +34,7 @@ public class JDBCBookDAO implements BookDAO{
     }
 
     //Lists all books that have been read and their summed minutes (no copies of a book)
-    public List<Book> listCurrentBooks(int childId) {
+    public List<Book> listAllBooks(int childId) {
         List<Book> bookList = new ArrayList<>();
 
         String sql = "SELECT book.book_title, book.book_author, child_book.isbn, sum(minutes) "
@@ -44,6 +45,7 @@ public class JDBCBookDAO implements BookDAO{
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, childId);
         while (result.next()){
             Book book = mapRowToBook(result);
+            book.setMinutes(result.getInt("sum"));
             bookList.add(book);
         }
 
@@ -57,7 +59,6 @@ public class JDBCBookDAO implements BookDAO{
         book.setAuthor(result.getString("book_author"));
         book.setIsbn(result.getString("isbn"));
         book.setTitle(result.getString("book_title"));
-        book.setMinutes(result.getInt("sum"));
 
         return book;
     }
