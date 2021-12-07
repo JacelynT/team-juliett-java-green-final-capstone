@@ -5,7 +5,7 @@ public class Book {
     private String isbn;
     private String title;
     private String author;
-    private int minutes = 0;
+    private int minutes;
 
 
     public String getIsbn() {
