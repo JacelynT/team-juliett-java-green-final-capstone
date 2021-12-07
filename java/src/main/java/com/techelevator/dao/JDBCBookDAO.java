@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Book;
+import com.techelevator.model.BookLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -54,10 +55,11 @@ public class JDBCBookDAO implements BookDAO{
     }
 
 
-    public void addBookLog(String isbn, int minutes, int childId, LocalDate date) {
-        String sql = "INSERT INTO child_book (isbn, child_id, minutes, date) VALUES (?,?,?);";
+    public BookLog addBookLog(BookLog bookLog) {
+        String sql = "INSERT INTO child_book (isbn, child_id, minutes, entry_date) VALUES (?,?,?,?);";
 
-        jdbcTemplate.update(sql, isbn, childId, date);
+        jdbcTemplate.update(sql, bookLog.getIsbn(), bookLog.getChildId(), bookLog.getMinutes(), bookLog.getDate());
+        return bookLog;
     }
 
 

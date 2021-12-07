@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BookDAO;
 import com.techelevator.model.Book;
+import com.techelevator.model.BookLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +27,17 @@ public class BookController {
         return bookDAO.listAllBooks(childId);
     }
 
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @RequestMapping(path = "/book-log", method = RequestMethod.POST)
+//    public void addBookLog(String isbn, Integer minutes, Integer childID, LocalDate date) {
+//        bookDAO.addBookLog(isbn, minutes, childID, date);
+//    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/book-log", method = RequestMethod.POST)
-    public void addBookLog(String isbn, Integer minutes, Integer childID, LocalDate date) {
-        bookDAO.addBookLog(isbn, minutes, childID, date);
+    public BookLog addBookLog(@RequestBody BookLog bookLog) {
+        bookDAO.addBookLog(bookLog);
+        return bookLog;
     }
 
 }
