@@ -9,3 +9,8 @@
     <router-view />
   </div>
 </template>
+<style>
+html{
+  font-family: sans-serif;
+}
+</style>
