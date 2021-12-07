@@ -10,4 +10,6 @@ public interface BookDAO {
 
     public List<Book> listAllBooks(int childId);
 
+    public void addBook(String isbn, String title, String author, int minutes, int childId);
+
 }

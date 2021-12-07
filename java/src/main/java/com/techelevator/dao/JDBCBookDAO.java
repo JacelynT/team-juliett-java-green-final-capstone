@@ -53,6 +53,17 @@ public class JDBCBookDAO implements BookDAO{
     }
 
 
+    public void addBook(String isbn, String title, String author, int minutes, int childId) {
+        String sqlBook = "INSERT INTO book (isbn, book_title, book_author) VALUES (?,?,?);";
+
+        jdbcTemplate.update(sqlBook, isbn, title, author);
+
+        String sqlChildBook = "INSERT INTO child_book (isbn, child_id, minutes) VALUES (?,?,?);";
+
+        jdbcTemplate.update(sqlChildBook, isbn, 1, minutes);
+    }
+
+
 
     private Book mapRowToBook(SqlRowSet result){
         Book book = new Book();
