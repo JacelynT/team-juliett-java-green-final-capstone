@@ -9,16 +9,21 @@
   </div>
 </template>
 
+
 <script>
+import ReadingTrackerService from '../services/ReadingTrackerService.js';
 export default {
     name: 'book',
     data() {
         return{  
-            book: {
-            isbn: '9780007158447',
-            title: 'The Cat in the Hat',
-            author: 'Dr. Seuss'
-    }}
+            book: []
+        }
+    },
+    created(){
+        ReadingTrackerService.book()
+        .then(response => {
+            this.book = response.data;
+        })
     }
 }
 </script>

@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface BookDAO {
 
-    List<Book> listAllBooks();
+    public List<Book> listAllBookLogs(int childId);
 
-
+    public List<Book> listCurrentBooks(int childId);
 
 }
