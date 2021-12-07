@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -26,9 +27,9 @@ public class BookController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/add-book", method = RequestMethod.POST)
-    public void addBook(String isbn, String title, String author, Integer minutes, Integer childID) {
-        bookDAO.addBook(isbn, title, author, minutes, childID);
+    @RequestMapping(path = "/book-log", method = RequestMethod.POST)
+    public void addBookLog(String isbn, Integer minutes, Integer childID, LocalDate date) {
+        bookDAO.addBookLog(isbn, minutes, childID, date);
     }
 
 }

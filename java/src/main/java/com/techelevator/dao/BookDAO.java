@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Book;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BookDAO {
@@ -10,6 +11,6 @@ public interface BookDAO {
 
     public List<Book> listAllBooks(int childId);
 
-    public void addBook(String isbn, String title, String author, int minutes, int childId);
+    public void addBookLog(String isbn, int minutes, int childId, LocalDate date);
 
 }

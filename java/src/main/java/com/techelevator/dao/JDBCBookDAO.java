@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,14 +54,10 @@ public class JDBCBookDAO implements BookDAO{
     }
 
 
-    public void addBook(String isbn, String title, String author, int minutes, int childId) {
-        String sqlBook = "INSERT INTO book (isbn, book_title, book_author) VALUES (?,?,?);";
+    public void addBookLog(String isbn, int minutes, int childId, LocalDate date) {
+        String sql = "INSERT INTO child_book (isbn, child_id, minutes, date) VALUES (?,?,?);";
 
-        jdbcTemplate.update(sqlBook, isbn, title, author);
-
-        String sqlChildBook = "INSERT INTO child_book (isbn, child_id, minutes) VALUES (?,?,?);";
-
-        jdbcTemplate.update(sqlChildBook, isbn, 1, minutes);
+        jdbcTemplate.update(sql, isbn, childId, date);
     }
 
 
