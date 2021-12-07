@@ -9,5 +9,11 @@ export default {
 
   account() {
     return http.get('/account')
+  },
+
+  book() {
+    return http.get('/account/:child_id')
   }
+
+
 }

@@ -10,7 +10,9 @@
   </div>
 </template>
 
+
 <script>
+import ReadingTrackerService from '../services/ReadingTrackerService.js';
 export default {
     name: 'book',
     data() {
@@ -21,6 +23,12 @@ export default {
             minutes: 40,
             date: "12/5/2021"
     }}
+    },
+    created(){
+        ReadingTrackerService.book()
+        .then(response => {
+            this.book = response.data;
+        })
     }
 }
 </script>

@@ -2,9 +2,10 @@ package com.techelevator.model;
 
 public class Book {
 
-    String isbn;
-    String title;
-    String author;
+    private String isbn;
+    private String title;
+    private String author;
+    private int minutes = 0;
 
 
     public String getIsbn() {
@@ -29,5 +30,13 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
     }
 }
