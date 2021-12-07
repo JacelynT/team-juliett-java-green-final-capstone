@@ -4,8 +4,9 @@
       v-if="book.isbn"
       v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-L.jpg'"
     />
-      <h2> {{book.title}} </h2>
-      <h3> {{book.author}} </h3>
+      <h2>{{book.title}}</h2>
+      <h2>{{book.minutes}} min</h2>
+      <h2>{{book.date}}</h2>
   </div>
 </template>
 
@@ -17,7 +18,8 @@ export default {
             book: {
             isbn: '9780007158447',
             title: 'The Cat in the Hat',
-            author: 'Dr. Seuss'
+            minutes: 40,
+            date: "12/5/2021"
     }}
     }
 }
@@ -27,13 +29,14 @@ export default {
 img{
     height: 150px;
     width: auto;
-    border-radius: 50%;
+    border-radius: 1em;
 }
-#child-name{
-    text-align: center;
-}
-#child-container{
-    display: inline-block;
+#book-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     padding: 25px;
 }
 </style>
