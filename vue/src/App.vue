@@ -19,5 +19,7 @@ components: {
 </script>
 
 <style>
-
+html{
+  font-family: sans-serif;
+}
 </style>

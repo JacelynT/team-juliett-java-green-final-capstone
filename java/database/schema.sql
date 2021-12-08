@@ -67,7 +67,17 @@ INSERT INTO child (child_name,user_id,icon_name) VALUES ('Autumn', 1,'face-icon.
 
 INSERT INTO book (isbn,book_title,book_author) VALUES ('9780007158447','The Cat in the Hat','Dr. Seuss');
 INSERT INTO book (isbn,book_title,book_author) VALUES ('9780375810886','Green Eggs and Ham','Dr. Seuss');
-INSERT INTO book (isbn,book_title,book_author) VALUES ('9780439554923','Harry Potter and the Prisoner of Azkaban','J.K. Rowlings');
+INSERT INTO book (isbn,book_title,book_author) VALUES ('9780439554923','Harry Potter and the Prisoner of Azkaban','J.K. Rowling');
+INSERT INTO book (isbn,book_title,book_author) VALUES ('9780439708180','Harry Potter and the Sorcerer''s Stone','J.K. Rowling');
+INSERT INTO book (isbn,book_title,book_author) VALUES ('9781728234939','How to Catch a Unicorn','Adam Wallace');
+INSERT INTO book (isbn,book_title,book_author) VALUES ('9780007413577','Oh, the Places You''ll Go','Dr. Seuss');
+INSERT INTO book (isbn,book_title,book_author) VALUES ('9780670016617','The Last Kids on Earth','Max Brallier');
+INSERT INTO book (isbn,book_title,book_author) VALUES ('9780140371567','James and the Giant Peach','Roald Dahl');
+INSERT INTO book (isbn,book_title,book_author) VALUES ('9780440840404','The BFG','Roald Dahl');
+INSERT INTO book (isbn,book_title,book_author) VALUES ('9780439064873','Harry Potter and the Chamber of Secrets','J.K. Rowling');
+
+
+
 
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,30,'2021-12-05');
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-05');
