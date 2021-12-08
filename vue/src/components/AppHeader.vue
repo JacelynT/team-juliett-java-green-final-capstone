@@ -6,6 +6,7 @@
         <img id="logo" src="../assets/placeholder_logo.png" />
       </div>
     </router-link>
+    <div id="empty-space"></div>
     <nav id="nav">
         
       <router-link
@@ -13,9 +14,12 @@
         v-if="$store.state.token != ''"
         >Logout &nbsp;|&nbsp;</router-link
       >
-      <span>Add Book</span>&nbsp;|&nbsp;
+
+      <div>Add Book</div><div>&nbsp;|&nbsp;</div>
+      <div>Reading History</div><div>&nbsp;|&nbsp;</div>
+      <div>
       <router-link v-bind:to="{ name: 'account' }">Account</router-link
-      >
+      ></div>
       
      
     </nav>
@@ -43,15 +47,20 @@ export default {
     flex-direction: row;
    justify-content: space-between;
   
-  
+}
+#empty-space {
+  width: 45%
 }
 
 
 #nav {
-    flex: 0 1 35%;
+  display: inline-flex;
+    justify-content: right;
     
   
 }
 
-
+#nav > div {
+  margin: 15px
+}
 </style>

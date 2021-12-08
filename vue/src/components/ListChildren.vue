@@ -1,12 +1,6 @@
 <template>
 <div>
-    <span class="reading_overview">
-        <img src="../assets/placeholderchart.png" />
-        <span id="placeholder">
-            Tasks or Goals
-        </span>
-    </span>
-
+  
   <div id="list-children-container">
     <child v-for="child in children" v-bind:key="child.childId" v-bind:child="child" />
     <div>
@@ -59,11 +53,7 @@ export default {
     width: auto;
     border-radius: 50%;
 }
-span {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
+
 .reading_overview {
     display: flex;
     flex-direction: row;
