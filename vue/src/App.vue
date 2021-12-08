@@ -25,7 +25,7 @@ components: {
 </script>
 
 <style>
-html{
+html {
   font-family: sans-serif;
 }
 </style>
