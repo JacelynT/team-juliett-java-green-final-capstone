@@ -35,7 +35,7 @@ public class JDBCBookDAO implements BookDAO{
         return bookList;
     }
 
-    //Lists all books that have been read and their summed minutes (no copies of a book)
+    //Lists all books that have been read by a specific child and their summed minutes (no copies of a book)
     public List<Book> listAllBooks(int childId) {
         List<Book> bookList = new ArrayList<>();
 
@@ -53,6 +53,27 @@ public class JDBCBookDAO implements BookDAO{
 
         return bookList;
     }
+
+    /*
+    //Get all books for a specific account
+    public List<Book> listAllBooks(int childId) {
+        List<Book> bookList = new ArrayList<>();
+
+        String sql = "SELECT book.book_title, book.book_author, child_book.isbn, sum(minutes) "
+        + "FROM book JOIN child_book ON book.isbn = child_book.isbn "
+        + "WHERE child_id = ? "
+        + "GROUP BY child_book.isbn, book.book_title, book.book_author";
+
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, childId);
+        while (result.next()){
+            Book book = mapRowToBook(result);
+            book.setMinutes(result.getInt("sum"));
+            bookList.add(book);
+        }
+
+        return bookList;
+    }
+     */
 
 
     public BookLog addBookLog(BookLog bookLog) {

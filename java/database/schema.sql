@@ -82,5 +82,6 @@ INSERT INTO book (isbn,book_title,book_author) VALUES ('9780439064873','Harry Po
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,30,'2021-12-05');
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-05');
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,60,'2021-12-05');
+INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,45,'2021-12-01');
 
 COMMIT TRANSACTION;

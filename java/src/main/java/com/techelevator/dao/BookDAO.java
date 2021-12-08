@@ -14,4 +14,5 @@ public interface BookDAO {
 
     public BookLog addBookLog(BookLog bookLog);
 
+
 }
