@@ -7,7 +7,7 @@ export default {
     name: 'app-footer',
     data() {
         return {
-            copyText: '??????Reading Tracker App???????'
+            copyText: 'Reading Tracker App, 2021. All rights reserved.'
         }
     }
 

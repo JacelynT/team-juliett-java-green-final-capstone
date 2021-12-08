@@ -12,6 +12,14 @@
         <h4>{{book.minutes}} min</h4>
       </div>
     </div>
+    <h2>Library</h2>
+      <div id="library-container">
+      <div class="library-book" v-for="book in library" v-bind:key="book.id">
+        <img v-bind:src="
+          'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
+        " alt="">
+        </div>
+      </div>
   </div>
 </template>
 
@@ -21,8 +29,8 @@ import ReadingLogForm from "../components/ReadingLogForm.vue";
 // import ReadingTrackerService from "../services/ReadingTrackerService.js"
 
 export default {
-  data(){
-    return{
+  data() {
+    return {
       currentBooks: [
         {
           isbn: "9780375810886",
@@ -41,14 +49,75 @@ export default {
           title: "How to Catch a Unicorn",
           author: "Adam Wallace",
           minutes: 30,
-        }
-      ]
-    }
+        },
+      ],
+      library: [
+        {
+          isbn: "9780007158447",
+          title: "The Cat in the Hat",
+          author: "Dr. Seuss",
+          minutes: 0,
+        },
+        {
+          isbn: "9780375810886",
+          title: "Green Eggs and Ham",
+          author: "Dr. Seuss",
+          minutes: 0,
+        },
+        {
+          isbn: "9780439554923",
+          title: "Harry Potter and the Prisoner of Azkaban",
+          author: "J.K. Rowling",
+          minutes: 0,
+        },
+        {
+          isbn: "9780439708180",
+          title: "Harry Potter and the Sorcerer's Stone",
+          author: "J.K. Rowling",
+          minutes: 0,
+        },
+        {
+          isbn: "9781728234939",
+          title: "How to Catch a Unicorn",
+          author: "Adam Wallace",
+          minutes: 0,
+        },
+        {
+          isbn: "9780007413577",
+          title: "Oh, the Places You'll Go",
+          author: "Dr. Seuss",
+          minutes: 0,
+        },
+        {
+          isbn: "9780670016617",
+          title: "The Last Kids on Earth",
+          author: "Max Brallier",
+          minutes: 0,
+        },
+        {
+          isbn: "9780140371567",
+          title: "James and the Giant Peach",
+          author: "Roald Dahl",
+          minutes: 0,
+        },
+        {
+          isbn: "9780440840404",
+          title: "The BFG",
+          author: "Roald Dahl",
+          minutes: 0,
+        },
+        {
+          isbn: "9780439064873",
+          title: "Harry Potter and the Chamber of Secrets",
+          author: "J.K. Rowling",
+          minutes: 0,
+        },
+      ],
+    };
   },
   components: {
     //ChildHeader,
     ReadingLogForm,
-
   },
   name: "reading-details",
   // created() {
@@ -58,20 +127,22 @@ export default {
 </script>
 
 <style scoped>
-img{
+img {
   border-radius: 1rem;
 }
-#current-book-container{
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-items: center;
+#current-book-container, #library-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
-.current-book{
+.current-book, .library-book {
   text-align: center;
-  padding: 0em 1em;
+  padding: 1em 1em;
 }
-h2{
+
+h2 {
   padding: 1em 1em;
 }
 </style>
