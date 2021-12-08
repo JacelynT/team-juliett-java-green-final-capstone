@@ -12,7 +12,7 @@ export default {
     props: ['book'],
     data(){
         return{
-
+            
         }
     }
 

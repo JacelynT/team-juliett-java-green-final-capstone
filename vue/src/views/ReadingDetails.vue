@@ -1,6 +1,6 @@
 <template>
   <div>
-    <child-header v-bind:key="child.childId" v-bind:child="child"/>
+    <child-header />
     <reading-log-form />
     <book-list />
   </div>
@@ -13,13 +13,17 @@ import ChildHeader from "../components/ChildHeader.vue";
 // import ReadingTrackerService from "../services/ReadingTrackerService.js"
 
 export default {
+  data(){
+    return{
+    }
+  },
   components: {
     BookList,
     ChildHeader,
     ReadingLogForm,
 
   },
-  name: "reading-details"
+  name: "reading-details",
   // created() {
   //   ReadingTrackerService.activeBooks(childId: 1 )
   // }

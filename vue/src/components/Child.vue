@@ -1,6 +1,6 @@
 <template>
   <div id="child-container">
-    <router-link v-bind:to=" '/account/' + child.childId ">
+    <router-link v-bind:to="{name: 'book-list', params: {child_id: child.childId}}" v-bind:child="child">
       <img src="../assets/face-icon.jpg" alt="face icon" />
       <h3 id="child-name">{{ child.name }}</h3>
     </router-link>
