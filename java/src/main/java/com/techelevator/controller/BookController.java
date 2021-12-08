@@ -27,11 +27,6 @@ public class BookController {
         return bookDAO.listAllBooks(childId);
     }
 
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @RequestMapping(path = "/book-log", method = RequestMethod.POST)
-//    public void addBookLog(String isbn, Integer minutes, Integer childID, LocalDate date) {
-//        bookDAO.addBookLog(isbn, minutes, childID, date);
-//    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/book-log", method = RequestMethod.POST)
