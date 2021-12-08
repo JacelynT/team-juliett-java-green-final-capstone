@@ -23,10 +23,14 @@ public class BookController {
     }
 
     @RequestMapping (path = "/account/{childId}/books", method  = RequestMethod.GET)
-    public List<Book> listAllBooks(@PathVariable int childId) {
-        return bookDAO.listAllBooks(childId);
+    public List<Book> listCurrentBooks(@PathVariable int childId) {
+        return bookDAO.listCurrentBooks(childId);
     }
 
+    @RequestMapping (path = "/account/library", method  = RequestMethod.GET)
+    public List<Book> listAllBooks() {
+        return bookDAO.listAllBooks();
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/book-log", method = RequestMethod.POST)

@@ -10,9 +10,11 @@ public interface BookDAO {
 
     public List<Book> listAllBookLogs(int childId);
 
-    public List<Book> listAllBooks(int childId);
+    public List<Book> listCurrentBooks(int childId);
 
     public BookLog addBookLog(BookLog bookLog);
+
+    public List<Book> listAllBooks();
 
 
 }
