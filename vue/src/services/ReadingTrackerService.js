@@ -11,9 +11,23 @@ export default {
     return http.get('/account')
   },
 
-  book() {
-    return http.get('/account/:child_id')
-  }
+  activeBooks(childId) {
+    return http.get('/account/:childId/active-books', {params: {child: childId}})
+  },
+
+  // bookLogs() {
+  //   return http.get('/account/:childId')
+  // },
+
+  library() {
+    return http.get('/account/library')
+  },
+
+  // readingHistory() {
+  //   return http.post('/book-log')
+  // }
+
+
 
 
 }

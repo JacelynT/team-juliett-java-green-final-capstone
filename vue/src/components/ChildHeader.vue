@@ -16,8 +16,9 @@ export default {
         Child
       
     },
+    props: 'child',
     data() {
-
+        
     }
     
 }
