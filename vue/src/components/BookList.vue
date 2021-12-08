@@ -12,16 +12,22 @@ export default {
     return {
       bookList: [
         {
-          isbn: "9780007158447",
-          title: "The Cat in the Hat",
-          minutes: 40,
-          date: "12/5/2021",
+          isbn: "9780375810886",
+          title: "Green Eggs and Ham",
+          author: "Dr. Seuss",
+          minutes: 10,
         },
         {
-          isbn: "9780007158447",
-          title: "The Cat in the Hat",
-          minutes: 20,
-          date: "12/7/2021",
+          isbn: "9780670016617",
+          title: "The Last Kids on Earth",
+          author: "Max Brallier",
+          minutes: 50,
+        },
+        {
+          isbn: "9781728234939",
+          title: "How to Catch a Unicorn",
+          author: "Adam Wallace",
+          minutes: 30,
         },
       ],
     };
@@ -30,11 +36,10 @@ export default {
 </script>
 
 <style scoped>
-#booklist-container{
+#booklist-container {
   border: solid 2px gray;
   border-radius: 1em;
   overflow: auto;
   margin: 20px;
 }
-
 </style>

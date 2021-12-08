@@ -3,22 +3,24 @@
     <span class="reading_overview">
         <img src="../assets/placeholderchart.png" />
         <span id="placeholder">
-             <reading-log-form />
+             <book-list />
         </span>
     </span>
-   <reading-log-form />
       <list-children />
   </div>
 </template>
 
 <script>
+import BookList from '../components/BookList.vue';
 import ListChildren from '../components/ListChildren.vue';
-import ReadingLogForm from "../components/ReadingLogForm.vue";
 
 export default {
     name: 'account',
-  components: { ListChildren },
-  ReadingLogForm
+  components: { 
+    ListChildren,
+    BookList 
+    },
+  
 
 }
 </script>

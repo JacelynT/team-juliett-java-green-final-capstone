@@ -1,5 +1,6 @@
 <template>
   <div id="book-container">
+    <img src="../assets/face-icon.jpg" alt="face icon" />
     <h3 class="book-info lead">{{ book.title }}</h3>
     <h3 class="book-info lead">{{ book.minutes }} min</h3>
     <h3 class="book-info lead">{{ book.date }}</h3>
@@ -22,7 +23,7 @@ export default {
 
 <style scoped>
 img {
-  height: 150px;
+  height: 25px;
   width: auto;
   border-radius: 1em;
 }
