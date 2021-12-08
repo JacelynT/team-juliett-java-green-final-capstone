@@ -1,7 +1,7 @@
 <template>
   <div >
     <form id="reading-log-form-container">
-      <select class="form" name="book-select" id="book-select">
+      <select class="form lead" name="book-select" id="book-select">
         <option
           v-for="option in bookOptions"
           v-bind:key="option.id"
@@ -10,7 +10,7 @@
           {{ option.text }}
         </option>
       </select>
-      <select class="form" name="minutes-read" id="minutes-read">
+      <select class="form lead" name="minutes-read" id="minutes-read">
         <option value="10">10 min</option>
         <option value="10">20 min</option>
         <option value="10">30 min</option>
@@ -18,7 +18,7 @@
         <option value="10">50 min</option>
         <option value="10">60 min</option>
       </select>
-      <input class= "form" type="date">
+      <input class= "form lead" type="date" >
     </form>
   </div>
 </template>
@@ -49,13 +49,21 @@ export default {
 </script>
 
 <style scoped>
+form *{
+    margin: 10px 5px;
+}
 #reading-log-form-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 5px;
+  
+  border: solid 2px gray;
+  border-radius: 1em;
+  overflow: auto;
+  margin: 20px;
+  padding: 20px 10px;
 }
 
 </style>
