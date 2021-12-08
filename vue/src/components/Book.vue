@@ -1,8 +1,8 @@
 <template>
   <div id="book-container">
-    <h3 class="book-info">{{ book.title }}</h3>
-    <h3 class="book-info">{{ book.minutes }} min</h3>
-    <h3 class="book-info">{{ book.date }}</h3>
+    <h3 class="book-info lead">{{ book.title }}</h3>
+    <h3 class="book-info lead">{{ book.minutes }} min</h3>
+    <h3 class="book-info lead">{{ book.date }}</h3>
   </div>
 </template>
 
