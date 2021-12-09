@@ -18,10 +18,18 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    selectedChildId: 0,
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    familyLibrary: []
   },
   mutations: {
+    SET_FAMILY_LIBRARY(state, familyLibrary) {
+      state.familyLibrary = familyLibrary;
+    },
+    SET_SELECTED_CHILD_ID(state, childId){
+      state.selectedChildId = childId;
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
