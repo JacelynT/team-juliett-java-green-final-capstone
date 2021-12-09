@@ -120,12 +120,20 @@ export default {
 img {
   border-radius: 1rem;
 }
-#current-book-container, #library-container {
+#current-book-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+#library-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px 25px;
 }
 .current-book, .library-book {
   text-align: center;
