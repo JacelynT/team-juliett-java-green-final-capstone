@@ -1,17 +1,17 @@
 <template>
-  <div id="book-container">
+  <div id="log-container">
     <img src="../assets/face-icon.jpg" alt="face icon" />
-    <h3 class="book-info lead">{{ book.title }}</h3>
-    <h3 class="book-info lead">{{ book.minutes }} min</h3>
-    <h3 class="book-info lead">{{ book.date }}</h3>
+    <h3 class="log-info lead">{{ book.title }}</h3>
+    <h3 class="log-info lead">{{ book.minutes }} min</h3>
+    <h3 class="log-info lead">{{ book.date }}</h3>
   </div>
 </template>
 
 
 <script>
 export default {
-  name: "book",
-  props: ['book'],
+  name: "log-entry",
+  props: ['log-entry'],
   data() {
     return {
       
@@ -27,7 +27,7 @@ img {
   width: auto;
   border-radius: 1em;
 }
-#book-container {
+#log-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,7 +35,7 @@ img {
   flex-wrap: wrap;
   padding: 5px;
 }
-.book-info{
+.log-info {
   margin: 0px 10px;
 }
 </style>

@@ -6,7 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Account from '../views/Account.vue'
-import ReadingDetails from "../views/ReadingDetails.vue"
+import ChildPage from "../views/ChildPage.vue"
 
 Vue.use(Router)
 
@@ -65,8 +65,8 @@ const router = new Router({
     },
     {
       path: "/account/:child_id",
-      name: "book-list",
-      component: ReadingDetails,
+      name: "child-page",
+      component: ChildPage,
       meta: {
         requiresAuth: false
       }

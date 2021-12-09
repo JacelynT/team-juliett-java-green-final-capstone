@@ -1,7 +1,7 @@
 <template>
 <div>
   
-  <div id="list-children-container">
+  <div id="list-child-container">
     <child v-for="child in children" v-bind:key="child.childId" v-bind:child="child" />
     <div>
        <img id="plus-circle" src="../assets/plus-circle-solid.png"/>
@@ -16,7 +16,7 @@
 import Child from '../components/Child.vue';
 import ReadingTrackerService from '../services/ReadingTrackerService.js';
 export default {
-    name: 'list-children',
+    name: 'list-of-child',
     components: {
         Child
     },
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style scoped>
-#list-children-container{
+#list-child-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;

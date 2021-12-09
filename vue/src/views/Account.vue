@@ -3,22 +3,22 @@
     <span class="reading_overview">
         <img src="../assets/placeholderchart.png" />
         <span id="placeholder">
-             <book-list />
+             <reading-log-history />
         </span>
     </span>
-      <list-children />
+      <list-of-child />
   </div>
 </template>
 
 <script>
-import BookList from '../components/BookList.vue';
-import ListChildren from '../components/ListChildren.vue';
+import ReadingLogHistory from '../components/ReadingLogHistory.vue';
+import ListOfChild from '../components/ListOfChild.vue';
 
 export default {
     name: 'account',
   components: { 
-    ListChildren,
-    BookList 
+    ReadingLogHistory,
+    ListOfChild 
     },
   
 

@@ -1,13 +1,18 @@
 <template>
-  <div id="booklist-container">
-    <book v-for="book in bookList" v-bind:key="book.id" v-bind:book="book" />
+  <div id="reading-log-container">
+    <log-entry
+      v-for="book in readingLogHistory"
+      v-bind:key="book.id"
+      v-bind:book="book"
+    />
   </div>
 </template>
 
 <script>
-import Book from "../components/Book.vue";
+import LogEntry from "./LogEntry.vue";
 export default {
-  components: { Book },
+  name: "reading-log-history",
+  components: { LogEntry },
   data() {
     return {
       bookList: [
@@ -36,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-#booklist-container {
+#reading-log-container {
   border: solid 2px gray;
   border-radius: 1em;
   overflow: auto;
