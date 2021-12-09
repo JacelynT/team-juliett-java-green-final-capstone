@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>THIS IS A TEST</h1>
-
+  
     <router-view />
 
   </div>
@@ -13,10 +13,10 @@
 
 
 
+
 export default {
-  components: {
-   
-  }
+  
+
 };
 </script>
 

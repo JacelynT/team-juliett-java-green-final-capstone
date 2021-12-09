@@ -37,6 +37,24 @@ export default {
 </script>
 
 <style scoped>
-
+#logo {
+  height: 18vh;
+}
+#header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+   justify-content: space-between;
+}
+#empty-space {
+  width: 45%
+}
+#nav {
+  display: inline-flex;
+    justify-content: right; 
+}
+#nav > div {
+  margin: 15px
+}
 </style>>
 
