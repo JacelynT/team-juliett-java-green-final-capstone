@@ -64,7 +64,7 @@ const router = new Router({
       }
     },
     {
-      path: "/account/:child_id",
+      path: "/account/child",
       name: "child-page",
       component: ChildPage,
       meta: {
