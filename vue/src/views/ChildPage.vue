@@ -1,7 +1,5 @@
 <template>
   <div>
-  <!-- <child-header /> -->
-    <reading-log-form />
     <h2>Books I'm Reading</h2>
     <div id="current-book-container">
       <div class="current-book" v-for="book in currentBooks" v-bind:key="book.id">
@@ -14,18 +12,14 @@
     </div>
     <h2>Library</h2>
       <div id="library-container">
-      <div class="library-book" v-for="book in library" v-bind:key="book.id">
-        <img v-bind:src="
-          'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
-        " alt="">
-        </div>
+      <small-book class="library-book" v-for="book in library" v-bind:key="book.id" v-bind:isbn="book.isbn">
+      </small-book>
       </div>
   </div>
 </template>
 
 <script>
-import ReadingLogForm from "../components/ReadingLogForm.vue";
-//import ChildHeader from "../components/ChildHeader.vue";
+import SmallBook from '../components/SmallBook.vue';
 // import ReadingTrackerService from "../services/ReadingTrackerService.js"
 
 export default {
@@ -116,13 +110,9 @@ export default {
     };
   },
   components: {
-    //ChildHeader,
-    ReadingLogForm,
+    SmallBook
   },
   name: "child-page",
-  // created() {
-  //   ReadingTrackerService.activeBooks(childId: 1 )
-  // }
 };
 </script>
 

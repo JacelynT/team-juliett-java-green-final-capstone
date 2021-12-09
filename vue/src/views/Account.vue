@@ -20,7 +20,9 @@ export default {
     ReadingLogHistory,
     ListOfChild 
     },
-  
+    created(){
+      this.$store.commit('SET_SELECTED_CHILD_ID', 0);
+    }
 
 }
 </script>
