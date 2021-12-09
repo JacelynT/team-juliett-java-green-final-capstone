@@ -4,7 +4,7 @@
       <div v-on:click="isClicked = !isClicked">
       <img
         class="card-img-top"
-        src="http://covers.openlibrary.org/b/isbn/9780439554923-M.jpg"
+        v-bind:src="'http://covers.openlibrary.org/b/isbn/' + bookLog.isbn + '-M.jpg'"
         alt=""
       />
       <div class="card-body">
@@ -31,12 +31,15 @@
 <script>
 export default {
   name: "book-card",
+  props: [ 'book' ],
   data() {
     return {
       isClicked: false,
       bookLog: {
-        
+        date: Date.now().toString(),
+        isbn: '9780439554923',
       },
+
 
     };
   },
