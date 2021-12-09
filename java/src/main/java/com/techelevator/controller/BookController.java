@@ -28,8 +28,8 @@ public class BookController {
     }
 
     @RequestMapping (path = "/account/library", method  = RequestMethod.GET)
-    public List<Book> listAllBooks() {
-        return bookDAO.listAllBooks();
+    public List<Book> listAllBooks(int userId) {
+        return bookDAO.listAllBooks(userId);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

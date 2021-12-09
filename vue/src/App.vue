@@ -1,23 +1,26 @@
 <template>
   <div id="app">
-  <Header></Header>
+    <main-header />
     <router-view />
-    <book-card></book-card>
-  <Footer></Footer>
+    <book-card />
+    <main-footer />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
 import BookCard from './components/BookCard.vue';
+import MainFooter from './components/MainFooter.vue';
+import MainHeader from './components/MainHeader.vue';
+
+
 
 export default {
   components: {
-    Header,
-    Footer,
+    MainHeader,
+    MainFooter,
     BookCard
   }
+
 
 };
 </script>
