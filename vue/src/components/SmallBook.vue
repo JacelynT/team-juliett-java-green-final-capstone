@@ -27,18 +27,23 @@ export default {
 }
 .upper-right{
   position: absolute;
-  padding: 0px 5px;
-  top: 22px;
-  left: 100px;
+  padding: 6px 5px;
+  top: 5px;
+  right: 5px;
   color: black;
   background-color: white;
+  border: solid 2px black;
   border-radius: 50%;
   text-align: center;
   font-weight: bold;
+  
+  box-shadow: 0px 2px 10px 2px slategrey;
 }
 img{
   height: 180px;
   width: 130px;
+  border: solid 2px whitesmoke;
   border-radius: 5%;
+  box-shadow: 0px 2px 10px 5px slategrey;
 }
 </style>
