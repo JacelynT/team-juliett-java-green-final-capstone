@@ -1,15 +1,15 @@
 <template>
   <div>
       <img v-bind:src="
-        'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
+        'http://covers.openlibrary.org/b/isbn/' + '9781728234939' + '-M.jpg'
       " alt="">
   </div>
 </template>
 
 <script>
 export default {
-    name: 'book-cover',
-    props: ['book'],
+    name: 'small-book',
+    props: ['isbn'],
     data(){
         return{
             
@@ -21,6 +21,8 @@ export default {
 
 <style scoped>
 img{
-    border-radius: 1em;
+  height: 180px;
+  width: 120px;
+  border-radius: 5%;
 }
 </style>
