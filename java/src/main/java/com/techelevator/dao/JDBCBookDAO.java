@@ -54,13 +54,16 @@ public class JDBCBookDAO implements BookDAO{
         return bookList;
     }
 
-    public List<Book> listAllBooks() {
+    //TODO make library based on user (family account)
+    public List<Book> listAllBooks(int userId) {
         List<Book> bookList = new ArrayList<>();
 
         String sql = "SELECT * "
-        + "FROM book";
+                + "FROM book "
+                + "JOIN library ON book.isbn = library.isbn "
+                + "WHERE user_id = ?";
 
-        SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userId);
         while (result.next()){
             Book book = mapRowToBook(result);
             book.setMinutes(0);
@@ -69,6 +72,8 @@ public class JDBCBookDAO implements BookDAO{
 
         return bookList;
     }
+
+
 
 
 

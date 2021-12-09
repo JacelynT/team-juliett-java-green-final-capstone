@@ -14,7 +14,7 @@ public interface BookDAO {
 
     public BookLog addBookLog(BookLog bookLog);
 
-    public List<Book> listAllBooks();
+    public List<Book> listAllBooks(int userId);
 
 
 }

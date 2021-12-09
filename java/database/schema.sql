@@ -1,5 +1,6 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS library;
 DROP TABLE IF EXISTS child_book;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS child;
@@ -21,10 +22,10 @@ CREATE SEQUENCE seq_child_id
   CACHE 1;
 
  CREATE SEQUENCE seq_child_book_id
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
 
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
@@ -49,14 +50,20 @@ CREATE TABLE book (
 	CONSTRAINT PK_book PRIMARY KEY (isbn)
 );
 CREATE TABLE child_book (
-    child_book_id int DEFAULT nextval('seq_child_book_id'::regclass) NOT NULL,
-    isbn varchar(50) NOT NULL,
+        child_book_id int DEFAULT nextval('seq_child_book_id'::regclass) NOT NULL,
+        isbn varchar(50) NOT NULL,
 	child_id int NOT NULL,
 	minutes int NOT NULL,
 	entry_date date NOT NULL,
 	CONSTRAINT PK_child_book PRIMARY KEY (child_book_id),
 	CONSTRAINT FK_child_book_child FOREIGN KEY (child_id) REFERENCES child(child_id),
 	CONSTRAINT FK_child_book_book FOREIGN KEY (isbn) REFERENCES book(isbn)
+);
+CREATE TABLE library (
+        user_id int,
+        isbn varchar(50),
+        CONSTRAINT FK_library_users FOREIGN KEY (user_id) REFERENCES users(user_id),
+        CONSTRAINT FK_library_book FOREIGN KEY (isbn) REFERENCES book(isbn)
 );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
@@ -76,12 +83,16 @@ INSERT INTO book (isbn,book_title,book_author) VALUES ('9780140371567','James an
 INSERT INTO book (isbn,book_title,book_author) VALUES ('9780440840404','The BFG','Roald Dahl');
 INSERT INTO book (isbn,book_title,book_author) VALUES ('9780439064873','Harry Potter and the Chamber of Secrets','J.K. Rowling');
 
-
-
-
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,30,'2021-12-05');
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-05');
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,60,'2021-12-05');
 INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,45,'2021-12-01');
+
+INSERT INTO library (isbn,user_id) VALUES ('9780007158447',1);
+INSERT INTO library (isbn,user_id) VALUES ('9780375810886',1);
+INSERT INTO library (isbn,user_id) VALUES ('9780439554923',1);
+INSERT INTO library (isbn,user_id) VALUES ('9780439708180',1);
+INSERT INTO library (isbn,user_id) VALUES ('9781728234939',1);
+INSERT INTO library (isbn,user_id) VALUES ('9780007413577',1);
 
 COMMIT TRANSACTION;
