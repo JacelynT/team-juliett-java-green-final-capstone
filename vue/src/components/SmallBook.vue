@@ -3,7 +3,7 @@
       <img v-bind:src="
         'http://covers.openlibrary.org/b/isbn/' + isbn + '-M.jpg'
       " alt="">
-      <!-- <div class="upper-right">add</div> -->
+      <div class="upper-right">add</div>
   </div>
 </template>
 
