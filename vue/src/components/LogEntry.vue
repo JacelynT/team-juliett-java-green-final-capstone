@@ -1,9 +1,9 @@
 <template>
   <div id="log-container">
     <img src="../assets/face-icon.jpg" alt="face icon" />
-    <h3 class="log-info lead">{{ book.title }}</h3>
-    <h3 class="log-info lead">{{ book.minutes }} min</h3>
-    <h3 class="log-info lead">{{ book.date }}</h3>
+    <h3 class="log-info lead">{{ logEntry.title }}</h3>
+    <h3 class="log-info lead">{{ logEntry.minutes }} min</h3>
+    <h3 class="log-info lead">{{ logEntry.date }}</h3>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 <script>
 export default {
   name: "log-entry",
-  props: ['log-entry'],
+  props: ['logEntry'],
   data() {
     return {
       

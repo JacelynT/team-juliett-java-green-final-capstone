@@ -1,9 +1,9 @@
 <template>
   <div id="reading-log-container">
     <log-entry
-      v-for="book in readingLogHistory"
-      v-bind:key="book.id"
-      v-bind:book="book"
+      v-for="logEntry in logEntries"
+      v-bind:key="logEntry.id"
+      v-bind:logEntry="logEntry"
     />
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
   components: { LogEntry },
   data() {
     return {
-      bookList: [
+      logEntries: [
         {
           isbn: "9780375810886",
           title: "Green Eggs and Ham",
