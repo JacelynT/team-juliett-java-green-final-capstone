@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -28,8 +29,9 @@ public class BookController {
     }
 
     @RequestMapping (path = "/account/library", method  = RequestMethod.GET)
-    public List<Book> listAllBooks(int userId) {
-        return bookDAO.listAllBooks(userId);
+    public List<Book> listAllBooks(Principal userId) {
+        int tempID = 1;
+        return bookDAO.listAllBooks(tempID);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

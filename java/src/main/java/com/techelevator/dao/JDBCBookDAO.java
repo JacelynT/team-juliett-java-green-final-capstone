@@ -91,6 +91,7 @@ public class JDBCBookDAO implements BookDAO{
         book.setAuthor(result.getString("book_author"));
         book.setIsbn(result.getString("isbn"));
         book.setTitle(result.getString("book_title"));
+        book.setActive(result.getBoolean("isActive"));
 
         return book;
     }
