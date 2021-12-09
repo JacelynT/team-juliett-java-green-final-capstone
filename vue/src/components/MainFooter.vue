@@ -1,5 +1,5 @@
 <template>
-  <div>&#169; {{copyText}} </div>
+  <div id="footer-container">&#169; {{copyText}} </div>
 </template>
 
 <script>
@@ -14,6 +14,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+#footer-container{
+    margin-top: 2rem;
+}
 </style>

@@ -15,12 +15,16 @@ export default {
   props: "child",
   data() {
     return {
-        child: { childId: 1, name: "Gordon", minutes: 60, bookMinutes: null }
+      child: {
+        childId: 1,
+        name: "Gordon",
+        minutes: 60,
+        bookMinutes: null,
+      },
     };
   },
 };
 </script>
 
 <style>
-
 </style>

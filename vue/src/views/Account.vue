@@ -13,6 +13,7 @@
 <script>
 import ReadingLogHistory from '../components/ReadingLogHistory.vue';
 import ListOfChild from '../components/ListOfChild.vue';
+import ReadingTrackerService from '../services/ReadingTrackerService.js';
 
 export default {
     name: 'account',
@@ -22,6 +23,10 @@ export default {
     },
     created(){
       this.$store.commit('SET_SELECTED_CHILD_ID', 0);
+      ReadingTrackerService.library()
+      .then(response => {
+        this.$store.commit('SET_FAMILY_LIBRARY', response.data);
+      })
     }
 
 }

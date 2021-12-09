@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Books I'm Reading</h2>
+    <h2 class="display-5">Books I'm Reading</h2>
     <div id="current-book-container">
       <div class="current-book" v-for="book in currentBooks" v-bind:key="book.id">
         <img v-bind:src="
@@ -10,7 +10,8 @@
         <h4>{{book.minutes}} min</h4>
       </div>
     </div>
-    <h2>Library</h2>
+    <hr>
+    <h2 class="display-5">Family Library</h2>
       <div id="library-container">
       <small-book class="library-book" v-for="book in library" v-bind:key="book.id" v-bind:isbn="book.isbn">
       </small-book>
@@ -25,94 +26,17 @@ import SmallBook from '../components/SmallBook.vue';
 export default {
   data() {
     return {
-      currentBooks: [
-        {
-          isbn: "9780375810886",
-          title: "Green Eggs and Ham",
-          author: "Dr. Seuss",
-          minutes: 10,
-        },
-        {
-          isbn: "9780670016617",
-          title: "The Last Kids on Earth",
-          author: "Max Brallier",
-          minutes: 50,
-        },
-        {
-          isbn: "9781728234939",
-          title: "How to Catch a Unicorn",
-          author: "Adam Wallace",
-          minutes: 30,
-        },
-      ],
-      library: [
-        {
-          isbn: "9780007158447",
-          title: "The Cat in the Hat",
-          author: "Dr. Seuss",
-          minutes: 0,
-        },
-        {
-          isbn: "9780375810886",
-          title: "Green Eggs and Ham",
-          author: "Dr. Seuss",
-          minutes: 0,
-        },
-        {
-          isbn: "9780439554923",
-          title: "Harry Potter and the Prisoner of Azkaban",
-          author: "J.K. Rowling",
-          minutes: 0,
-        },
-        {
-          isbn: "9780439708180",
-          title: "Harry Potter and the Sorcerer's Stone",
-          author: "J.K. Rowling",
-          minutes: 0,
-        },
-        {
-          isbn: "9781728234939",
-          title: "How to Catch a Unicorn",
-          author: "Adam Wallace",
-          minutes: 0,
-        },
-        {
-          isbn: "9780007413577",
-          title: "Oh, the Places You'll Go",
-          author: "Dr. Seuss",
-          minutes: 0,
-        },
-        {
-          isbn: "9780670016617",
-          title: "The Last Kids on Earth",
-          author: "Max Brallier",
-          minutes: 0,
-        },
-        {
-          isbn: "9780140371567",
-          title: "James and the Giant Peach",
-          author: "Roald Dahl",
-          minutes: 0,
-        },
-        {
-          isbn: "9780440840404",
-          title: "The BFG",
-          author: "Roald Dahl",
-          minutes: 0,
-        },
-        {
-          isbn: "9780439064873",
-          title: "Harry Potter and the Chamber of Secrets",
-          author: "J.K. Rowling",
-          minutes: 0,
-        },
-      ],
+      currentBooks: [],
+      library: [],
     };
   },
   components: {
     SmallBook
   },
   name: "child-page",
+  created(){
+    this.library = this.$store.state.familyLibrary;
+  }
 };
 </script>
 
