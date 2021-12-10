@@ -13,15 +13,15 @@
 <script>
 import ReadingLogHistory from '../components/ReadingLogHistory.vue';
 import ListOfChild from '../components/ListOfChild.vue';
-
+//import ReadingTrackerService from '../services/ReadingTrackerService.js';
 
 export default {
     name: 'account',
-  components: { 
+    components: { 
     ReadingLogHistory,
     ListOfChild 
-    },
-    
+  },
+
 
 }
 </script>

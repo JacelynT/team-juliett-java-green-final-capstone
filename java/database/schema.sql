@@ -113,10 +113,31 @@ INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('978044084
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780439064873','Harry Potter and the Chamber of Secrets','J.K. Rowling', 0);
 
 
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439708180',2,30,'2021-12-08');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-09');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439064873',1,60,'2021-12-08');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780440840404',1,50,'2021-12-09');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,30,'2021-12-06');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,20,'2021-12-07');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,60,'2021-12-06');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439708180',1,30,'2021-12-07');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,20,'2021-12-04');
 INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,30,'2021-12-05');
-INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-05');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,20,'2021-12-04');
 INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,60,'2021-12-05');
-INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,45,'2021-12-01');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439708180',1,30,'2021-12-01');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,20,'2021-12-04');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780670016617',2,40,'2021-12-03');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9781728234939',1,60,'2021-12-02');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,40,'2021-12-03');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780140371567',2,50,'2021-12-03');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-02');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780007413577',1,60,'2021-12-05');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,20,'2021-12-01');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439708180',2,30,'2021-12-02');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-01');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439064873',1,60,'2021-12-05');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780440840404',1,50,'2021-12-01');
 
 
 INSERT INTO library (user_id) VALUES (1);
