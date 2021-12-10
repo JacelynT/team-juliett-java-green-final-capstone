@@ -1,10 +1,9 @@
 <template>
   <div id="small-book-container">
+      <img id="plus-sign" scr="../assets/plus-solid.png" />
       <img v-bind:src="
         'http://covers.openlibrary.org/b/isbn/' + isbn + '-M.jpg'
-      " alt="">
-      <i class="fas fa-plus"></i>
-      
+      " alt=""> 
   </div>
 </template>
 
@@ -26,15 +25,13 @@ export default {
   position: relative;
   text-align: center;
 }
-.fa-plus{
+#plus-sign{
   position: absolute;
-  padding: 6px 5px;
-  font-size: 50px;
-  background: transparent;
-  border-radius: 50%;
-  color: rgb(185, 36, 36);
+  height: 50px;
+  width: auto;
+  color: rgb(163, 0, 0);
+  border: solid 1px whitesmoke;
   font-weight: bold;
-  
 }
 img{
   height: 180px;
