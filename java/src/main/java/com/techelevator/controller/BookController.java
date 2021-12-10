@@ -18,9 +18,9 @@ public class BookController {
     @Autowired
     private BookDAO bookDAO;
 
-    @RequestMapping (path = "/account/{childId}/logs", method  = RequestMethod.GET)
-    public List<Book> listAllBookLogs(@PathVariable int childId) {
-        return bookDAO.listAllBookLogs(childId);
+    @RequestMapping (path = "/account/logs", method  = RequestMethod.GET)
+    public List<Book> listAllBookLogs() {
+        return bookDAO.listAllBookLogs();
     }
 
     @RequestMapping (path = "/account/{childId}/active-books", method  = RequestMethod.GET)

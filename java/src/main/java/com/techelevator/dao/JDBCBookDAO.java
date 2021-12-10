@@ -18,14 +18,13 @@ public class JDBCBookDAO implements BookDAO{
     private JdbcTemplate jdbcTemplate;
 
     //Lists all books that have been logged in the child_book join table
-    public List<Book> listAllBookLogs(int childId) {
+    public List<Book> listAllBookLogs() {
         List<Book> bookList = new ArrayList<>();
 
         String sql = "SELECT book.*, book_log.*\n" +
                 "FROM book\n" +
-                "JOIN book_log ON book.isbn = book_log.isbn\n" +
-                "WHERE child_id = ?\n";
-        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, childId);
+                "JOIN book_log ON book.isbn = book_log.isbn\n";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
         while (result.next()){
             Book book = mapRowToBook(result);
             book.setMinutes(result.getInt("minutes"));
@@ -57,7 +56,7 @@ public class JDBCBookDAO implements BookDAO{
         return bookList;
     }
 
-    //TODO make library based on user (family account)
+
     public List<Book> listAllBooks(int userId) {
         List<Book> bookList = new ArrayList<>();
 
@@ -84,6 +83,9 @@ public class JDBCBookDAO implements BookDAO{
         jdbcTemplate.update(sql, bookLog.getIsbn(), bookLog.getChildId(), bookLog.getMinutes(), bookLog.getDate());
         return bookLog;
     }
+
+
+    //TODO Add book to library (by isbn?)
 
 
 

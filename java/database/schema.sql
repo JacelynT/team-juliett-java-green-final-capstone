@@ -53,7 +53,7 @@ CREATE TABLE book (
 	isbn varchar(50) NOT NULL,
 	book_title varchar(50) NOT NULL,
 	book_author varchar(50) NOT NULL,
-	minutes int NOT NULL,
+	total_minutes int NOT NULL,
 	
 	CONSTRAINT PK_book PRIMARY KEY (isbn)
 	
@@ -101,16 +101,16 @@ INSERT INTO child (child_name,user_id,icon_name) VALUES ('Gordon', 1,'face-icon.
 INSERT INTO child (child_name,user_id,icon_name) VALUES ('Autumn', 1,'face-icon.jpg');
 
 
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780007158447','The Cat in the Hat','Dr. Seuss', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780375810886','Green Eggs and Ham','Dr. Seuss', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780439554923','Harry Potter and the Prisoner of Azkaban','J.K. Rowling', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780439708180','Harry Potter and the Sorcerer''s Stone','J.K. Rowling', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9781728234939','How to Catch a Unicorn','Adam Wallace', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780007413577','Oh, the Places You''ll Go','Dr. Seuss', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780670016617','The Last Kids on Earth','Max Brallier', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780140371567','James and the Giant Peach','Roald Dahl', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780440840404','The BFG','Roald Dahl', 0);
-INSERT INTO book (isbn,book_title,book_author, minutes) VALUES ('9780439064873','Harry Potter and the Chamber of Secrets','J.K. Rowling', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780007158447','The Cat in the Hat','Dr. Seuss', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780375810886','Green Eggs and Ham','Dr. Seuss', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780439554923','Harry Potter and the Prisoner of Azkaban','J.K. Rowling', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780439708180','Harry Potter and the Sorcerer''s Stone','J.K. Rowling', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9781728234939','How to Catch a Unicorn','Adam Wallace', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780007413577','Oh, the Places You''ll Go','Dr. Seuss', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780670016617','The Last Kids on Earth','Max Brallier', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780140371567','James and the Giant Peach','Roald Dahl', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780440840404','The BFG','Roald Dahl', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780439064873','Harry Potter and the Chamber of Secrets','J.K. Rowling', 0);
 
 
 INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,30,'2021-12-05');
