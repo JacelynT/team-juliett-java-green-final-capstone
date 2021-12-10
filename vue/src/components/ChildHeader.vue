@@ -1,6 +1,12 @@
 <template>
   <div>
+    <body>
     <child v-bind:key="child.childId" v-bind:child="child" />
+    <div id="total-minutes">Total Minutes: {{child.minutes}} + minutes</div>
+    <div id="past-week">Past Week: {{child.minutes}}</div>
+    <div id="past-week-log">{{child.logEntry}}</div>
+
+    </body>
   </div>
 </template>
 
@@ -16,8 +22,8 @@ export default {
   data() {
     return {
       child: {
-        childId: 1,
-        name: "Gordon",
+        childId: '',
+        name: '',
         minutes: 60,
         bookMinutes: null,
       },
@@ -26,5 +32,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
+
 </style>

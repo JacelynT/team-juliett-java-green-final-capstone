@@ -5,7 +5,6 @@
       <book-card class="book-card" v-for="book in currentBooks" v-bind:book="book" v-bind:key="book.id"/>
     </div>
     <hr />
-    
     <h2 class="display-5">Family Library</h2>
       <div id="library-container">
       <small-book class="library-book" v-for="book in library" v-bind:key="book.id" v-bind:isbn="book.isbn">

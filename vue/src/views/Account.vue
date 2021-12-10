@@ -27,6 +27,10 @@ export default {
 </script>
 
 <style>
+#account-container {
+  display: grid;
+ 
+}
 
 span {
     display: flex;

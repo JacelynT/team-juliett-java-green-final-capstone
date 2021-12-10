@@ -1,39 +1,54 @@
 <template>
   <div id="small-book-container">
-      <img id="plus-sign" scr="../assets/plus-solid.png" />
-      <img v-bind:src="
-        'http://covers.openlibrary.org/b/isbn/' + isbn + '-M.jpg'
-      " alt=""> 
+    <i class="fas fa-plus"></i>
+    
+    <img
+      v-bind:src="'http://covers.openlibrary.org/b/isbn/' + isbn + '-M.jpg'"
+      alt=""
+    />
   </div>
 </template>
 
 <script>
 export default {
-    name: 'small-book',
-    props: ['isbn'],
-    data(){
-        return{
-            
-        }
-    }
-
-}
+  name: "small-book",
+  props: ["isbn"],
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style scoped>
-#small-book-container{
+#small-book-container {
   position: relative;
-  text-align: center;
+  opacity: 70%;
+  /* text-align: center; */
 }
-#plus-sign{
-  position: absolute;
+
+#small-book-container:hover {
+  opacity: 100%;
+}
+div:hover {
+  opacity: 100%;
+}
+
+.fa-plus {
+  opacity: 65%;
+  top: 80px;
+  left: 56px;
   height: 50px;
-  width: auto;
-  color: rgb(163, 0, 0);
-  border: solid 1px whitesmoke;
-  font-weight: bold;
+  width: 50px;
+  position: absolute;
+  font-size: 10px;
+  color: rgb(149, 56, 255);
 }
-img{
+
+.fa-plus:hover {
+  opacity: 100%;
+}
+
+img {
   height: 180px;
   width: 130px;
   border: solid 2px whitesmoke;
