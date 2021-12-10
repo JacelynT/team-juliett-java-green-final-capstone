@@ -2,11 +2,9 @@
   <div id="account-container">
     <span class="reading_overview">
         <img src="../assets/placeholderchart.png" />
-        <span id="placeholder">
-             <reading-log-history />
-        </span>
     </span>
       <list-of-child />
+      <reading-log-history />
   </div>
 </template>
 
