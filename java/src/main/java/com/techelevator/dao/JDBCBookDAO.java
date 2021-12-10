@@ -23,7 +23,8 @@ public class JDBCBookDAO implements BookDAO{
 
         String sql = "SELECT book.*, book_log.*\n" +
                 "FROM book\n" +
-                "JOIN book_log ON book.isbn = book_log.isbn\n";
+                "JOIN book_log ON book.isbn = book_log.isbn\n" +
+                "ORDER BY book_log.entry_date DESC";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
         while (result.next()){
             BookLog book = new BookLog();
