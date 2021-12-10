@@ -16,7 +16,7 @@
 <script>
 import BookCard from '../components/BookCard.vue';
 import SmallBook from '../components/SmallBook.vue';
-// import ReadingTrackerService from "../services/ReadingTrackerService.js"
+import ReadingTrackerService from "../services/ReadingTrackerService.js"
 
 export default {
   data() {
@@ -33,8 +33,14 @@ export default {
   },
   name: "child-page",
   created(){
-    this.library = this.$store.state.familyLibrary;
-  }
+      this.$store.commit('SET_SELECTED_CHILD_ID', 0);
+      ReadingTrackerService.library()
+      .then(response => {
+        this.$store.commit('SET_FAMILY_LIBRARY', response.data);
+        this.library = this.$store.state.familyLibrary;
+      })
+    }
+  
 };
 </script>
 
