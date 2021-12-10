@@ -34,10 +34,16 @@ export default {
   name: "child-page",
   created(){
       this.$store.commit('SET_SELECTED_CHILD_ID', 0);
+
       ReadingTrackerService.library()
       .then(response => {
         this.$store.commit('SET_FAMILY_LIBRARY', response.data);
         this.library = this.$store.state.familyLibrary;
+
+      ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
+      .then(response => {
+        this.currentBooks = response.data;
+      })
       })
     }
   
