@@ -1,5 +1,6 @@
 <template>
   <div>
+    <child-reading-log-history />
     <h2 class="display-5">Books I'm Reading</h2>
     <div id="current-book-container">
       <book-card class="book-card" v-for="book in currentBooks" v-bind:book="book" v-bind:key="book.id"/>
@@ -15,6 +16,7 @@
 
 <script>
 import BookCard from '../components/BookCard.vue';
+import ChildReadingLogHistory from '../components/ChildReadingLogHistory.vue';
 import SmallBook from '../components/SmallBook.vue';
 import ReadingTrackerService from "../services/ReadingTrackerService.js"
 
@@ -29,7 +31,8 @@ export default {
   },
   components: {
     SmallBook,
-    BookCard
+    BookCard,
+    ChildReadingLogHistory
   },
   name: "child-page",
   created(){

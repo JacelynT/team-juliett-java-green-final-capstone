@@ -1,19 +1,17 @@
 <template>
   <div id="account-container">
-    <span class="reading_overview">
+    <div class="reading-overview">
         <img src="../assets/placeholderchart.png" />
-        <span id="placeholder">
-             <reading-log-history />
-        </span>
-    </span>
-      <list-of-child />
+        <list-of-child />
+    </div>
+      <reading-log-history />
   </div>
 </template>
 
 <script>
 import ReadingLogHistory from '../components/ReadingLogHistory.vue';
 import ListOfChild from '../components/ListOfChild.vue';
-//import ReadingTrackerService from '../services/ReadingTrackerService.js';
+import ReadingTrackerService from '../services/ReadingTrackerService';
 
 export default {
     name: 'account',
@@ -21,20 +19,21 @@ export default {
     ReadingLogHistory,
     ListOfChild 
   },
+  created(){
+    ReadingTrackerService.bookLogs()
+    .then(response => {
+      this.$store.commit('SET_FAMILY_LOGS', response.data);
+    }
+    )
+  }
 
 
 }
 </script>
 
-<style>
-#account-container {
-  display: grid;
- 
-}
-
-span {
+<style scoped>
+.reading-overview {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
 }
 </style>

@@ -21,9 +21,13 @@ export default new Vuex.Store({
     selectedChildId: 0,
     token: currentToken || '',
     user: currentUser || {},
-    familyLibrary: []
+    familyLibrary: [],
+    familyLogs: [],
   },
   mutations: {
+    SET_FAMILY_LOGS(state, bookLogs) {
+      state.familyLogs = bookLogs;
+    },
     SET_FAMILY_LIBRARY(state, familyLibrary) {
       state.familyLibrary = familyLibrary;
     },
