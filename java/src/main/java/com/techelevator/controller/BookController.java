@@ -24,8 +24,8 @@ public class BookController {
     }
 
     @RequestMapping (path = "/account/{childId}/active-books", method  = RequestMethod.GET)
-    public List<Book> listCurrentBooks(@PathVariable int childId) {
-        return bookDAO.listCurrentBooks(childId);
+    public List<Book> listActiveBooks(@PathVariable int childId) {
+        return bookDAO.listActiveBooks(childId);
     }
 
     @RequestMapping (path = "/account/library", method  = RequestMethod.GET)

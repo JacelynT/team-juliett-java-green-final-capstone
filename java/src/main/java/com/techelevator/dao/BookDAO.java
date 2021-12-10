@@ -10,7 +10,7 @@ public interface BookDAO {
 
     public List<Book> listAllBookLogs(int childId);
 
-    public List<Book> listCurrentBooks(int childId);
+    public List<Book> listActiveBooks(int childId);
 
     public BookLog addBookLog(BookLog bookLog);
 

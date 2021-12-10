@@ -6,7 +6,6 @@ public class Book {
     private String title;
     private String author;
     private int minutes;
-    private boolean isActive;
 
 
     public String getIsbn() {
@@ -41,11 +40,4 @@ public class Book {
         this.minutes = minutes;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
 }
