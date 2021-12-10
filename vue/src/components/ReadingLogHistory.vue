@@ -37,6 +37,9 @@ export default {
       ],
     };
   },
+  created(){
+    this.logEntries = this.$store.state.familyLogs;
+  }
 };
 </script>
 
