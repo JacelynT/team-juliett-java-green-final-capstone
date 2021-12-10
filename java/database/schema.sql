@@ -1,11 +1,14 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS library;
 DROP TABLE IF EXISTS child_book;
+DROP TABLE IF EXISTS book_log;
+DROP TABLE IF EXISTS library_book;
+DROP TABLE IF EXISTS library;
+DROP TABLE IF EXISTS active_book;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS child;
 DROP TABLE IF EXISTS users;
-DROP SEQUENCE IF EXISTS seq_child_book_id;
+DROP SEQUENCE IF EXISTS seq_library_id;
 DROP SEQUENCE IF EXISTS seq_child_id;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
@@ -21,7 +24,7 @@ CREATE SEQUENCE seq_child_id
   NO MINVALUE
   CACHE 1;
 
- CREATE SEQUENCE seq_child_book_id
+ CREATE SEQUENCE seq_library_id
   INCREMENT BY 1
   NO MAXVALUE
   NO MINVALUE
@@ -31,14 +34,17 @@ CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
 	username varchar(50) NOT NULL,
 	password_hash varchar(200) NOT NULL,
+	
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
+	
 );
 CREATE TABLE child (
 	child_id int DEFAULT nextval('seq_child_id'::regclass) NOT NULL,
 	child_name varchar(50) NOT NULL,
 	user_id int NOT NULL,
 	icon_name varchar(50) NOT NULL,
+	
 	CONSTRAINT PK_child PRIMARY KEY (child_id),
 	CONSTRAINT FK_child_users FOREIGN KEY (user_id) REFERENCES users(user_id)
 	
@@ -47,53 +53,93 @@ CREATE TABLE book (
 	isbn varchar(50) NOT NULL,
 	book_title varchar(50) NOT NULL,
 	book_author varchar(50) NOT NULL,
-	isActive boolean NOT NULL,
+	total_minutes int NOT NULL,
+	
 	CONSTRAINT PK_book PRIMARY KEY (isbn)
+	
 );
-CREATE TABLE child_book (
-        child_book_id int DEFAULT nextval('seq_child_book_id'::regclass) NOT NULL,
+CREATE TABLE active_book (
         isbn varchar(50) NOT NULL,
 	child_id int NOT NULL,
-	minutes int NOT NULL,
-	entry_date date NOT NULL,
-	CONSTRAINT PK_child_book PRIMARY KEY (child_book_id),
-	CONSTRAINT FK_child_book_child FOREIGN KEY (child_id) REFERENCES child(child_id),
-	CONSTRAINT FK_child_book_book FOREIGN KEY (isbn) REFERENCES book(isbn)
+	
+	CONSTRAINT FK_active_book_child FOREIGN KEY (child_id) REFERENCES child(child_id),
+	CONSTRAINT FK_active_book_book FOREIGN KEY (isbn) REFERENCES book(isbn)
+	
 );
 CREATE TABLE library (
-        user_id int,
-        isbn varchar(50),
-        CONSTRAINT FK_library_users FOREIGN KEY (user_id) REFERENCES users(user_id),
-        CONSTRAINT FK_library_book FOREIGN KEY (isbn) REFERENCES book(isbn)
+        library_id int DEFAULT nextval('seq_library_id'::regclass) NOT NULL,
+        user_id int NOT NULL,
+        
+        CONSTRAINT PK_library PRIMARY KEY (library_id),
+        CONSTRAINT FK_library_users FOREIGN KEY (user_id) REFERENCES users(user_id)
+        
+);
+CREATE TABLE library_book (
+        library_id int NOT NULL,
+        isbn varchar(50) NOT NULL,
+        
+        CONSTRAINT FK_library_book_library FOREIGN KEY (library_id) REFERENCES library(library_id),
+        CONSTRAINT FK_library_book_book FOREIGN KEY (isbn) REFERENCES book(isbn)
+        
+);
+CREATE TABLE book_log (
+        child_id int NOT NULL,
+        isbn varchar(50) NOT NULL,
+        minutes int NOT NULL,
+        entry_date timestamp NOT NULL,
+        
+        CONSTRAINT FK_book_log_child FOREIGN KEY (child_id) REFERENCES child(child_id),
+        CONSTRAINT FK_book_log_book FOREIGN KEY (isbn) REFERENCES book(isbn)
+        
 );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-INSERT INTO child (child_name,user_id,icon_name) VALUES ('Gordon',1,'face-icon.jpg');
+
+INSERT INTO child (child_name,user_id,icon_name) VALUES ('Gordon', 1,'face-icon.jpg');
 INSERT INTO child (child_name,user_id,icon_name) VALUES ('Autumn', 1,'face-icon.jpg');
 
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780007158447','The Cat in the Hat','Dr. Seuss', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780375810886','Green Eggs and Ham','Dr. Seuss', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780439554923','Harry Potter and the Prisoner of Azkaban','J.K. Rowling', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780439708180','Harry Potter and the Sorcerer''s Stone','J.K. Rowling', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9781728234939','How to Catch a Unicorn','Adam Wallace', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780007413577','Oh, the Places You''ll Go','Dr. Seuss', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780670016617','The Last Kids on Earth','Max Brallier', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780140371567','James and the Giant Peach','Roald Dahl', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780440840404','The BFG','Roald Dahl', false);
-INSERT INTO book (isbn,book_title,book_author, isActive) VALUES ('9780439064873','Harry Potter and the Chamber of Secrets','J.K. Rowling', false);
 
-INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,30,'2021-12-05');
-INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-05');
-INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,60,'2021-12-05');
-INSERT INTO child_book (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,45,'2021-12-01');
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780007158447','The Cat in the Hat','Dr. Seuss', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780375810886','Green Eggs and Ham','Dr. Seuss', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780439554923','Harry Potter and the Prisoner of Azkaban','J.K. Rowling', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780439708180','Harry Potter and the Sorcerer''s Stone','J.K. Rowling', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9781728234939','How to Catch a Unicorn','Adam Wallace', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780007413577','Oh, the Places You''ll Go','Dr. Seuss', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780670016617','The Last Kids on Earth','Max Brallier', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780140371567','James and the Giant Peach','Roald Dahl', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780440840404','The BFG','Roald Dahl', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780439064873','Harry Potter and the Chamber of Secrets','J.K. Rowling', 0);
 
-INSERT INTO library (isbn,user_id) VALUES ('9780007158447',1);
-INSERT INTO library (isbn,user_id) VALUES ('9780375810886',1);
-INSERT INTO library (isbn,user_id) VALUES ('9780439554923',1);
-INSERT INTO library (isbn,user_id) VALUES ('9780439708180',1);
-INSERT INTO library (isbn,user_id) VALUES ('9781728234939',1);
-INSERT INTO library (isbn,user_id) VALUES ('9780007413577',1);
+
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780007158447',2,30,'2021-12-05');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780375810886',2,30,'2021-12-05');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,60,'2021-12-05');
+INSERT INTO book_log (isbn,child_id,minutes,entry_date) VALUES ('9780439554923',1,45,'2021-12-01');
+
+
+INSERT INTO library (user_id) VALUES (1);
+
+
+INSERT INTO library_book (isbn,library_id) VALUES ('9780007158447', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9780375810886', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9780439554923', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9780439708180', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9781728234939', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9780007413577', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9780670016617', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9780140371567', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9780440840404', 1);
+INSERT INTO library_book (isbn,library_id) VALUES ('9780439064873', 1);
+
+
+INSERT INTO active_book (isbn, child_id) VALUES ('9780007158447', 1);
+INSERT INTO active_book (isbn, child_id) VALUES ('9780439554923', 1);
+INSERT INTO active_book (isbn, child_id) VALUES ('9780670016617', 1);
+INSERT INTO active_book (isbn, child_id) VALUES ('9780007158447', 2);
+INSERT INTO active_book (isbn, child_id) VALUES ('9780375810886', 2);
+INSERT INTO active_book (isbn, child_id) VALUES ('9780439064873', 2);
+
 
 COMMIT TRANSACTION;

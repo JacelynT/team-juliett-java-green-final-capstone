@@ -12,7 +12,7 @@ export default {
   },
 
   activeBooks(childId) {
-    return http.get('/account/:childId/active-books', {params: {child: childId}})
+    return http.get('/account/'+ childId + '/active-books')
   },
 
   // bookLogs() {

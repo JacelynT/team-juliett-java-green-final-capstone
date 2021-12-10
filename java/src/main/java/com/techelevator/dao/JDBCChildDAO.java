@@ -17,11 +17,9 @@ public class JDBCChildDAO implements ChildDAO{
 
     public List<Child> listAllChildren(int familyAccountId) {
         List<Child> childList = new ArrayList<>();
-        String sql = "SELECT child.child_id, child.child_name, SUM(child_book.minutes)\n" +
+        String sql = "SELECT *\n" +
                 "FROM child\n" +
-                "JOIN child_book ON child.child_id = child_book.child_id\n" +
-                "WHERE user_id = ?\n" +
-                "GROUP BY child.child_id";
+                "WHERE user_id = ?\n";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, familyAccountId);
         while (result.next()){
             Child child = mapRowToChild(result);
@@ -36,8 +34,7 @@ public class JDBCChildDAO implements ChildDAO{
         Child child = new Child();
         child.setChildId(result.getInt("child_id"));
         child.setName(result.getString("child_name"));
-        child.setMinutes(result.getInt("sum"));
-
+        child.setIcon(result.getString("icon_name"));
 
         return child;
     }

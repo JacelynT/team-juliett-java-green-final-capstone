@@ -8,6 +8,7 @@ public class Child {
     private String name;
     private int minutes;
     private Map<String, Integer> bookMinutes;
+    private String icon;
 
 
     public int getChildId() { return childId; }
@@ -38,5 +39,13 @@ public class Child {
 
     public void setBookMinutes(Map<String, Integer> bookMinutes) {
         this.bookMinutes = bookMinutes;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
