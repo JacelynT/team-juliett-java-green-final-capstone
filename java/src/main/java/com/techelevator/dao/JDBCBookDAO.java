@@ -66,7 +66,7 @@ public class JDBCBookDAO implements BookDAO{
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userId);
         while (result.next()){
             Book book = mapRowToBook(result);
-            book.setMinutes(0);
+            //book.setMinutes(0);
             bookList.add(book);
         }
 
@@ -91,7 +91,7 @@ public class JDBCBookDAO implements BookDAO{
         book.setAuthor(result.getString("book_author"));
         book.setIsbn(result.getString("isbn"));
         book.setTitle(result.getString("book_title"));
-        book.setActive(result.getBoolean("isActive"));
+        //book.setActive(result.getBoolean("isActive"));
 
         return book;
     }

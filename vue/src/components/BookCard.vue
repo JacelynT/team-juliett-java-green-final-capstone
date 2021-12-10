@@ -4,7 +4,7 @@
       <div v-on:click="isClicked = !isClicked">
       <img
         class="card-img-top"
-        v-bind:src="'http://covers.openlibrary.org/b/isbn/' + bookLog.isbn + '-M.jpg'"
+        v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'"
         alt=""
       />
       <div class="card-body">
@@ -14,6 +14,7 @@
         <div v-on:click.stop="" v-show="isClicked">
           <hr />
           <select class="form lead" name="minutes-read" id="minutes-read" v-model="bookLog.minutes">
+            <option value="" selected="selected" disabled>add minutes</option>
             <option value="10">10 min</option>
             <option value="20">20 min</option>
             <option value="30">30 min</option>
@@ -21,7 +22,7 @@
             <option value="50">50 min</option>
             <option value="60">60 min</option>
           </select>
-          <a href="#" class="btn btn-outline-dark">Submit Time</a>   <!--v-on:click="" -->
+          <button v-on:click="submitTime" class="btn btn-outline-dark">Submit Time</button>
         </div>
       </div>
     </div>
@@ -36,13 +37,20 @@ export default {
     return {
       isClicked: false,
       bookLog: {
-        date: Date.now().toString(),
-        isbn: '9780439554923',
+        date: new Date().toLocaleDateString('en-US'),
+        isbn: this.book.isbn,
+        minutes: '',
+        childId: this.$store.state.selectedChildId
       },
-
-
     };
   },
+  methods: {
+    submitTime(){
+      this.isClicked = false;
+      //send post method containing bookLog
+    }
+  }
+    
 };
 </script>
 

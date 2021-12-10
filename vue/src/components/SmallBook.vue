@@ -37,13 +37,13 @@ export default {
   text-align: center;
   font-weight: bold;
   
-  box-shadow: 0px 2px 10px 2px slategrey;
+  box-shadow: -1px 4px 10px 2px slategray;
 }
 img{
   height: 180px;
   width: 130px;
   border: solid 2px whitesmoke;
   border-radius: 5%;
-  box-shadow: 0px 2px 10px 5px slategrey;
+  box-shadow: 0px 2px 10px 1px slategrey;
 }
 </style>
