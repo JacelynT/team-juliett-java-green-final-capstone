@@ -4,7 +4,7 @@
     <div id="current-book-container">
       <book-card class="book-card" v-for="book in currentBooks" v-bind:book="book" v-bind:key="book.id"/>
     </div>
-    <hr>
+    <hr />
     <h2 class="display-5">Family Library</h2>
       <div id="library-container">
       <small-book class="library-book" v-for="book in library" v-bind:key="book.id" v-bind:isbn="book.isbn">
@@ -45,14 +45,16 @@ book-card{
 img {
   border-radius: 1rem;
 }
+
 #current-book-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: flex-start;
+  gap: 15px;
   margin-bottom: 75px;
-}
+} 
 #library-container {
   display: flex;
   flex-wrap: wrap;
@@ -64,6 +66,11 @@ img {
 .current-book, .library-book {
   text-align: center;
   padding: 1em 1em;
+}
+
+hr {
+  width: 95%;
+  margin-left: 2em;
 }
 
 h2 {

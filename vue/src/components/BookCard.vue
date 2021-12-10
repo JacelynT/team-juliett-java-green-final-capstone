@@ -1,19 +1,26 @@
 <template>
   <div>
-    <div class="card" >
+    <div class="card">
       <div v-on:click="isClicked = !isClicked">
-      <img
-        class="card-img-top"
-        v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'"
-        alt=""
-      />
-      <div class="card-body">
-        <h5 class="card-title">Harry Potter and the Prisoner of Azkaban</h5>
-        <p class="card-text">45 mins.</p>
+        <img
+          class="card-img-top"
+          v-bind:src="
+            'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
+          "
+          alt=""
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{book.title}}</h5>
+          <p class="card-text">{{book.minutes + " minutes"}}</p>
         </div>
-        <div v-on:click.stop="" v-show="isClicked">
+        <div class="card-form" v-on:click.stop="" v-show="isClicked">
           <hr />
-          <select class="form lead" name="minutes-read" id="minutes-read" v-model="bookLog.minutes">
+          <select
+            class="form lead"
+            name="minutes-read"
+            id="minutes-read"
+            v-model="bookLog.minutes"
+          >
             <option value="" selected="selected" disabled>add minutes</option>
             <option value="10">10 min</option>
             <option value="20">20 min</option>
@@ -22,7 +29,9 @@
             <option value="50">50 min</option>
             <option value="60">60 min</option>
           </select>
-          <button v-on:click="submitTime" class="btn btn-outline-dark">Submit Time</button>
+          <button v-on:click="submitTime" class="btn btn-outline-dark">
+            Submit Time
+          </button>
         </div>
       </div>
     </div>
@@ -32,25 +41,24 @@
 <script>
 export default {
   name: "book-card",
-  props: [ 'book' ],
+  props: ["book"],
   data() {
     return {
       isClicked: false,
       bookLog: {
-        date: new Date().toLocaleDateString('en-US'),
+        date: new Date().toLocaleDateString("en-US"),
         isbn: this.book.isbn,
-        minutes: '',
-        childId: this.$store.state.selectedChildId
+        minutes: "",
+        childId: this.$store.state.selectedChildId,
       },
     };
   },
   methods: {
-    submitTime(){
+    submitTime() {
       this.isClicked = false;
       //send post method containing bookLog
-    }
-  }
-    
+    },
+  },
 };
 </script>
 
@@ -66,13 +74,23 @@ export default {
 
 .card-body {
   padding-top: 5px;
+  padding-left: 8px;
 }
+
 .card-title {
   font-size: 18px;
 }
 
 .card-text {
   font-size: 18px;
+}
+
+hr {
+  margin: 0 8px 16px 8px; 
+}
+
+.card-form {
+  padding: 0 8px 0 8px;
 }
 
 .btn {
