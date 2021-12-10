@@ -1,7 +1,7 @@
 <template>
   <div id="reading-log-container">
     <log-entry
-      v-for="logEntry in logEntries"
+      v-for="logEntry in childLogEntries"
       v-bind:key="logEntry.id"
       v-bind:logEntry="logEntry"
     />
@@ -11,17 +11,21 @@
 <script>
 import LogEntry from "./LogEntry.vue";
 export default {
-  name: "reading-log-history",
+  name: "child-reading-log-history",
   components: { LogEntry },
   data() {
     return {
-      logEntries: [
-        
-      ],
     };
   },
-  created(){
-    this.logEntries = this.$store.state.familyLogs;
+  computed: {
+    childLogEntries(){
+        return this.$store.state.familyLogs.filter((log) => {
+            return log.childId === this.$store.state.selectedChildId 
+            ? log 
+            : false;
+        })
+        .slice(0,5);
+    }
   }
 };
 </script>
