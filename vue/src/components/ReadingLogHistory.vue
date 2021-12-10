@@ -21,8 +21,8 @@ export default {
     };
   },
   created(){
-    this.logEntries = this.$store.state.familyLogs;
-  }
+    this.logEntries = this.$store.state.familyLogs.slice(0,10);
+  },
 };
 </script>
 
