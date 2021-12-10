@@ -15,9 +15,9 @@ export default {
     return http.get('/account/'+ childId + '/active-books')
   },
 
-  // bookLogs() {
-  //   return http.get('/account/:childId')
-  // },
+  bookLogs() {
+    return http.get('/account/logs')
+  },
 
   library() {
     return http.get('/account/library')
