@@ -3,7 +3,8 @@
       <img v-bind:src="
         'http://covers.openlibrary.org/b/isbn/' + isbn + '-M.jpg'
       " alt="">
-      <div class="upper-right">&#x2b;</div>
+      <i class="fas fa-plus"></i>
+      
   </div>
 </template>
 
@@ -25,19 +26,15 @@ export default {
   position: relative;
   text-align: center;
 }
-.upper-right{
+.fa-plus{
   position: absolute;
   padding: 6px 5px;
-  top: 5px;
-  right: 5px;
-  color: black;
-  background-color: white;
-  border: solid 2px black;
+  font-size: 50px;
+  background: transparent;
   border-radius: 50%;
-  text-align: center;
+  color: rgb(185, 36, 36);
   font-weight: bold;
   
-  box-shadow: -1px 4px 10px 2px slategray;
 }
 img{
   height: 180px;

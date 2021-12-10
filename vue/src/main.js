@@ -4,7 +4,8 @@ import router from './router/index'
 import store from './store/index'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 Vue.config.productionTip = false
 
