@@ -2,8 +2,8 @@
   <div id="account-container">
     <span class="reading_overview">
         <img src="../assets/placeholderchart.png" />
+        <list-of-child />
     </span>
-      <list-of-child />
       <reading-log-history />
   </div>
 </template>
