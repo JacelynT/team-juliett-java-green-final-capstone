@@ -7,6 +7,7 @@ import java.time.LocalDate;
 public class BookLog {
 
     private String isbn;
+    private String title;
     private int childId;
     private int minutes;
     @JsonFormat(pattern = "MM-dd-yyyy", shape = JsonFormat.Shape.STRING)
@@ -18,6 +19,14 @@ public class BookLog {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getChildId() {

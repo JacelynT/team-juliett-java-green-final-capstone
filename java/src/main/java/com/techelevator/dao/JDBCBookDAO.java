@@ -18,17 +18,20 @@ public class JDBCBookDAO implements BookDAO{
     private JdbcTemplate jdbcTemplate;
 
     //Lists all books that have been logged in the child_book join table
-    public List<Book> listAllBookLogs() {
-        List<Book> bookList = new ArrayList<>();
+    public List<BookLog> listAllBookLogs() {
+        List<BookLog> bookList = new ArrayList<>();
 
         String sql = "SELECT book.*, book_log.*\n" +
                 "FROM book\n" +
                 "JOIN book_log ON book.isbn = book_log.isbn\n";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
         while (result.next()){
-            Book book = mapRowToBook(result);
+            BookLog book = new BookLog();
+            book.setIsbn(result.getString("isbn"));
             book.setMinutes(result.getInt("minutes"));
-            book.setAuthor(result.getString("book_author"));
+            book.setDate(result.getDate("entry_date").toLocalDate());
+            book.setTitle(result.getString("book_title"));
+            book.setChildId(result.getInt("child_id"));
             bookList.add(book);
         }
 

@@ -19,7 +19,7 @@ public class BookController {
     private BookDAO bookDAO;
 
     @RequestMapping (path = "/account/logs", method  = RequestMethod.GET)
-    public List<Book> listAllBookLogs() {
+    public List<BookLog> listAllBookLogs() {
         return bookDAO.listAllBookLogs();
     }
 
