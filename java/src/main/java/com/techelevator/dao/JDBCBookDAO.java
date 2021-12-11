@@ -21,9 +21,10 @@ public class JDBCBookDAO implements BookDAO{
     public List<BookLog> listAllBookLogs() {
         List<BookLog> bookList = new ArrayList<>();
 
-        String sql = "SELECT book.*, book_log.*\n" +
+        String sql = "SELECT book.*, book_log.*, child.icon_name\n" +
                 "FROM book\n" +
                 "JOIN book_log ON book.isbn = book_log.isbn\n" +
+                "JOIN child ON book_log.child_id = child.child_id\n" +
                 "ORDER BY book_log.entry_date DESC";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
         while (result.next()){
@@ -33,6 +34,7 @@ public class JDBCBookDAO implements BookDAO{
             book.setDate(result.getDate("entry_date").toLocalDate());
             book.setTitle(result.getString("book_title"));
             book.setChildId(result.getInt("child_id"));
+            book.setIcon(result.getString("icon_name"));
             bookList.add(book);
         }
 
