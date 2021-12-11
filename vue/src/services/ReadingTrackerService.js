@@ -23,9 +23,9 @@ export default {
     return http.get('/account/library')
   },
 
-  // readingHistory() {
-  //   return http.post('/book-log')
-  // }
+  postBookLog() {
+    return http.post('/add-log')
+  }
 
 
 

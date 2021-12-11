@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div id="log-entry-container">
     <span id="log-container">
      
-    <img id="child-icon" src="../assets/face-icon.jpg" alt="face icon" />
+    <img id="icon" :src="require('../assets/cat-solid.png')" alt="face icon" />
    
-    <h3 id="title" class="log-info lead">{{ logEntry.title }}</h3> 
+    <p id="title" class="log-info">{{ logEntry.title }}</p> 
     
-    <h3 id="minutes" class="log-info lead">{{ logEntry.minutes }} min</h3>
+    <p id="minutes" class="log-info">{{ logEntry.minutes }} min</p>
     
-    <h3 id="date" class="log-info lead">{{ logEntry.date }}</h3>
+    <p id="date" class="log-info">{{ logEntry.date }}</p>
  </span>
   </div>
 </template>
@@ -28,8 +28,13 @@ export default {
 </script>
 
 <style scoped>
+#log-entry-container{
+  width: 95%;
+  margin: auto;
+}
 img {
-  height: 25px;
+  opacity: 75%;
+  height: 50px;
   width: auto;
   border-radius: 1em;
 }
@@ -37,8 +42,10 @@ img {
 #log-container {
  
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: child-icon title minutes date;
+  grid-template-columns: 1.5fr 6fr 1fr 2fr;
+  grid-template-areas: "child-icon title minutes date";
+  justify-items: start;
+  align-items: center;
   row-gap: 5px;
   column-gap: 10px;
 }
@@ -66,6 +73,8 @@ img {
 
 #date {
   grid-area: date;
+  justify-self: end;
+  padding: 0px 10px;
 }
 /* #log-container {
   display: flex;
