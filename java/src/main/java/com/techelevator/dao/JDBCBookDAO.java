@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.ActiveBook;
 import com.techelevator.model.Book;
 import com.techelevator.model.BookLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +89,22 @@ public class JDBCBookDAO implements BookDAO{
 
         jdbcTemplate.update(sql, bookLog.getIsbn(), bookLog.getChildId(), bookLog.getMinutes(), bookLog.getDate());
         return bookLog;
+    }
+
+
+    public ActiveBook addActiveBook(ActiveBook book) {
+        String sql = "INSERT INTO active_book (isbn, child_id) VALUES (?,?);";
+
+        jdbcTemplate.update(sql, book.getIsbn(), book.getChildId());
+
+        return book;
+    }
+
+
+    public void deleteActiveBook(ActiveBook book) {
+        String sql = "DELETE FROM active_book WHERE child_id = ? AND isbn = ?;";
+
+        jdbcTemplate.update(sql, book.getChildId(), book.getIsbn());
     }
 
 

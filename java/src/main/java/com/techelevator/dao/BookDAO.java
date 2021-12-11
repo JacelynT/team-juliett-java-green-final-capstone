@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.ActiveBook;
 import com.techelevator.model.Book;
 import com.techelevator.model.BookLog;
 
@@ -16,5 +17,7 @@ public interface BookDAO {
 
     public List<Book> listAllBooks(int userId);
 
+    public ActiveBook addActiveBook(ActiveBook book);
 
+    public void deleteActiveBook(ActiveBook book);
 }
