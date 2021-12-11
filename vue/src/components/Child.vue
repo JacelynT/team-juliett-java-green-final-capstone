@@ -1,7 +1,7 @@
 <template>
   <div v-on:click="selectChildId(child.childId)" id="child-container">
     <router-link v-bind:to="{name: 'child-page'}" v-bind:child="child">
-      <img v-bind:src="'../assets/' + this.child.icon" alt="" />
+      <img :src="require('../assets/' + child.icon)" />
       <h3 id="child-name">{{ child.name }}</h3>
     </router-link>
   </div>
@@ -26,7 +26,6 @@ export default {
 img {
   height: 150px;
   width: auto;
-  border-radius: 50%;
 }
 #child-name {
   text-align: center;
