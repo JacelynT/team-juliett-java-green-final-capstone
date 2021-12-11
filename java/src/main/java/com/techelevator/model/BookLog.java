@@ -11,7 +11,7 @@ public class BookLog {
     private int childId;
     private String icon;
     private int minutes;
-    @JsonFormat(pattern = "MM-dd-yyyy", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern = "MM/dd/yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate date;
 
     public String getIsbn() {

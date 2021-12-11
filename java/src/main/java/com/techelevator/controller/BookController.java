@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.BookDAO;
+import com.techelevator.model.ActiveBook;
 import com.techelevator.model.Book;
 import com.techelevator.model.BookLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,17 @@ public class BookController {
     public BookLog addBookLog(@RequestBody BookLog bookLog) {
         bookDAO.addBookLog(bookLog);
         return bookLog;
+    }
+
+    @RequestMapping(path = "/add-active-book", method = RequestMethod.POST)
+    public ActiveBook addActiveBook(@RequestBody ActiveBook book) {
+        bookDAO.addActiveBook(book);
+        return book;
+    }
+
+    @RequestMapping(path = "/delete-active-book", method = RequestMethod.DELETE)
+    public void deleteActiveBook(@RequestBody ActiveBook book) {
+        bookDAO.deleteActiveBook(book);
     }
 
 }
