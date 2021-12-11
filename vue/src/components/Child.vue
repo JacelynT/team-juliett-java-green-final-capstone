@@ -18,10 +18,7 @@ export default {
   methods: {
     selectChildId(childId){
       this.$store.commit('SET_SELECTED_CHILD_ID', childId);
-    },
-    // getChildIcon(icon) {
-    //   return ('../assets/' + icon);
-    // }
+    }
   }
 };
 </script>
@@ -35,7 +32,7 @@ img {
   text-align: center;
 }
 #child-container {
-  display: inline-block;
+  /* display: inline-block; */
   padding: 25px;
 }
 </style>
