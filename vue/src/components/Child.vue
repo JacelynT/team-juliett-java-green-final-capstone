@@ -1,11 +1,7 @@
 <template>
   <div v-on:click="selectChildId(child.childId)" id="child-container">
     <router-link v-bind:to="{name: 'child-page'}" v-bind:child="child">
-<<<<<<< HEAD
-      <img :src="require('../assets/' + child.icon)" />
-=======
       <img v-bind:src="require('../assets/' + child.icon)" alt="" />
->>>>>>> bc9ac52fd726d709c6630d6a8aa3c48a6fdfd669
       <h3 id="child-name">{{ child.name }}</h3>
     </router-link>
   </div>
