@@ -1,11 +1,15 @@
 <template>
   <div>
-    <div id="log-container">
-    <img id="icon" src="../assets/face-icon.jpg" alt="face icon" />
-    <h3 id="title" class="log-info lead">{{ logEntry.title }}</h3>
+    <span id="log-container">
+     
+    <img id="child-icon" src="../assets/face-icon.jpg" alt="face icon" />
+   
+    <h3 id="title" class="log-info lead">{{ logEntry.title }}</h3> 
+    
     <h3 id="minutes" class="log-info lead">{{ logEntry.minutes }} min</h3>
+    
     <h3 id="date" class="log-info lead">{{ logEntry.date }}</h3>
- </div>
+ </span>
   </div>
 </template>
 
@@ -31,27 +35,29 @@ img {
 }
 
 #log-container {
-  
+ 
   display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 4, 1fr;
-  grid-template-areas: icon title minutes date;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: child-icon title minutes date;
   row-gap: 5px;
   column-gap: 10px;
 }
 /* #log-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: space-between;
+  gap: 10px 30px;
+  flex-grow: 2;
+  margin: 0 10px;
 } */
 #icon {
-  grid-area: icon;
-  text-align: left;
+  grid-area: child-icon;
+ 
 }
 
 #title {
   grid-area: title;
-  text-align: left;
+
 }
 
 #minutes {

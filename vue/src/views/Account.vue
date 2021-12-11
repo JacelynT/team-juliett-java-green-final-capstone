@@ -1,9 +1,9 @@
 <template>
   <div id="account-container">
-    <div class="reading-overview">
+    <!--<div class="reading-overview"> -->
         <img id="chart" src="../assets/placeholderchart.png" />
         <list-of-child id="list-of-child"/>
-    </div>
+<!--    </div> -->
       <reading-log-history id="reading-log"/>
   </div>
 </template>
@@ -34,9 +34,9 @@ export default {
 <style scoped>
 #account-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-areas: 
-    "chart list-of-child"
+    "chart list-of-child "
     "reading-log reading-log";
 }
 
@@ -46,6 +46,8 @@ export default {
 
 #list-of-child {
   grid-area: list-of-child;
+  display: flex;
+  justify-content: space-between;
 
 }
 

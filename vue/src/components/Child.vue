@@ -1,7 +1,7 @@
 <template>
   <div v-on:click="selectChildId(child.childId)" id="child-container">
     <router-link v-bind:to="{name: 'child-page'}" v-bind:child="child">
-      <img v-bind:src="'../assets/' + this.child.icon" alt="" />
+      <img v-bind:src="require('@/assets/' + child.icon)" />
       <h3 id="child-name">{{ child.name }}</h3>
     </router-link>
   </div>
@@ -14,10 +14,7 @@ export default {
   methods: {
     selectChildId(childId){
       this.$store.commit('SET_SELECTED_CHILD_ID', childId);
-    },
-    // getChildIcon(icon) {
-    //   return ('../assets/' + icon);
-    // }
+    }
   }
 };
 </script>
@@ -32,7 +29,7 @@ img {
   text-align: center;
 }
 #child-container {
-  display: inline-block;
+  /* display: inline-block; */
   padding: 25px;
 }
 </style>
