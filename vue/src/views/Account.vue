@@ -1,10 +1,10 @@
 <template>
   <div id="account-container">
     <div class="reading-overview">
-        <img src="../assets/placeholderchart.png" />
-        <list-of-child />
+        <img id="chart" src="../assets/placeholderchart.png" />
+        <list-of-child id="list-of-child"/>
     </div>
-      <reading-log-history />
+      <reading-log-history id="reading-log"/>
   </div>
 </template>
 
@@ -32,8 +32,28 @@ export default {
 </script>
 
 <style scoped>
-.reading-overview {
+#account-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "chart list-of-child"
+    "reading-log reading-log";
+}
+
+#chart {
+  grid-area: chart;
+}
+
+#list-of-child {
+  grid-area: list-of-child;
+
+}
+
+#reading-log {
+  grid-area: reading-log;
+}
+/* .reading-overview {
     display: flex;
     flex-direction: row;
-}
+} */
 </style>

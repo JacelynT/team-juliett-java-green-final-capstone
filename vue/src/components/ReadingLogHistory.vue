@@ -28,6 +28,8 @@ export default {
 
 <style scoped>
 #reading-log-container {
+  /* display: grid;
+  grid-template-rows: 4fr; */
   border: solid 2px gray;
   border-radius: 1em;
   overflow: auto;
