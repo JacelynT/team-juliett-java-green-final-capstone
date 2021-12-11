@@ -23,8 +23,8 @@ export default {
     return http.get('/account/library')
   },
 
-  postBookLog() {
-    return http.post('/add-log')
+  postBookLog(bookLog) {
+    return http.post('/add-log', bookLog)
   }
 
 

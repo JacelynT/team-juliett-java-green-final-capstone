@@ -28,7 +28,7 @@ img {
   text-align: center;
 }
 #child-container {
-  /* display: inline-block; */
+  display: inline-block;
   padding: 25px;
 }
 </style>

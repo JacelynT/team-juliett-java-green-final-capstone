@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import ReadingTrackerService from '../services/ReadingTrackerService.js'
 export default {
   name: "book-card",
   props: ["book"],
@@ -56,13 +57,17 @@ export default {
   methods: {
     submitTime() {
       this.isClicked = false;
-      //send post method containing bookLog
+      ReadingTrackerService.postBookLog(this.bookLog);
     },
   },
 };
 </script>
 
 <style scoped>
+img{
+  height: 250px;
+}
+
 .card {
   width: 180px;
   box-shadow: 0 4px 8px 0 #d3d3d3;
@@ -75,6 +80,10 @@ export default {
 .card-body {
   padding-top: 5px;
   padding-left: 8px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-title {

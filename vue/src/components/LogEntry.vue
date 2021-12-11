@@ -28,10 +28,6 @@ export default {
 </script>
 
 <style scoped>
-#log-entry-container{
-  width: 95%;
-  margin: auto;
-}
 img {
   opacity: 75%;
   height: 50px;

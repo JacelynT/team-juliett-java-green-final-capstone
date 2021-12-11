@@ -35,6 +35,6 @@ export default {
   border: solid 2px gray;
   border-radius: 1em;
   overflow: auto;
-  margin: 20px;
+  padding: 20px;
 }
 </style>
