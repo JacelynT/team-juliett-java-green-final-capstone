@@ -35,7 +35,7 @@ public class BookController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/book-log", method = RequestMethod.POST)
+    @RequestMapping(path = "/add-log", method = RequestMethod.POST)
     public BookLog addBookLog(@RequestBody BookLog bookLog) {
         bookDAO.addBookLog(bookLog);
         return bookLog;

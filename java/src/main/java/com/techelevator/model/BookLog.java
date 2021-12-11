@@ -9,6 +9,7 @@ public class BookLog {
     private String isbn;
     private String title;
     private int childId;
+    private String icon;
     private int minutes;
     @JsonFormat(pattern = "MM-dd-yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate date;
@@ -33,6 +34,14 @@ public class BookLog {
         return childId;
     }
 
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
     public void setChildId(int childId) {
         this.childId = childId;
     }
@@ -52,4 +61,5 @@ public class BookLog {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
 }
