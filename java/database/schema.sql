@@ -97,8 +97,8 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 
-INSERT INTO child (child_name,user_id,icon_name) VALUES ('Gordon', 1,'face-icon.jpg');
-INSERT INTO child (child_name,user_id,icon_name) VALUES ('Autumn', 1,'face-icon.jpg');
+INSERT INTO child (child_name,user_id,icon_name) VALUES ('Gordon', 1,'dragon-solid.png');
+INSERT INTO child (child_name,user_id,icon_name) VALUES ('Autumn', 1,'cat-solid.png');
 
 
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780007158447','The Cat in the Hat','Dr. Seuss', 0);

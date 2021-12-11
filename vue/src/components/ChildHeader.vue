@@ -1,11 +1,17 @@
 <template>
   <div>
     <body>
-    <child v-bind:key="child.childId" v-bind:child="child" />
-    <div id="total-minutes">Total Minutes: {{child.minutes}} + minutes</div>
-    <div id="past-week">Past Week: {{child.minutes}}</div>
-    <div id="past-week-log">{{child.logEntry}}</div>
-
+      <div>
+        <child v-bind:key="child.childId" v-bind:child="child" />
+        <div>
+          <div id="child-name">{{ child.child.name }}</div>
+          <div id="total-minutes">
+            Total Minutes: {{ child.minutes }} + minutes
+          </div>
+          <div id="past-week">Past Week: {{ child.minutes }}</div>
+          <div id="past-week-log">{{ child.logEntry }}</div>
+        </div>
+      </div>
     </body>
   </div>
 </template>
@@ -22,8 +28,8 @@ export default {
   data() {
     return {
       child: {
-        childId: '',
-        name: '',
+        childId: "",
+        name: "",
         minutes: 60,
         bookMinutes: null,
       },
@@ -33,7 +39,4 @@ export default {
 </script>
 
 <style scoped>
-
-
-
 </style>
