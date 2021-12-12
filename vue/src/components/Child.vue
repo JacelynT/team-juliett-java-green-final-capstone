@@ -26,6 +26,11 @@ export default {
 </script>
 
 <style scoped>
+a{
+  /* for routerlink (child name) */
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.75);
+}
 img {
   height: 200px;
   width: auto;
