@@ -26,8 +26,9 @@ export default {
 <style>
 #app{
   width: 90%;
-  margin: auto;
+
   margin-bottom: 2rem;
+
 }
 html {
   font-family: sans-serif;

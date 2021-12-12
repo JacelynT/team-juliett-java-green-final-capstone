@@ -40,9 +40,13 @@ img {
   height: 200px;
   width: auto;
   opacity: 75%;
+  color: #065125;
 }
 #child-name {
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bold;
   text-align: center;
+  color: #065125;
 }
 #child-container {
   display: inline-block;

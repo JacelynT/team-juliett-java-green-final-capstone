@@ -1,9 +1,10 @@
 <template>
   <div>
     <div id="header">
+      <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Varela+Round" rel="stylesheet">
       <router-link id="home-logo" v-bind:to="{ name: 'home' }">
         <div>
-          <img id="logo" src="../assets/placeholder_logo.png" />
+          <img id="logo" src="../assets/bookaroo-transparent.png" />
         </div>
       </router-link>
       <div id="empty-space"></div>
@@ -15,9 +16,9 @@
           Logout &nbsp;|&nbsp;</router-link
         >
 
-        <div>Add Book</div>
+        <div id="add-book">Add Book</div>
         <div>&nbsp;|&nbsp;</div>
-        <div>Reading History</div>
+        <div id="reading-history">Reading History</div>
         <div>&nbsp;|&nbsp;</div>
         <div>
           <router-link v-bind:to="{ name: 'account' }">Account</router-link>
@@ -36,7 +37,7 @@ export default {
 <style scoped>
 #logo {
   height: 15vh;
-  border: solid 2px rgba(0, 0, 0, 0.5);
+  /* border: solid 2px rgba(0, 0, 0, 0.5); */
   border-radius: 10%;
   margin: 1rem 1rem 1rem 0px;
 }
@@ -50,11 +51,17 @@ export default {
   width: 45%
 }
 #nav {
+  font-family: 'Varela Round', sans-serif;
   display: inline-flex;
-    justify-content: right; 
+  justify-content: right; 
+  gap: 8px;
 }
 #nav > div {
-  margin: 15px
+  margin: 1px
+}
+
+#add-book, #reading-history {
+  padding: 3px;
 }
 </style>>
 
