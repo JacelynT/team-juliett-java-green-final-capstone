@@ -4,7 +4,7 @@
         <img id="chart" src="../assets/placeholderchart.png" />
         <list-of-child id="list-of-child"/>
 <!--    </div> -->
-      <reading-log-history id="reading-log"/>
+      <reading-log-history v-bind:logs="retrieveLogs" id="reading-log"/>
   </div>
 </template>
 
@@ -20,14 +20,17 @@ export default {
     ListOfChild 
   },
   created(){
+    this.$store.commit('SET_SELECTED_CHILD_ID', 0);
     ReadingTrackerService.bookLogs()
     .then(response => {
       this.$store.commit('SET_FAMILY_LOGS', response.data);
-    }
-    )
+    })
+  },
+  computed: {
+  retrieveLogs(){
+    return this.$store.state.familyLogs.slice(0,10);
   }
-
-
+  }
 }
 </script>
 

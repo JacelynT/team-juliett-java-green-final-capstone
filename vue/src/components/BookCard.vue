@@ -10,8 +10,8 @@
           alt=""
         />
         <div class="card-body">
-          <h5 class="card-title">{{book.title}}</h5>
-          <p class="card-text">{{book.minutes + " minutes"}}</p>
+          <h5 class="card-title">{{ book.title }}</h5>
+          <p class="card-text">{{ book.minutes + " minutes" }}</p>
         </div>
         <div class="card-form" v-on:click.stop="" v-show="isClicked">
           <hr />
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import ReadingTrackerService from '../services/ReadingTrackerService.js'
+import ReadingTrackerService from "../services/ReadingTrackerService.js";
 export default {
   name: "book-card",
   props: ["book"],
@@ -48,23 +48,34 @@ export default {
       isClicked: false,
       bookLog: {
         date: new Date().toLocaleDateString("en-US"),
-        isbn: this.book.isbn,
+        isbn: this.book.isbn || "",
         minutes: "",
-        childId: this.$store.state.selectedChildId,
+        childId: this.retrieveChildId,
       },
     };
   },
   methods: {
     submitTime() {
       this.isClicked = false;
-      ReadingTrackerService.postBookLog(this.bookLog);
+      ReadingTrackerService.postBookLog(this.bookLog).then((response) => {
+        if (response.status == 201) {
+          ReadingTrackerService.bookLogs().then((response) => {
+            this.$store.commit("SET_FAMILY_LOGS", response.data);
+          });
+        }
+      });
+    },
+  },
+  computed: {
+    retrieveChildId() {
+      return this.$store.state.selectedChildId;
     },
   },
 };
 </script>
 
 <style scoped>
-img{
+img {
   height: 250px;
 }
 
@@ -95,7 +106,7 @@ img{
 }
 
 hr {
-  margin: 0 8px 16px 8px; 
+  margin: 0 8px 16px 8px;
 }
 
 .card-form {

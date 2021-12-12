@@ -4,12 +4,12 @@
     <child-reading-log-history />
     <h2 class="display-5">Books I'm Reading</h2>
     <div id="active-book-container">
-      <book-card class="book-card" v-for="book in activeBooks" v-bind:book="book" v-bind:key="book.id"/>
+      <book-card class="book-card" v-for="book in retrieveActiveBooks" v-bind:book="book" v-bind:key="book.id"/>
     </div>
     <hr />
     <h2 class="display-5">Family Library</h2>
       <div id="library-container">
-      <small-book class="library-book" v-for="book in library" v-bind:key="book.id" v-bind:isbn="book.isbn">
+      <small-book class="library-book" v-for="book in retrieveLibrary" v-bind:key="book.id" v-bind:isbn="book.isbn">
       </small-book>
       </div>
   </div>
@@ -25,8 +25,6 @@ import ReadingTrackerService from "../services/ReadingTrackerService.js"
 export default {
   data() {
     return {
-      activeBooks: [],
-      library: [],
     };
   },
   components: {
@@ -37,20 +35,24 @@ export default {
   },
   name: "child-page",
   created(){
-      this.$store.commit('SET_SELECTED_CHILD_ID', 0);
-
       ReadingTrackerService.library()
       .then(response => {
         this.$store.commit('SET_FAMILY_LIBRARY', response.data);
-        this.library = this.$store.state.familyLibrary;
 
       ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
       .then(response => {
-        this.activeBooks = response.data;
+        this.$store.commit('SET_ACTIVE_BOOKS', response.data);
       })
       })
-    }
-  
+    },
+  computed: {
+    retrieveLibrary(){
+      return this.$store.state.familyLibrary;
+    },
+    retrieveActiveBooks(){
+      return this.$store.state.activeBooks;
+    },
+  }
 };
 </script>
 

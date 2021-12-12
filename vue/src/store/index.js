@@ -18,10 +18,11 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
-    selectedChildId: 0,
+    selectedChildId: '',
     token: currentToken || '',
     user: currentUser || {},
     familyLibrary: [],
+    activeBooks: [],
     familyLogs: [],
   },
   mutations: {
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     },
     SET_FAMILY_LIBRARY(state, familyLibrary) {
       state.familyLibrary = familyLibrary;
+    },
+    SET_ACTIVE_BOOKS(state, activeBooks) {
+      state.activeBooks = activeBooks;
     },
     SET_SELECTED_CHILD_ID(state, childId){
       state.selectedChildId = childId;
