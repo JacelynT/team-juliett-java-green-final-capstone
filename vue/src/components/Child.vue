@@ -12,6 +12,11 @@ import ReadingTrackerService from '../services/ReadingTrackerService.js';
 export default {
   name: "child",
   props: ["child"],
+  data() {
+    return {
+      
+    }
+  },
   methods: {
     selectChildId(){
       ReadingTrackerService.activeBooks(this.child.childId)

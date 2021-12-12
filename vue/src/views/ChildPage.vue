@@ -1,7 +1,6 @@
 <template>
   <div id="child-page">
-    <h1>{{childId}}</h1>
-    <child-header />
+    <!-- <child-header /> -->
     <child-reading-log-history />
     <h2 class="display-5">Books I'm Reading</h2>
     <div id="active-book-container">
@@ -10,7 +9,7 @@
     <hr />
     <h2 class="display-5">Family Library</h2>
       <div id="library-container">
-      <small-book class="library-book" v-for="book in retrieveLibrary" v-bind:key="book.id" v-bind:isbn="book.isbn">
+      <small-book class="library-book" v-for="book in retrieveLibrary" v-bind:key="book.id" v-bind:isbn="book.isbn" v-bind:childId="retrieveChildId">
       </small-book>
       </div>
   </div>
@@ -18,18 +17,21 @@
 
 <script>
 import BookCard from '../components/BookCard.vue';
-import ChildHeader from '../components/ChildHeader.vue';
+//import ChildHeader from '../components/ChildHeader.vue';
 import ChildReadingLogHistory from '../components/ChildReadingLogHistory.vue';
 import SmallBook from '../components/SmallBook.vue';
 import ReadingTrackerService from "../services/ReadingTrackerService.js"
 
 export default {
-  props: ['childId'],
   components: {
     SmallBook,
     BookCard,
     ChildReadingLogHistory,
-    ChildHeader
+//    ChildHeader
+  },
+  data() {
+    return{
+    }
   },
   name: "child-page",
   created(){
@@ -37,7 +39,7 @@ export default {
       .then(response => {
         this.$store.commit('SET_FAMILY_LIBRARY', response.data);
       }),
-       ReadingTrackerService.activeBooks(this.retrieveChildId)
+       ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
       .then(response => {
         this.activeBooks = response.data;
         this.$store.commit('SET_ACTIVE_BOOKS', response.data);

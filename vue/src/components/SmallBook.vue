@@ -13,11 +13,11 @@
 import ReadingTrackerService from '../services/ReadingTrackerService.js';
 export default {
   name: "small-book",
-  props: ["isbn"],
+  props: ['isbn', 'childId'],
   data(){
     return {
       activeBook: {
-        childId: this.$store.state.selectedChildId,
+        childId: this.childId,
         isbn: this.isbn
       }
     };
@@ -28,7 +28,7 @@ export default {
       ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
       .then(response => {
         this.$store.commit('SET_ACTIVE_BOOKS', response.data);
-      })
+      });
     }
   },
 };

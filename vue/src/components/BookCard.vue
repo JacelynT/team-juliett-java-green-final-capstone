@@ -57,11 +57,16 @@ export default {
   methods: {
     submitTime() {
       this.isClicked = false;
-      ReadingTrackerService.postBookLog(this.bookLog).then(() => {
+      if(this.bookLog.minutes == "" || this.bookLogMinutes == 0){
+        alert('Oops.. Make sure you chose how much time you want to log!');
+      } else {
+        ReadingTrackerService.postBookLog(this.bookLog).then(() => {
           ReadingTrackerService.bookLogs().then((response) => {
             this.$store.commit("SET_FAMILY_LOGS", response.data);
           });
         });
+      }
+      
       },
     },
   computed: {
