@@ -2,7 +2,7 @@
   <div>
     <body>
       <div>
-        <child v-bind:key="child.childId" v-bind:child="child" />
+        <child v-bind:key="child.id" v-bind:child="child" />
         <div>
           <div id="child-name">{{ child.child.name }}</div>
           <div id="total-minutes">

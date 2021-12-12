@@ -19,7 +19,7 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
-    selectedChildId: currentChildId || 0,
+    selectedChildId: currentChildId || '',
     token: currentToken || '',
     user: currentUser || {},
     familyLibrary: [],

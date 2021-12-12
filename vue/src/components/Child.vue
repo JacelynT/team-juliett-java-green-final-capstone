@@ -1,6 +1,6 @@
 <template>
-  <div v-on:click="selectChildId(child.childId)" id="child-container">
-    <router-link v-bind:to="{name: 'child-page'}" v-bind:child="child">
+  <div v-on:click="selectChildId" id="child-container">
+    <router-link v-bind:to="{name: 'child-page'}">
       <img v-bind:src="require('../assets/' + child.icon)" alt="" />
       <h3 id="child-name">{{ child.name }}</h3>
     </router-link>
@@ -13,13 +13,13 @@ export default {
   name: "child",
   props: ["child"],
   methods: {
-    selectChildId(childId){
-      ReadingTrackerService.activeBooks(childId)
+    selectChildId(){
+      ReadingTrackerService.activeBooks(this.child.childId)
       .then(response => {
         this.activeBooks = response.data;
         this.$store.commit('SET_ACTIVE_BOOKS', response.data);
       }),
-      this.$store.commit('SET_SELECTED_CHILD_ID', childId);
+      this.$store.commit('SET_SELECTED_CHILD_ID', this.child.childId);
     }
   }
 };

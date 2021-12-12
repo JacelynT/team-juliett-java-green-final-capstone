@@ -25,9 +25,11 @@ export default {
 
   postBookLog(bookLog) {
     return http.post('/add-log', bookLog)
+  },
+
+  addActiveBook(activeBook) {
+    return http.post('/add-active-book', activeBook)
   }
-
-
 
 
 }
