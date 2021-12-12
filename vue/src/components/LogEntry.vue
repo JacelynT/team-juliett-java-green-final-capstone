@@ -2,7 +2,7 @@
   <div id="log-entry-container">
     <span id="log-container">
      
-    <img id="icon" :src="require('../assets/cat-solid.png')" alt="face icon" />
+    <img id="icon" :src="require('../assets/'+logEntry.icon)" alt="face icon" />
    
     <p id="title" class="log-info">{{ logEntry.title }}</p> 
     
@@ -30,15 +30,14 @@ export default {
 <style scoped>
 img {
   opacity: 75%;
-  height: 50px;
+  height: 30px;
   width: auto;
-  border-radius: 1em;
 }
 
 #log-container {
  
   display: grid;
-  grid-template-columns: 1.5fr 6fr 1fr 2fr;
+  grid-template-columns: 1fr 6fr 1fr 2fr;
   grid-template-areas: "child-icon title minutes date";
   justify-items: start;
   align-items: center;

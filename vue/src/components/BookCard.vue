@@ -30,7 +30,7 @@
             <option value="60">60 min</option>
           </select>
           <button v-on:click="submitTime" class="btn btn-outline-dark">
-            Submit Time
+            Log Minutes
           </button>
         </div>
       </div>
@@ -57,15 +57,13 @@ export default {
   methods: {
     submitTime() {
       this.isClicked = false;
-      ReadingTrackerService.postBookLog(this.bookLog).then((response) => {
-        if (response.status == 201) {
+      ReadingTrackerService.postBookLog(this.bookLog).then(() => {
           ReadingTrackerService.bookLogs().then((response) => {
             this.$store.commit("SET_FAMILY_LOGS", response.data);
           });
-        }
-      });
+        });
+      },
     },
-  },
   computed: {
     // retrieveChildId() {
     //   return this.$store.state.selectedChildId;

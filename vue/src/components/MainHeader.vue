@@ -35,13 +35,16 @@ export default {
 
 <style scoped>
 #logo {
-  height: 18vh;
+  height: 15vh;
+  border: solid 2px rgba(0, 0, 0, 0.5);
+  border-radius: 10%;
+  margin: 1rem 1rem 1rem 0px;
 }
 #header {
     display: flex;
     align-items: center;
     flex-direction: row;
-   justify-content: space-between;
+    justify-content: space-between;
 }
 #empty-space {
   width: 45%

@@ -4,7 +4,7 @@
     <child-reading-log-history />
     <h2 class="display-5">Books I'm Reading</h2>
     <div id="active-book-container">
-      <book-card class="book-card" v-for="book in retrieveActiveBooks" v-bind:book="book" v-bind:key="book.id"/>
+      <book-card class="active-book" v-for="book in retrieveActiveBooks" v-bind:book="book" v-bind:key="book.id"/>
     </div>
     <hr />
     <h2 class="display-5">Family Library</h2>
@@ -64,10 +64,6 @@ export default {
 </script>
 
 <style scoped>
-#child-page{
-  width: 90%;
-  margin: auto;
-}
 img {
   border-radius: 1rem;
 }

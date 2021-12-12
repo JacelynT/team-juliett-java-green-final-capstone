@@ -41,11 +41,10 @@ export default {
 #list-child-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     flex-wrap: wrap;
-    margin: 5%;
-    padding: 5px;
     align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
 }
 
 #plus-circle {

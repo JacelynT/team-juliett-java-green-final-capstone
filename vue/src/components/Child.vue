@@ -27,8 +27,9 @@ export default {
 
 <style scoped>
 img {
-  height: 150px;
+  height: 200px;
   width: auto;
+  opacity: 75%;
 }
 #child-name {
   text-align: center;

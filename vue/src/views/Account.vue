@@ -49,8 +49,6 @@ export default {
 
 #list-of-child {
   grid-area: list-of-child;
-  display: flex;
-  justify-content: space-between;
 
 }
 
