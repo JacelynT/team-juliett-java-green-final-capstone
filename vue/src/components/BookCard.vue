@@ -50,7 +50,7 @@ export default {
         date: new Date().toLocaleDateString("en-US"),
         isbn: this.book.isbn || '',
         minutes: "",
-        childId: this.retrieveChildId,
+        childId: this.$store.state.selectedChildId,
       },
     };
   },
@@ -67,9 +67,9 @@ export default {
     },
   },
   computed: {
-    retrieveChildId() {
-      return this.$store.state.selectedChildId;
-    },
+    // retrieveChildId() {
+    //   return this.$store.state.selectedChildId;
+    // },
   },
 };
 </script>
