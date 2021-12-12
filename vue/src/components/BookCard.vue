@@ -48,7 +48,7 @@ export default {
       isClicked: false,
       bookLog: {
         date: new Date().toLocaleDateString("en-US"),
-        isbn: this.book.isbn || "",
+        isbn: this.book.isbn || '',
         minutes: "",
         childId: this.retrieveChildId,
       },

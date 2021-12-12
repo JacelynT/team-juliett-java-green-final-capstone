@@ -39,7 +39,7 @@ export default {
       .then(response => {
         this.$store.commit('SET_FAMILY_LIBRARY', response.data);
       }),
-      ReadingTrackerService.activeBooks(this.retrieveChildId)
+       ReadingTrackerService.activeBooks(this.retrieveChildId)
       .then(response => {
         this.activeBooks = response.data;
         this.$store.commit('SET_ACTIVE_BOOKS', response.data);
