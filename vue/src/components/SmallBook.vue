@@ -24,11 +24,20 @@ export default {
   },
   methods: {
     addActiveBook(){
-      ReadingTrackerService.addActiveBook(this.activeBook);
+      let activeIsbns = [];
+      this.$store.state.activeBooks.forEach(element => {
+        activeIsbns.push(element.isbn);
+      });
+      if(activeIsbns.includes(this.activeBook.isbn)){
+        alert('Oops.. I think that book is already marked as active')
+      } else {
+        ReadingTrackerService.addActiveBook(this.activeBook);
       ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
       .then(response => {
         this.$store.commit('SET_ACTIVE_BOOKS', response.data);
       });
+      }
+      
     }
   },
 };
