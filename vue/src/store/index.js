@@ -11,6 +11,7 @@ Vue.use(Vuex)
  */
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
+const currentChildId = JSON.parse(localStorage.getItem('selectedChildId'));
 
 if(currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
@@ -18,7 +19,7 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
-    selectedChildId: '',
+    selectedChildId: currentChildId || 0,
     token: currentToken || '',
     user: currentUser || {},
     familyLibrary: [],
@@ -37,6 +38,7 @@ export default new Vuex.Store({
     },
     SET_SELECTED_CHILD_ID(state, childId){
       state.selectedChildId = childId;
+      localStorage.setItem('selectedChildId', childId);
     },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;

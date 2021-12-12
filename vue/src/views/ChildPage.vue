@@ -38,13 +38,17 @@ export default {
       ReadingTrackerService.library()
       .then(response => {
         this.$store.commit('SET_FAMILY_LIBRARY', response.data);
-
-      ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
+      }),
+      ReadingTrackerService.activeBooks(this.retrieveChildId)
       .then(response => {
+        this.activeBooks = response.data;
         this.$store.commit('SET_ACTIVE_BOOKS', response.data);
+      }),
+      ReadingTrackerService.bookLogs()
+      .then(response => {
+        this.$store.commit('SET_FAMILY_LOGS', response.data);
       })
-      })
-    },
+  },
   computed: {
     retrieveLibrary(){
       return this.$store.state.familyLibrary;
@@ -52,6 +56,9 @@ export default {
     retrieveActiveBooks(){
       return this.$store.state.activeBooks;
     },
+    retrieveChildId(){
+      return this.$store.state.selectedChildId;
+    }
   }
 };
 </script>
@@ -61,19 +68,17 @@ export default {
   width: 90%;
   margin: auto;
 }
-book-card{
-  padding: 20px;
-}
 img {
   border-radius: 1rem;
 }
-
+book-card{
+  margin: 50px;
+}
 #active-book-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: flex-start;
-  gap: 15px;
   margin-bottom: 75px;
 } 
 #library-container {

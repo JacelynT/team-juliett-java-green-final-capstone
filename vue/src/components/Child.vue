@@ -8,11 +8,17 @@
 </template>
 
 <script>
+import ReadingTrackerService from '../services/ReadingTrackerService.js';
 export default {
   name: "child",
   props: ["child"],
   methods: {
     selectChildId(childId){
+      ReadingTrackerService.activeBooks(childId)
+      .then(response => {
+        this.activeBooks = response.data;
+        this.$store.commit('SET_ACTIVE_BOOKS', response.data);
+      }),
       this.$store.commit('SET_SELECTED_CHILD_ID', childId);
     }
   }
