@@ -1,7 +1,7 @@
 <template>
   <div v-on:click="addActiveBook" id="small-book-container">
     <i class="far fa-plus-square"></i>
-    
+
     <img
       v-bind:src="'http://covers.openlibrary.org/b/isbn/' + isbn + '-M.jpg'"
       alt=""
@@ -10,35 +10,40 @@
 </template>
 
 <script>
-import ReadingTrackerService from '../services/ReadingTrackerService.js';
+import ReadingTrackerService from "../services/ReadingTrackerService.js";
 export default {
   name: "small-book",
-  props: ['isbn', 'childId'],
-  data(){
+  props: ["isbn", "childId"],
+  data() {
     return {
       activeBook: {
         childId: this.childId,
-        isbn: this.isbn
-      }
+        isbn: this.isbn,
+      },
     };
   },
   methods: {
-    addActiveBook(){
+    addActiveBook() {
       let activeIsbns = [];
-      this.$store.state.activeBooks.forEach(element => {
+      this.$store.state.activeBooks.forEach((element) => {
         activeIsbns.push(element.isbn);
       });
-      if(activeIsbns.includes(this.activeBook.isbn)){
-        alert('Oops.. I think that book is already marked as active')
+      if (activeIsbns.includes(this.activeBook.isbn)) {
+        //   alert('Oops.. I think that book is already marked as active')
       } else {
-        ReadingTrackerService.addActiveBook(this.activeBook);
-      ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
-      .then(response => {
-        this.$store.commit('SET_ACTIVE_BOOKS', response.data);
-      });
+        ReadingTrackerService.addActiveBook(this.activeBook).then(
+          (response) => {
+            if (response.status == 200) {
+              ReadingTrackerService.activeBooks(
+                this.$store.state.selectedChildId
+              ).then((response) => {
+                this.$store.commit("SET_ACTIVE_BOOKS", response.data);
+              });
+            }
+          }
+        );
       }
-      
-    }
+    },
   },
 };
 </script>
@@ -61,12 +66,9 @@ export default {
   width: 30px;
   position: absolute;
   font-size: 5px;
-  color: #0D97AC;
+  color: #0d97ac;
   background-color: white;
   border-radius: 15%;
-  
-  
-
 }
 
 /* .fa-plus:hover {
