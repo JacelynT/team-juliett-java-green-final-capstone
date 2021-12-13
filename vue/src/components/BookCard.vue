@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <div class="card">
       <i class="far fa-minus-square"></i>
       <div v-on:click="isClicked = !isClicked">
