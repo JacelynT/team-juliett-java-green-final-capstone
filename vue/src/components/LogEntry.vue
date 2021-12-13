@@ -28,27 +28,34 @@ export default {
 </script>
 
 <style scoped>
+
+
 .log-info{
   margin-bottom: 0px;
 }
 img {
-  opacity: .5;
+  filter: invert(1);
   height: 30px;
   width: auto;
+}
+#log-entry-container {
+  background-color: #e0d8c3;
+  
 }
 
 #log-container {
   padding: .5rem;
-  margin-bottom: .5rem;
+  margin-bottom: .25rem;
   border-radius: .25rem;
-  border: solid 5px #E2532F;
-  color: #E2532F;
+  /* border: solid 5px #E2532F; */
+  color: white;
+  background-color: #dda033;
   display: grid;
-  grid-template-columns: 1.5fr 6fr 2fr 2fr;
+  grid-template-columns: 1fr 6.5fr 2fr 2fr;
   grid-template-areas: "child-icon title minutes date";
   justify-items: start;
   align-items: center;
-  row-gap: 5px;
+  row-gap: 1px;
   column-gap: 10px;
 }
 /* #log-container {

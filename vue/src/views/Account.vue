@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 #account-container {
-  margin: 2em;
+  margin: 0 10em;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-areas: 
@@ -46,6 +46,7 @@ export default {
 
 #chart {
   grid-area: chart;
+
 }
 
 #list-of-child {

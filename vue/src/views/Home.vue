@@ -6,77 +6,141 @@
         <button>Get Started!</button>
       </div>
     </div>
-    <section class= "bottom-info">
+    <section class="bottom-info">
       <div id="info-paragraphs">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed velit dignissim sodales ut eu sem. Elementum pulvinar etiam non quam lacus suspendisse. Morbi leo urna molestie at elementum eu facilisis. Senectus et netus et malesuada fames ac turpis egestas sed. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra. Pharetra convallis posuere morbi leo urna. Duis at consectetur lorem donec massa sapien. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Pharetra sit amet aliquam id diam maecenas ultricies mi. Sed euismod nisi porta lorem. Mauris pellentesque pulvinar pellentesque habitant morbi. Consectetur adipiscing elit ut aliquam purus sit. </p>
-
+        <h2>User Information</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed
+          velit dignissim sodales ut eu sem. Elementum pulvinar etiam non quam
+          lacus suspendisse. Morbi leo urna molestie at elementum eu facilisis.
+          Senectus et netus et malesuada fames ac turpis egestas sed.
+          Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+          Pharetra convallis posuere morbi leo urna. Duis at consectetur lorem
+          donec massa sapien. Tempus iaculis urna id volutpat lacus laoreet non
+          curabitur gravida. Pharetra sit amet aliquam id diam maecenas
+          ultricies mi. Sed euismod nisi porta lorem. Mauris pellentesque
+          pulvinar pellentesque habitant morbi. Consectetur adipiscing elit ut
+          aliquam purus sit.
+        </p>
       </div>
       <div id="second-info">
-<p>
-Morbi tincidunt ornare massa eget egestas purus viverra. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Dolor sit amet consectetur adipiscing elit ut aliquam purus sit. Sit amet nulla facilisi morbi. Lacus laoreet non curabitur gravida arcu ac. Natoque penatibus et magnis dis. Bibendum arcu vitae elementum curabitur. Consequat id porta nibh venenatis cras sed. Amet porttitor eget dolor morbi. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Egestas dui id ornare arcu odio ut sem. Nibh venenatis cras sed felis eget velit aliquet. Tristique et egestas quis ipsum suspendisse.
-      </p>
-
+        <h2>25 Best Children's Books</h2>
+        <img src="../assets/children-reading-books-scaled.jpg" alt="">
+        <p>We asked teachers, librarians, and parents and examined bestseller lists to come up with the most beloved books that should be on every child’s shelves.</p>
+        <a href="https://www.rd.com/list/the-best-childrens-books-ever-written/">The 25 Best Children's Book Ever Written</a>
       </div>
-
-
+      <div id="app-reviews">
+        <h2>Reviews</h2>
+      </div>
     </section>
-    
   </div>
 </template>
 
 <script>
-
 export default {
-  name: "home"
+  name: "home",
 };
 </script>
 
 <style scoped>
-/* div {
-  background-color: #E0D8C3;
-} */
-.hero-image{
-    background-image:  url("../assets/boy-reading-books.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 70vh;
-    width: 100vw;
+.hero-image {
+  background-image: url("../assets/boy-reading-books.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 70vh;
+  width: 100vw;
 }
 
-.hero-text{
- text-align: left;
+.hero-text {
+  text-align: left;
   position: absolute;
   top: 15%;
   left: 25%;
   transform: translate(-50%, -50%);
-  font-family: 'Varela Round', sans-serif;
-}
-h1 {
-  font-family: 'Varela Round', sans-serif;
-  font-weight: bolder;
-  color:  #e2532f;
+  font-family: "Varela Round", sans-serif;
+  
 }
 
+h1 {
+  font-family: "Varela Round", sans-serif;
+  font-weight: bold;
+  font-size: 56px;
+  color: #e2532f;
+   /* -webkit-text-stroke: .25px #e0d8c3;
+   -webkit-text-fill-color: #e2532f; */
+}
+img {
+  height: 31%;
+  width: auto;
+  
+}
+
+
 button {
-    background-color: #dda033;
-    border: none;
-    color:#e0d8c3;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 2em;
-    font-family: "Noto Serif", Georgia, serif;
-    font-weight: normal;
+  background-color: #dda033;
+  border: none;
+  color: #e0d8c3;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2em;
+  font-family: "Noto Serif", Georgia, serif;
+  font-weight: normal;
 }
 
 .bottom-info {
-  background-color: #e0d8c3;
+  background-color: #444444;
   font-family: "Noto Serif", Georgia, serif;
   font-size: 10px;
-  color: #065123;
   padding: 20px;
+  display: grid;
+  grid-area: information-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3em;
+  grid-template-areas: "info second-info reviews";
+  
+}
+
+.bottom-info > div {
+  padding: 16px;
+  background-color: #e0d8c3;
+  border: 8px solid #dda033;
+  border-radius: 10%;
+  margin: 1em;
+}
+
+h2 {
+  font-family: "Varela Round", sans-serif;
+  text-align: center;
+  font-size: 36px;
+  color: #065125;
+  font-weight: bold;
+}
+
+a {
+  color: #065125;
+}
+
+#info-paragraphs {
+  grid-area: info;
+  font-weight: light;
+  padding: 1em;
+  /* color: white; */
+}
+
+#second-info {
+  grid-area: second-info;
+  /* display: inline-flex;
+  justify-content: center; */
+  padding: 1em;
+  /* color: white; */
+}
+
+#app-reviews {
+  grid-area: reviews;
+  padding: 1em;
 }
 </style>

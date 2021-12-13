@@ -45,6 +45,7 @@ export default {
     align-items: center;
     justify-content: space-around;
     padding: 2rem;
+    gap: 1em;
 }
 
 .fa-plus-square {

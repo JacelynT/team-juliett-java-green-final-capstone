@@ -21,7 +21,7 @@
         <router-link id="account" v-bind:to="{ name: 'account' }">Account</router-link>
       </div>
       <div id="login">Login</div>
-      <div id="register">Register</div>
+      <div id="register">Get Started!</div>
     </nav>
 
   </div>
@@ -64,7 +64,7 @@ export default {
 #nav > div:not(#register){
   margin: 1px;
   padding: 15px;
-   background-color: #0D97AC;
+  background-color: #0D97AC;
 }
 
 #add-book, #reading-history {

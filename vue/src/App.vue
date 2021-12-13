@@ -26,7 +26,7 @@ export default {
 <style>
 #app{
   font-family: 'Varela Round';
-  font-weight: bold;
+  
   letter-spacing: .1em;
   overflow-x: hidden;
 }
