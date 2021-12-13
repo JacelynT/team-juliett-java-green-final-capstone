@@ -60,10 +60,6 @@ export default {
   height: 30px;
   width: 30px;
   position: absolute;
-<<<<<<< HEAD
-  font-size: 10px;
-  color: white;
-=======
   font-size: 5px;
   color: #0D97AC;
   background-color: white;
@@ -71,7 +67,6 @@ export default {
   
   
 
->>>>>>> f9e658cf039662c489214bdfbc3d4dfdf21d6ec9
 }
 
 /* .fa-plus:hover {
