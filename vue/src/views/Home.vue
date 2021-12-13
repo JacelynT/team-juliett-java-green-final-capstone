@@ -6,6 +6,8 @@
         <button>Get Started!</button>
       </div>
     </div>
+    <h1>Home</h1>
+    <p>You must be authenticated to see this</p>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    height: 60vh;
+    height: 70vh;
     width: 100vw;
 }
 

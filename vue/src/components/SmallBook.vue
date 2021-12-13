@@ -46,7 +46,7 @@ export default {
 <style scoped>
 #small-book-container {
   position: relative;
-  opacity: 70%;
+  opacity: 100%;
 }
 
 #small-book-container:hover {
@@ -55,13 +55,23 @@ export default {
 
 .fa-plus-square {
   /* opacity: 65%; */
-  top: 80px;
-  left: 56px;
-  height: 50px;
-  width: 50px;
+  top: 5px;
+  left: 5px;
+  height: 30px;
+  width: 30px;
   position: absolute;
+<<<<<<< HEAD
   font-size: 10px;
   color: white;
+=======
+  font-size: 5px;
+  color: #0D97AC;
+  background-color: white;
+  border-radius: 15%;
+  
+  
+
+>>>>>>> f9e658cf039662c489214bdfbc3d4dfdf21d6ec9
 }
 
 /* .fa-plus:hover {
