@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card">
+    <div v-on:click="deleteActiveBook" class="card">
       <i class="far fa-minus-square"></i>
       <div v-on:click="isClicked = !isClicked">
         <img
@@ -12,7 +12,7 @@
         />
         <div class="card-body">
           <h5 class="card-title">{{ book.title }}</h5>
-          <p class="card-text">{{book.minutes}} minutes</p>
+          <p class="card-text">{{ book.minutes }} minutes</p>
         </div>
         <div class="card-form" v-on:click.stop="" v-show="isClicked">
           <hr />
@@ -53,6 +53,10 @@ export default {
         minutes: "",
         childId: this.$store.state.selectedChildId,
       },
+      activeBook: {
+        isbn: this.book.isbn,
+        childId: this.$store.state.selectedChildId
+      }
     };
   },
   methods: {
@@ -66,9 +70,12 @@ export default {
             this.$store.commit("SET_FAMILY_LOGS", response.data);
           });
         });
+      }},
+      deleteActiveBook() {
+        if(event.target.tagName == 'svg' || event.target.tagName == 'path'){
+          ReadingTrackerService.deleteActiveBook(this.activeBook);
+        }
       }
-      
-      },
     },
   computed: {
     // retrieveChildId() {
@@ -132,12 +139,9 @@ hr {
   width: 30px;
   position: absolute;
   font-size: 5px;
-  color: #0D97AC;
+  color: #0d97ac;
   background-color: white;
   border-radius: 15%;
-  
-  
-
 }
 
 /* .card-content-container {

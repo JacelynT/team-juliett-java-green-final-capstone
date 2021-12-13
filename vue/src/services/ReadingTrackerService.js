@@ -32,6 +32,6 @@ export default {
   },
 
   deleteActiveBook(activeBook) {
-    return http.delete('/delete-active-book', activeBook);
+    return http.delete('/delete-active-book', {data: activeBook});
   }
 }

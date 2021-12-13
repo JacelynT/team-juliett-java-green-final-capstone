@@ -9,6 +9,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class JDBCBookDAO implements BookDAO{
                 "FROM book\n" +
                 "JOIN book_log ON book.isbn = book_log.isbn\n" +
                 "JOIN child ON book_log.child_id = child.child_id\n" +
-                "ORDER BY book_log.entry_date DESC";
+                "ORDER BY book_log.entry_date DESC, book_log.entry_time DESC";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
         while (result.next()){
             BookLog book = new BookLog();
@@ -85,9 +87,10 @@ public class JDBCBookDAO implements BookDAO{
 
 
     public BookLog addBookLog(BookLog bookLog) {
-        String sql = "INSERT INTO book_log (isbn, child_id, minutes, entry_date) VALUES (?,?,?,?);";
+        LocalDateTime time = LocalDateTime.now();
+        String sql = "INSERT INTO book_log (isbn, child_id, minutes, entry_date, entry_time) VALUES (?,?,?,?,?);";
 
-        jdbcTemplate.update(sql, bookLog.getIsbn(), bookLog.getChildId(), bookLog.getMinutes(), bookLog.getDate());
+        jdbcTemplate.update(sql, bookLog.getIsbn(), bookLog.getChildId(), bookLog.getMinutes(), bookLog.getDate(), time);
         return bookLog;
     }
 
