@@ -75,6 +75,7 @@ export default {
           });
         });
       }
+      
     },
     deleteActiveBook() {
       if (event.target.tagName == "svg" || event.target.tagName == "path") {
