@@ -6,6 +6,7 @@ public class Book {
     private String title;
     private String author;
     private int minutes;
+    private int libraryId;
 
 
     public String getIsbn() {
@@ -40,4 +41,11 @@ public class Book {
         this.minutes = minutes;
     }
 
+    public int getLibraryId() {
+        return libraryId;
+    }
+
+    public void setLibraryId(int libraryId) {
+        this.libraryId = libraryId;
+    }
 }

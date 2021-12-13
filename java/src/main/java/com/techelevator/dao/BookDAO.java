@@ -20,4 +20,6 @@ public interface BookDAO {
     public ActiveBook addActiveBook(ActiveBook book);
 
     public void deleteActiveBook(ActiveBook book);
+
+    public Book addBookToLibrary(Book book);
 }
