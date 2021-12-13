@@ -16,8 +16,7 @@ export default {
 
 <style scoped>
 #footer-container{
-    margin-left: 2rem;
-    margin-top: 2rem;
+    margin: 2rem 0 0 2rem;
     color: #065125;
 }
 </style>
