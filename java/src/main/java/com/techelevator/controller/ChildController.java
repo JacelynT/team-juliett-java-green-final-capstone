@@ -5,10 +5,7 @@ import com.techelevator.dao.UserDAO;
 import com.techelevator.model.Child;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -29,4 +26,8 @@ public class ChildController {
         return childDAO.listAllChildren(temporaryId);
     }
 
+    @RequestMapping(path = "/account/add-child", method  = RequestMethod.POST)
+    public Child addChild(@RequestBody Child child) {
+        return childDAO.addChild(child);
+    }
 }

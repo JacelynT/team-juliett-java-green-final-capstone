@@ -29,6 +29,14 @@ public class JDBCChildDAO implements ChildDAO{
         return childList;
     }
 
+    public Child addChild(Child child) {
+        String sql = "INSERT INTO child (child_name, user_id, icon_name) VALUES (?,?,?);";
+
+        jdbcTemplate.update(sql, child.getName(), child.getFamilyId(), child.getIcon());
+
+        return child;
+    }
+
 
     private Child mapRowToChild(SqlRowSet result){
         Child child = new Child();

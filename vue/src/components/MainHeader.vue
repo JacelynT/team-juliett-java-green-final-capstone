@@ -20,8 +20,8 @@
       <div>
         <router-link id="account" v-bind:to="{ name: 'account' }">Account</router-link>
       </div>
-      <div id="login">Login</div>
-      <div id="register">Register</div>
+      <div id="login"><router-link id="login" v-bind:to="{ name: 'login' }">Login</router-link></div>
+      <div id="register"><router-link id="register" v-bind:to="{ name: 'register' }">Register</router-link></div>
     </nav>
 
   </div>
@@ -71,7 +71,7 @@ export default {
   padding: 3px;
 }
 
-#account {
+#account, #login {
   color: #e0d8c3;
   text-decoration: none;
 }
@@ -80,6 +80,8 @@ export default {
   margin: 1px;
   padding: 15px;
   background-color: #dda033;
+  color: #e0d8c3;
+  text-decoration: none;
 }
 </style>>
 

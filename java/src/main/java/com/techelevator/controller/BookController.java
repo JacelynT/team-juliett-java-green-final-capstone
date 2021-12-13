@@ -53,4 +53,11 @@ public class BookController {
         bookDAO.deleteActiveBook(book);
     }
 
+
+    @RequestMapping(path = "/account/library/add-book", method = RequestMethod.POST)
+    public Book addBookToLibrary(@RequestBody Book book) {
+        bookDAO.addBookToLibrary(book);
+        return book;
+    }
+
 }

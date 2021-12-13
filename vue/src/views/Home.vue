@@ -3,7 +3,7 @@
     <div class="hero-image">
       <div class="hero-text">
         <h1>Reading is the BEST!</h1>
-        <button>Get Started!</button>
+        <button><router-link id="register" v-bind:to="{ name: 'register' }">Get Started!</router-link></button>
       </div>
     </div>
     <section class= "bottom-info">
@@ -78,5 +78,12 @@ button {
   font-size: 10px;
   color: #065123;
   padding: 20px;
+}
+
+#register {
+    background-color: #dda033;
+    border: none;
+    color:#e0d8c3;
+    text-decoration: none;
 }
 </style>

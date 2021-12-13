@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ChildDAO {
 
-    List<Child> listAllChildren(int familyAccountId);
+    public List<Child> listAllChildren(int familyAccountId);
+
+    public Child addChild(Child child);
 
 }
