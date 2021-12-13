@@ -1,6 +1,6 @@
 <template>
   <div id="log-entry-container">
-    <span id="log-container">
+    <div id="log-container">
      
     <img id="icon" :src="require('../assets/'+logEntry.icon)" alt="face icon" />
    
@@ -9,7 +9,7 @@
     <p id="minutes" class="log-info">{{ logEntry.minutes }} min</p>
     
     <p id="date" class="log-info">{{ logEntry.date }}</p>
- </span>
+ </div>
   </div>
 </template>
 
@@ -28,14 +28,21 @@ export default {
 </script>
 
 <style scoped>
+.log-info{
+  margin-bottom: 0px;
+}
 img {
-  opacity: 50%;
+  opacity: .5;
   height: 30px;
   width: auto;
 }
 
 #log-container {
-  color: #065125;
+  padding: .5rem;
+  margin-bottom: .5rem;
+  border-radius: .25rem;
+  border: solid 5px #E2532F;
+  color: #E2532F;
   display: grid;
   grid-template-columns: 1.5fr 6fr 2fr 2fr;
   grid-template-areas: "child-icon title minutes date";
