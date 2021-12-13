@@ -46,7 +46,7 @@ export default {
 <style scoped>
 #small-book-container {
   position: relative;
-  opacity: 100%;
+  opacity: 75%;
 }
 
 #small-book-container:hover {
