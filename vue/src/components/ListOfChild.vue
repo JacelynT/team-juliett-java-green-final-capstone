@@ -2,8 +2,8 @@
 <div>
   <div id="list-child-container">
     <child v-for="child in children" v-bind:key="child.childId" v-bind:child="child" />
-     <div>
-       <img id="plus-solid" src="../assets/plus-solid.png"/>
+     <div id="add-child-container">
+       <i class="fas fa-plus-square"></i>
        <h3>Add Child</h3>
     </div> 
   </div>
@@ -47,14 +47,14 @@ export default {
     padding: 2rem;
 }
 
-#plus-solid {
+.fa-plus-square {
     height: 150px;
     width: 150px;
     border-radius: 5%;
-    filter: invert(1);
+   
     padding: 20px;
     margin-bottom: 10px;
-    color: #065125;
+    color: #0d97ac;
 
 }
 
@@ -66,5 +66,8 @@ export default {
 
 h3 {
     text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bold;
+    color:  #0d97ac;
 }
 </style>

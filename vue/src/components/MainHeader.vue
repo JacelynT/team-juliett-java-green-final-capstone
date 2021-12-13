@@ -16,13 +16,12 @@
         Logout &nbsp;|&nbsp;</router-link
       >
 
-      <!-- <div id="add-book">Add Book</div>
-      <div>&nbsp;|&nbsp;</div>
-      <div id="reading-history">Reading History</div>
-      <div>&nbsp;|&nbsp;</div>  -->
+      
       <div>
-        <router-link v-bind:to="{ name: 'account' }">Account</router-link>
+        <router-link id="account" v-bind:to="{ name: 'account' }">Account</router-link>
       </div>
+      <div id="login">Login</div>
+      <div id="register">Register</div>
     </nav>
 
   </div>
@@ -36,7 +35,7 @@ export default {
 
 <style scoped>
 #main-header{
-  border-bottom: solid 5px #E0D8C3;
+  /* border-bottom: solid 5px #E0D8C3; */
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -45,7 +44,7 @@ export default {
   padding: 0px 30px;
 }
 #logo {
-  height: 15vh;
+  height: 10vh;
   /* border: solid 2px rgba(0, 0, 0, 0.5); */
   border-radius: 10%;
   margin: 1rem 1rem 1rem 0px;
@@ -54,15 +53,33 @@ export default {
   width: 45%
 }
 #nav {
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Noto Serif", Georgia, serif;
+ 
+  display: inline-flex;
+  justify-content: right;
+  color: #e0d8c3;
   padding-right: 30px;
+  gap: 25px;
 }
-#nav > div {
-  margin: 1px
+#nav > div:not(#register){
+  margin: 1px;
+  padding: 15px;
+   background-color: #0D97AC;
 }
 
 #add-book, #reading-history {
   padding: 3px;
+}
+
+#account {
+  color: #e0d8c3;
+  text-decoration: none;
+}
+
+#register {
+  margin: 1px;
+  padding: 15px;
+  background-color: #dda033;
 }
 </style>>
 

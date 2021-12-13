@@ -51,7 +51,7 @@ img {
   color:  white
 }
 #child-container {
-  background-color: #065125;
+  background-color: #0D97AC;
   display: inline-block;
   padding: 25px;
   border-radius: 5%;
