@@ -28,7 +28,6 @@ export default {
   font-family: 'Varela Round';
   font-weight: bold;
   letter-spacing: .1em;
-  margin-bottom: 2rem;
   overflow-x: hidden;
 }
 </style>
