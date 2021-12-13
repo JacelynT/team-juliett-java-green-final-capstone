@@ -2,12 +2,12 @@
   <div id="child-page">
     <!-- <child-header /> -->
     <child-reading-log-history id="child-header"/>
-    <h2 id="books-im-reading" class="display-5">Books I'm Reading</h2>
+    <h2 id="books-im-reading" >Books I'm Reading</h2>
     <div id="active-book-container">
       <book-card class="active-book" v-for="book in retrieveActiveBooks" v-bind:book="book" v-bind:key="book.id"/>
     </div>
     <!-- <hr /> -->
-    <h2 id="library-title" class="display-5">Family Library</h2>
+    <h2 id="library-title" >Family Library</h2>
       <div id="library-container">
       <small-book class="library-book" v-for="book in retrieveLibrary" v-bind:key="book.id" v-bind:isbn="book.isbn" v-bind:childId="retrieveChildId">
       </small-book>
@@ -72,7 +72,7 @@ export default {
   grid-template-areas: 
     "child-header active-title"
     "child-header active-books"
-    "library-title ."
+    "library-title library-title"
     "library library";
 }
 #books-im-reading{
@@ -114,7 +114,12 @@ book-card{
   text-align: center;
   padding: 1em 1em;
 }
-
+h2{
+  padding: .5rem;
+  color: white;
+  background-color: #0D97AC;
+  border-radius: .1em;
+}
 hr {
   width: 95%;
 }
