@@ -25,12 +25,10 @@ export default {
 
 <style>
 #app{
-  width: 90%;
-
+  font-family: 'Varela Round';
+  font-weight: bold;
+  letter-spacing: .1em;
   margin-bottom: 2rem;
-
-}
-html {
-  font-family: sans-serif;
+  overflow-x: hidden;
 }
 </style>

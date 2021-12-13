@@ -29,15 +29,15 @@ export default {
 
 <style scoped>
 img {
-  opacity: 75%;
+  opacity: 50%;
   height: 30px;
   width: auto;
 }
 
 #log-container {
- 
+  color: #065125;
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr 2fr;
+  grid-template-columns: 1.5fr 6fr 2fr 2fr;
   grid-template-areas: "child-icon title minutes date";
   justify-items: start;
   align-items: center;

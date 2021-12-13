@@ -1,13 +1,13 @@
 <template>
   <div id="child-page">
     <!-- <child-header /> -->
-    <child-reading-log-history />
-    <h2 class="display-5">Books I'm Reading</h2>
+    <child-reading-log-history id="child-header"/>
+    <h2 id="books-im-reading" class="display-5">Books I'm Reading</h2>
     <div id="active-book-container">
       <book-card class="active-book" v-for="book in retrieveActiveBooks" v-bind:book="book" v-bind:key="book.id"/>
     </div>
-    <hr />
-    <h2 class="display-5">Family Library</h2>
+    <!-- <hr /> -->
+    <h2 id="library-title" class="display-5">Family Library</h2>
       <div id="library-container">
       <small-book class="library-book" v-for="book in retrieveLibrary" v-bind:key="book.id" v-bind:isbn="book.isbn" v-bind:childId="retrieveChildId">
       </small-book>
@@ -64,6 +64,26 @@ export default {
 </script>
 
 <style scoped>
+#child-page{
+  padding: 2em;
+  color: #065125;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: 
+    "child-header active-title"
+    "child-header active-books"
+    "library-title ."
+    "library library";
+}
+#books-im-reading{
+  grid-area: active-title
+}
+#child-header{
+  grid-area: child-header;
+}
+#library-title{
+  grid-area: library-title;
+}
 img {
   border-radius: 1rem;
 }
@@ -71,6 +91,7 @@ book-card{
   margin: 50px;
 }
 #active-book-container {
+  grid-area: active-books;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -84,6 +105,7 @@ book-card{
   justify-content: flex-start;
   align-items: center;
   margin: 0px 25px;
+  grid-area: library;
 }
 .active-book{
   margin: 1rem;

@@ -1,12 +1,11 @@
 <template>
 <div>
-  
   <div id="list-child-container">
     <child v-for="child in children" v-bind:key="child.childId" v-bind:child="child" />
-    <div>
+    <!-- <div>
        <img id="plus-circle" src="../assets/plus-circle-solid.png"/>
        <h3>Add Child</h3>
-    </div>
+    </div> -->
   </div>
     
   </div>
@@ -38,6 +37,7 @@ export default {
 </script>
 
 <style scoped>
+
 #list-child-container{
     display: flex;
     flex-direction: row;

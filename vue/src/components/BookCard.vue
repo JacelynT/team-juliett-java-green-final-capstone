@@ -58,7 +58,7 @@ export default {
     submitTime() {
       this.isClicked = false;
       if(this.bookLog.minutes == "" || this.bookLogMinutes == 0){
-        alert('Oops.. Make sure you chose how much time you want to log!');
+        alert('Oops.. Make sure you choose how much time you want to log!');
       } else {
         ReadingTrackerService.postBookLog(this.bookLog).then(() => {
           ReadingTrackerService.bookLogs().then((response) => {
