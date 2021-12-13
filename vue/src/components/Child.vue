@@ -38,8 +38,8 @@ a{
 }
 img {
   filter: invert(1);
-  height: 200px;
-  width: auto;
+  height: 150px;
+  width: 150px;
   padding: 20px;
   border-radius: 5%;
   margin-bottom: 10px;

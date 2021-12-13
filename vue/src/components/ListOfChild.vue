@@ -2,10 +2,10 @@
 <div>
   <div id="list-child-container">
     <child v-for="child in children" v-bind:key="child.childId" v-bind:child="child" />
-    <!-- <div>
-       <img id="plus-circle" src="../assets/plus-circle-solid.png"/>
+     <div>
+       <img id="plus-solid" src="../assets/plus-solid.png"/>
        <h3>Add Child</h3>
-    </div> -->
+    </div> 
   </div>
     
   </div>
@@ -47,10 +47,15 @@ export default {
     padding: 2rem;
 }
 
-#plus-circle {
+#plus-solid {
     height: 150px;
-    width: auto;
-    border-radius: 50%;
+    width: 150px;
+    border-radius: 5%;
+    filter: invert(1);
+    padding: 20px;
+    margin-bottom: 10px;
+    color: #065125;
+
 }
 
 .reading_overview {

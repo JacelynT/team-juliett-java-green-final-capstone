@@ -1,6 +1,8 @@
 <template>
   <div>
+    <i class="far fa-minus-square"></i>
     <div class="card">
+      
       <div v-on:click="isClicked = !isClicked">
         <img
           class="card-img-top"
@@ -121,6 +123,22 @@ hr {
 }
 .form {
   width: 100%;
+}
+
+.fa-minus-square {
+  /* opacity: 65%; */
+  top: -10px;
+  left: -15px;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  font-size: 5px;
+  color: #0D97AC;
+  background-color: white;
+  border-radius: 15%;
+  
+  
+
 }
 
 /* .card-content-container {

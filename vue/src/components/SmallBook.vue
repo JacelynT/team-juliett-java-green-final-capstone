@@ -1,6 +1,6 @@
 <template>
   <div v-on:click="addActiveBook" id="small-book-container">
-    <i class="fas fa-plus"></i>
+    <i class="far fa-plus-square"></i>
     
     <img
       v-bind:src="'http://covers.openlibrary.org/b/isbn/' + isbn + '-M.jpg'"
@@ -46,22 +46,26 @@ export default {
 <style scoped>
 #small-book-container {
   position: relative;
-  opacity: 70%;
+  opacity: 100%;
 }
 
 #small-book-container:hover {
   opacity: 100%;
 }
 
-.fa-plus {
+.fa-plus-square {
   /* opacity: 65%; */
-  top: 80px;
-  left: 56px;
-  height: 50px;
-  width: 50px;
+  top: 5px;
+  left: 5px;
+  height: 30px;
+  width: 30px;
   position: absolute;
-  font-size: 10px;
-  color: rgb(149, 56, 255);
+  font-size: 5px;
+  color: #0D97AC;
+  background-color: white;
+  border-radius: 15%;
+  
+  
 
 }
 

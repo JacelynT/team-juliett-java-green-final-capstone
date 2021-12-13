@@ -66,7 +66,7 @@ export default {
 <style scoped>
 #child-page{
   padding: 2em;
-  color: #065125;
+ 
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-areas: 
