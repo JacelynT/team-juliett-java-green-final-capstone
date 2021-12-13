@@ -1,8 +1,8 @@
 <template>
   <div>
-    <i class="far fa-minus-square"></i>
+    
     <div class="card">
-      
+      <i class="far fa-minus-square"></i>
       <div v-on:click="isClicked = !isClicked">
         <img
           class="card-img-top"
