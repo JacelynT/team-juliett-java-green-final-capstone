@@ -1,10 +1,6 @@
 <template>
   <div>
-<<<<<<< HEAD
     <div v-on:click="deleteActiveBook" class="card">
-=======
-    <div class="card">
->>>>>>> 8e4f6c40878fbf5f975c118b99cdf71e7e42dd4b
       <i class="far fa-minus-square"></i>
       <div v-on:click="isClicked = !isClicked">
         <img
