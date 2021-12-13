@@ -112,7 +112,15 @@ public class JDBCBookDAO implements BookDAO{
 
 
     //TODO Add book to library (by isbn?)
+    public Book addBookToLibrary(Book book) {
+        String sqlDatabase = "INSERT INTO book (isbn, book_title, book_author, total_minutes) VALUES (?,?,?,?);";
+        jdbcTemplate.update(sqlDatabase, book.getIsbn(), book.getTitle(), book.getAuthor(), 0);
 
+        String sqlLibrary = "INSERT INTO library_book (library_id, isbn) VALUES (?,?);";
+        jdbcTemplate.update(sqlLibrary, book.getLibraryId(), book.getIsbn());
+
+        return book;
+    }
 
 
     private Book mapRowToBook(SqlRowSet result){

@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div v-show="showBook">
     <div v-on:click="deleteActiveBook" class="card">
       <i class="far fa-minus-square"></i>
       <div v-on:click="isClicked = !isClicked">
         <img
           class="card-img-top"
           v-bind:src="
-            'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
+            'http://covers.openlibrary.org/b/isbn/' +
+            book.isbn +
+            '-M.jpg'
           "
           alt=""
         />
@@ -46,37 +48,47 @@ export default {
   props: ["book"],
   data() {
     return {
+      showBook: true,
+      //currentBook: this.book,
       isClicked: false,
       bookLog: {
         date: new Date().toLocaleDateString("en-US"),
-        isbn: this.book.isbn || '',
+        isbn: this.book.isbn || "",
         minutes: "",
         childId: this.$store.state.selectedChildId,
       },
       activeBook: {
         isbn: this.book.isbn,
-        childId: this.$store.state.selectedChildId
-      }
+        childId: this.$store.state.selectedChildId,
+      },
     };
   },
   methods: {
     submitTime() {
       this.isClicked = false;
-      if(this.bookLog.minutes == "" || this.bookLogMinutes == 0){
-        alert('Oops.. Make sure you choose how much time you want to log!');
+      if (this.bookLog.minutes == "" || this.bookLogMinutes == 0) {
+        alert("Oops.. Make sure you choose how much time you want to log!");
       } else {
         ReadingTrackerService.postBookLog(this.bookLog).then(() => {
           ReadingTrackerService.bookLogs().then((response) => {
             this.$store.commit("SET_FAMILY_LOGS", response.data);
           });
         });
-      }},
-      deleteActiveBook() {
-        if(event.target.tagName == 'svg' || event.target.tagName == 'path'){
-          ReadingTrackerService.deleteActiveBook(this.activeBook);
-        }
       }
     },
+    deleteActiveBook() {
+      if (event.target.tagName == "svg" || event.target.tagName == "path") {
+        ReadingTrackerService.deleteActiveBook(this.activeBook);
+        this.showBook = false;
+        ReadingTrackerService.activeBooks(
+          this.$store.state.selectedChildId
+        ).then((response) => {
+          this.activeBooks = response.data;
+          this.$store.commit("SET_ACTIVE_BOOKS", response.data);
+        });
+      }
+    },
+  },
   computed: {
     // retrieveChildId() {
     //   return this.$store.state.selectedChildId;
