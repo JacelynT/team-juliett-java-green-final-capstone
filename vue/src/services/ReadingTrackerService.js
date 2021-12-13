@@ -29,7 +29,9 @@ export default {
 
   addActiveBook(activeBook) {
     return http.post('/add-active-book', activeBook)
+  },
+
+  deleteActiveBook(activeBook) {
+    return http.delete('/delete-active-book', activeBook);
   }
-
-
 }
