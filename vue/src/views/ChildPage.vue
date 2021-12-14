@@ -155,6 +155,9 @@ export default {
 #add-book-form {
   grid-area: book-form;
 }
+#active-books{
+  grid-area: active-books;
+}
 #book-form-fields {
   display: flex;
   flex-direction: row;
