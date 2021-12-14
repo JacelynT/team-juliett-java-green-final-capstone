@@ -135,6 +135,7 @@ export default {
     "child-header active-title"
     "child-header active-books"
     "child-history active-books"
+    /* "child-history active-books" */
     "library-title library-title"
     "library library"
     "book-form book-form";

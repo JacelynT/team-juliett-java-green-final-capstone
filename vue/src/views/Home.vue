@@ -72,8 +72,8 @@ h1 {
    -webkit-text-fill-color: #e2532f; */
 }
 img {
-  height: 31%;
-  width: auto;
+  height: 50px;
+ 
   
 }
 
