@@ -30,8 +30,8 @@
       <h2 id="book-form-title">Add a Book to the Library</h2>
       <div id="book-form-fields">
         <input v-model="newBook.title" id="title" type="text" placeholder="Title" />
-        <input id="author" type="text" placeholder="Author" />
-        <input id="isbn" type="text" placeholder="ISBN" />
+        <input v-model="newBook.author" id="author" type="text" placeholder="Author" />
+        <input v-model="newBook.isbn" id="isbn" type="text" placeholder="ISBN" />
         <input id="submit" type="submit">
       </div>
     </div>
@@ -157,6 +157,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin: 2rem;
 }
 #book-form-fields > * {
   margin-right: 5rem;
