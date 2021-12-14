@@ -38,6 +38,7 @@ export default new Vuex.Store({
     },
     SET_SELECTED_CHILD_ID(state, childId){
       state.selectedChildId = childId;
+      localStorage.removeItem('selectedChildId');
       localStorage.setItem('selectedChildId', childId);
     },
     SET_AUTH_TOKEN(state, token) {
