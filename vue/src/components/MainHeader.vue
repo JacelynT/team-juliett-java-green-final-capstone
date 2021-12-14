@@ -13,7 +13,7 @@
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
       >
-        Logout &nbsp;|&nbsp;</router-link
+        Logout</router-link
       >
 
       
@@ -60,6 +60,8 @@ export default {
   color: #e0d8c3;
   padding-right: 30px;
   gap: 25px;
+  white-space: nowrap;
+  align-items: center;
 }
 #nav > div:not(#register){
   margin: 1px;
