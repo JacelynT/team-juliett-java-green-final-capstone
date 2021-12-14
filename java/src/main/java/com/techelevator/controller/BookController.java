@@ -1,6 +1,8 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.BookDAO;
+import com.techelevator.dao.UserDAO;
+import com.techelevator.dao.UserSqlDAO;
 import com.techelevator.model.ActiveBook;
 import com.techelevator.model.Book;
 import com.techelevator.model.BookLog;
@@ -18,6 +20,7 @@ public class BookController {
 
     @Autowired
     private BookDAO bookDAO;
+    private UserDAO userDAO;
 
     @RequestMapping (path = "/account/logs", method  = RequestMethod.GET)
     public List<BookLog> listAllBookLogs() {
@@ -55,8 +58,9 @@ public class BookController {
 
 
     @RequestMapping(path = "/account/library/add-book", method = RequestMethod.POST)
-    public Book addBookToLibrary(@RequestBody Book book) {
-        bookDAO.addBookToLibrary(book);
+    public Book addBookToLibrary(@RequestBody Book book, Principal user) {
+        int userId = userDAO.findIdByUsername(user.getName());
+        bookDAO.addBookToLibrary(book, userId);
         return book;
     }
 

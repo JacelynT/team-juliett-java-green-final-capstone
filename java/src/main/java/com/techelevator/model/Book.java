@@ -6,7 +6,7 @@ public class Book {
     private String title;
     private String author;
     private int minutes;
-    private int libraryId;
+    private int userId;
 
 
     public String getIsbn() {
@@ -41,11 +41,11 @@ public class Book {
         this.minutes = minutes;
     }
 
-    public int getLibraryId() {
-        return libraryId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setLibraryId(int libraryId) {
-        this.libraryId = libraryId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
