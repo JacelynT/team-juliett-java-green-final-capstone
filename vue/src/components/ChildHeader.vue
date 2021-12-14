@@ -2,9 +2,9 @@
   <div>
     <body>
       <div>
-        <child v-bind:key="child.id" v-bind:child="child" />
+      <!--  <child  /> -->
         <div>
-          <div id="child-name">{{ child.child.name }}</div>
+          <div id="child-name">{{ child.name }}</div>
           <div id="total-minutes">
             Total Minutes: {{ child.minutes }} + minutes
           </div>
@@ -17,22 +17,17 @@
 </template>
 
 <script>
-import Child from "../components/Child.vue";
+//import Child from "../components/Child.vue";
 
 export default {
   name: "child-header",
   components: {
-    Child,
+   // Child,
   },
-  props: "child",
+  props: ["child"],
   data() {
     return {
-      child: {
-        childId: "",
-        name: "",
-        minutes: 60,
-        bookMinutes: null,
-      },
+    
     };
   },
 };

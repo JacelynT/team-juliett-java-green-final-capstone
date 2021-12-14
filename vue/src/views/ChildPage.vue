@@ -1,6 +1,6 @@
 <template>
   <div id="child-page">
-    <!-- <child-header /> -->
+    <child-header /> 
     <child-reading-log-history id="child-header" />
     <h2 id="books-im-reading">Books I'm Reading</h2>
     <div id="active-book-container">
@@ -32,7 +32,7 @@
 
 <script>
 import BookCard from "../components/BookCard.vue";
-//import ChildHeader from '../components/ChildHeader.vue';
+import ChildHeader from '../components/ChildHeader.vue';
 import ChildReadingLogHistory from "../components/ChildReadingLogHistory.vue";
 import SmallBook from "../components/SmallBook.vue";
 import ReadingTrackerService from "../services/ReadingTrackerService.js";
@@ -42,7 +42,7 @@ export default {
     SmallBook,
     BookCard,
     ChildReadingLogHistory,
-    //    ChildHeader
+    ChildHeader
   },
   data() {
     return {
@@ -54,7 +54,7 @@ export default {
     ReadingTrackerService.library().then((response) => {
       this.$store.commit("SET_FAMILY_LIBRARY", response.data);
     }),
-      ReadingTrackerService.activeBooks(this.$store.state.selectedChildId).then(
+      ReadingTrackerService.activeBooks(this.$store.state.selectedChild.childId).then(
         (response) => {
           this.activeBooks = response.data;
           this.$store.commit("SET_ACTIVE_BOOKS", response.data);

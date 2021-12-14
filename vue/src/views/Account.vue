@@ -20,7 +20,7 @@ export default {
     ListOfChild 
   },
   created(){
-    this.$store.commit('SET_SELECTED_CHILD_ID', 0);
+    this.$store.commit('SET_SELECTED_CHILD', '');
     ReadingTrackerService.bookLogs()
     .then(response => {
       this.$store.commit('SET_FAMILY_LOGS', response.data);
