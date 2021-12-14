@@ -1,8 +1,8 @@
 <template>
   <div id="child-page">
-    <child-header /> 
-    <child-reading-log-history id="child-header" />
-    <h2 id="books-im-reading">Books I'm Reading</h2>
+    <child-header id="child-header" v-bind:child="currentChild" />
+    <child-reading-log-history id="child-history" />
+    <h2 id="books-im-reading">Books {{currentChild.name}}'s Reading</h2>
     <div id="active-book-container">
       <book-card
         class="active-book"
@@ -47,22 +47,28 @@ export default {
   data() {
     return {
       showAddBookForm: false,
+      currentChild: {}
     };
   },
   name: "child-page",
   created() {
     ReadingTrackerService.library().then((response) => {
       this.$store.commit("SET_FAMILY_LIBRARY", response.data);
-    }),
-      ReadingTrackerService.activeBooks(this.$store.state.selectedChild.childId).then(
+      ReadingTrackerService.activeBooks(this.$store.state.selectedChildId).then(
         (response) => {
           this.activeBooks = response.data;
           this.$store.commit("SET_ACTIVE_BOOKS", response.data);
+          ReadingTrackerService.bookLogs().then((response) => {
+            this.$store.commit("SET_FAMILY_LOGS", response.data);
+            ReadingTrackerService.getChild(this.$store.state.selectedChildId).then(
+              (response) => {
+                this.currentChild = response.data;
+              }
+            )
+          });
         }
-      ),
-      ReadingTrackerService.bookLogs().then((response) => {
-        this.$store.commit("SET_FAMILY_LOGS", response.data);
-      });
+      );
+    });
   },
   computed: {
     retrieveLibrary() {
@@ -114,7 +120,7 @@ export default {
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
     "child-header active-title"
-    "child-header active-books"
+    "child-history active-books"
     "library-title library-title"
     "library library";
 }
@@ -123,6 +129,9 @@ export default {
 }
 #child-header {
   grid-area: child-header;
+}
+#child-history {
+  grid-area: child-history;
 }
 #library-title {
   grid-area: library-title;

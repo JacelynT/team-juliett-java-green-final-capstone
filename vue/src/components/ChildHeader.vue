@@ -2,11 +2,10 @@
   <div>
     <body>
       <div>
-      <!--  <child  /> -->
+        <child v-bind:child="child" />
         <div>
-          <div id="child-name">{{ child.name }}</div>
           <div id="total-minutes">
-            Total Minutes: {{ child.minutes }} + minutes
+            Total Minutes: {{ child.minutes }} minutes
           </div>
           <div id="past-week">Past Week: {{ child.minutes }}</div>
           <div id="past-week-log">{{ child.logEntry }}</div>
@@ -27,7 +26,7 @@ export default {
   props: ["child"],
   data() {
     return {
-    
+      
     };
   },
 };

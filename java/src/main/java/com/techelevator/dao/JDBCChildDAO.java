@@ -7,6 +7,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Component
@@ -33,6 +34,19 @@ public class JDBCChildDAO implements ChildDAO{
         String sql = "INSERT INTO child (child_name, user_id, icon_name) VALUES (?,?,?);";
 
         jdbcTemplate.update(sql, child.getName(), child.getFamilyId(), child.getIcon());
+
+        return child;
+    }
+
+    public Child retrieveChild(int childId) {
+        Child child = new Child();
+        String sql = "SELECT * FROM child WHERE child_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, childId);
+
+        while (results.next()) {
+            child = mapRowToChild(results);
+        }
 
         return child;
     }

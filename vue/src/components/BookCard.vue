@@ -75,13 +75,13 @@ export default {
       }},
       deleteActiveBook() {
         if(event.target.tagName == 'svg' || event.target.tagName == 'path'){
-          ReadingTrackerService.deleteActiveBook(this.activeBook);
-          this.currentBook = '';
-          this.showBook = false;
-      ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
-      .then(response => {
-        this.$store.commit('SET_ACTIVE_BOOKS', response.data);
-      });          
+          ReadingTrackerService.deleteActiveBook(this.activeBook).then(
+            this.showBook = false,
+            ReadingTrackerService.activeBooks(this.$store.state.selectedChildId)
+              .then(response => {
+                this.$store.commit('SET_ACTIVE_BOOKS', response.data);
+              })
+          );
         }
       }
       

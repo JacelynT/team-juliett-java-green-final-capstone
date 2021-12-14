@@ -30,4 +30,9 @@ public class ChildController {
     public Child addChild(@RequestBody Child child) {
         return childDAO.addChild(child);
     }
+
+    @RequestMapping(path = "/account/get-child/{childId}", method = RequestMethod.GET)
+    public Child retrieveChild(@PathVariable int childId){
+        return childDAO.retrieveChild(childId);
+    }
 }
