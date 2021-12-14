@@ -2,7 +2,7 @@
   <div id="child-page">
     <child-header id="child-header" v-bind:child="currentChild" />
     <child-reading-log-history id="child-history" />
-    <h2 id="books-im-reading">Books {{currentChild.name}}'s Reading</h2>
+    <h2 id="books-im-reading">Books {{ currentChild.name }}'s Reading</h2>
     <div id="active-book-container">
       <book-card
         class="active-book"
@@ -26,13 +26,21 @@
         <i class="far fa-plus-square"></i>
       </div>
     </div>
-    <h2 id="book-form-title">Add a Book to the Library</h2>
+    <div id="add-book-form" v-show="showAddBookForm">
+      <h2 id="book-form-title">Add a Book to the Library</h2>
+      <div id="book-form-fields">
+        <input v-model="newBook.title" id="title" type="text" placeholder="Title" />
+        <input id="author" type="text" placeholder="Author" />
+        <input id="isbn" type="text" placeholder="ISBN" />
+        <input id="submit" type="submit">
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import BookCard from "../components/BookCard.vue";
-import ChildHeader from '../components/ChildHeader.vue';
+import ChildHeader from "../components/ChildHeader.vue";
 import ChildReadingLogHistory from "../components/ChildReadingLogHistory.vue";
 import SmallBook from "../components/SmallBook.vue";
 import ReadingTrackerService from "../services/ReadingTrackerService.js";
@@ -42,12 +50,17 @@ export default {
     SmallBook,
     BookCard,
     ChildReadingLogHistory,
-    ChildHeader
+    ChildHeader,
   },
   data() {
     return {
       showAddBookForm: false,
-      currentChild: {}
+      currentChild: {},
+      newBook: {
+        title: '',
+        author: '',
+        isbn: ''
+      }
     };
   },
   name: "child-page",
@@ -60,11 +73,11 @@ export default {
           this.$store.commit("SET_ACTIVE_BOOKS", response.data);
           ReadingTrackerService.bookLogs().then((response) => {
             this.$store.commit("SET_FAMILY_LOGS", response.data);
-            ReadingTrackerService.getChild(this.$store.state.selectedChildId).then(
-              (response) => {
-                this.currentChild = response.data;
-              }
-            )
+            ReadingTrackerService.getChild(
+              this.$store.state.selectedChildId
+            ).then((response) => {
+              this.currentChild = response.data;
+            });
           });
         }
       );
@@ -122,7 +135,8 @@ export default {
     "child-header active-title"
     "child-history active-books"
     "library-title library-title"
-    "library library";
+    "library library"
+    "book-form book-form";
 }
 #books-im-reading {
   grid-area: active-title;
@@ -135,6 +149,20 @@ export default {
 }
 #library-title {
   grid-area: library-title;
+}
+#add-book-form {
+  grid-area: book-form;
+}
+#book-form-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#book-form-fields > * {
+  margin-right: 5rem;
+}
+#isbn {
+  padding-right: 5rem;
 }
 img {
   border-radius: 1rem;
