@@ -16,12 +16,12 @@
 </template>
 
 <script>
-//import Child from "../components/Child.vue";
+import Child from "../components/Child.vue";
 
 export default {
   name: "child-header",
   components: {
-   // Child,
+   Child,
   },
   props: ["child"],
   data() {
