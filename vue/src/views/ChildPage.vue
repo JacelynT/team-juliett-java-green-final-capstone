@@ -53,16 +53,16 @@ export default {
   created() {
     ReadingTrackerService.library().then((response) => {
       this.$store.commit("SET_FAMILY_LIBRARY", response.data);
-    }),
       ReadingTrackerService.activeBooks(this.$store.state.selectedChildId).then(
         (response) => {
           this.activeBooks = response.data;
           this.$store.commit("SET_ACTIVE_BOOKS", response.data);
+          ReadingTrackerService.bookLogs().then((response) => {
+            this.$store.commit("SET_FAMILY_LOGS", response.data);
+          });
         }
-      ),
-      ReadingTrackerService.bookLogs().then((response) => {
-        this.$store.commit("SET_FAMILY_LOGS", response.data);
-      });
+      );
+    });
   },
   computed: {
     retrieveLibrary() {
