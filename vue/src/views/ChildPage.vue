@@ -97,7 +97,11 @@ export default {
   methods: {
     addBookToLibrary() {
       if(this.newBook.title != '' && this.newBook.author != '' && this.newBook.isbn != ''){
-        ReadingTrackerService.addBook(this.newBook);
+        ReadingTrackerService.addBook(this.newBook).then(
+          ReadingTrackerService.library
+        );
+        this.newbook = {};
+        this.showAddBookForm = false;
       }
     },
   },
