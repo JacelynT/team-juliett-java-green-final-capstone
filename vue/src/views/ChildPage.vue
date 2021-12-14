@@ -2,7 +2,7 @@
   <div id="child-page">
     <child-header id="child-header" v-bind:child="currentChild" />
     <child-reading-log-history id="child-history" />
-    <h2 id="books-im-reading">Books {{ currentChild.name }}'s Reading</h2>
+    <h2 id="books-im-reading">{{ currentChild.name }}'s Reading List</h2>
     <div id="active-book-container">
       <book-card
         class="active-book"
@@ -32,7 +32,7 @@
         <input v-model="newBook.title" id="title" type="text" placeholder="Title" />
         <input v-model="newBook.author" id="author" type="text" placeholder="Author" />
         <input v-model="newBook.isbn" id="isbn" type="text" placeholder="ISBN" />
-        <input id="submit" type="submit">
+        <input v-on:click.prevent="addBookToLibrary" id="submit" type="submit">
       </div>
     </div>
   </div>
@@ -95,7 +95,11 @@ export default {
     },
   },
   methods: {
-    addBookForm() {},
+    addBookToLibrary() {
+      if(this.newBook.title != '' && this.newBook.author != '' && this.newBook.isbn != ''){
+        ReadingTrackerService.addBook(this.newBook);
+      }
+    },
   },
 };
 </script>
@@ -159,10 +163,11 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 2rem;
+  flex-wrap: wrap;
+  margin: 1rem;
 }
 #book-form-fields > * {
-  margin-right: 5rem;
+  margin: 1rem;
 }
 #isbn {
   padding-right: 5rem;

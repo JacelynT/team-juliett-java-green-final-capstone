@@ -32,7 +32,7 @@
         required
       />
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <button class="btn btn-outline-secondary" type="submit">Sign in</button>
     </form>
   </div>
 </template>

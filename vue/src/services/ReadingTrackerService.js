@@ -41,5 +41,9 @@ export default {
 
   getChild(childId) {
     return http.get('/account/get-child/' + childId)
+  },
+
+  addBook(book) {
+    return http.post('/account/library/add-book', book)
   }
 }
