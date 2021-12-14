@@ -48,17 +48,16 @@ public class JDBCBookDAO implements BookDAO{
     public List<Book> listActiveBooks(int childId) {
         List<Book> bookList = new ArrayList<>();
 
-        String sql = "SELECT active_book.isbn, book.book_title, book.book_author, sum(book_log.minutes)\n" +
+        String sql = "SELECT active_book.isbn, book.book_title, book.book_author, child.child_id, users.user_id\n" +
                 "FROM active_book\n" +
                 "JOIN book ON book.isbn = active_book.isbn\n" +
-                "JOIN book_log ON active_book.isbn = book_log.isbn\n" +
-                "WHERE active_book.child_id = ?\n" +
-                "GROUP BY active_book.isbn, book.book_title, book.book_author;";
+                "JOIN child ON active_book.child_id = child.child_id\n" +
+                "JOIN users ON child.user_id = users.user_id\n" +
+                "WHERE active_book.child_id = ?\n";
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, childId);
         while (result.next()){
             Book book = mapRowToBook(result);
-            book.setMinutes(result.getInt("sum"));
             bookList.add(book);
         }
 
