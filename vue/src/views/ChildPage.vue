@@ -30,8 +30,8 @@
       <h2 id="book-form-title">Add a Book to the Library</h2>
       <div id="book-form-fields">
         <input v-model="newBook.title" id="title" type="text" placeholder="Title" />
-        <input id="author" type="text" placeholder="Author" />
-        <input id="isbn" type="text" placeholder="ISBN" />
+        <input v-model="newBook.author" id="author" type="text" placeholder="Author" />
+        <input v-model="newBook.isbn" id="isbn" type="text" placeholder="ISBN" />
         <input id="submit" type="submit">
       </div>
     </div>
@@ -133,7 +133,9 @@ export default {
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
     "child-header active-title"
+    "child-header active-books"
     "child-history active-books"
+    /* "child-history active-books" */
     "library-title library-title"
     "library library"
     "book-form book-form";
@@ -157,6 +159,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin: 2rem;
 }
 #book-form-fields > * {
   margin-right: 5rem;
