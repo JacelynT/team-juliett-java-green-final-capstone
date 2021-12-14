@@ -59,7 +59,8 @@ public class BookController {
 
     @RequestMapping(path = "/account/library/add-book", method = RequestMethod.POST)
     public Book addBookToLibrary(@RequestBody Book book, Principal user) {
-        int userId = userDAO.findIdByUsername(user.getName());
+        int userId = 1;
+        //int userId = userDAO.findIdByUsername(user.getName());
         bookDAO.addBookToLibrary(book, userId);
         return book;
     }
