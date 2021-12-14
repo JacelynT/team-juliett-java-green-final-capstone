@@ -9,7 +9,7 @@
         <div id="total-minutes">
             Total Minutes: {{ child.minutes }} minutes
           </div>
-          <div id="past-week">Past Week: {{ child.minutes }}</div>
+          <div id="past-week" v-bing:>Past Week: {{ child.minutes }}</div>
           <div id="past-week-log">{{ child.logEntry }}</div>
           </div>
       </div>
@@ -31,6 +31,16 @@ export default {
       
     };
   },
+  computed: {
+    childLogEntries(){
+        return this.$store.state.familyLogs.filter((log) => {
+            return log.childId === this.$store.state.selectedChildId 
+            ? log 
+            : false;
+        })
+        .slice(0,5);
+    }
+  }
 };
 </script>
 
@@ -42,7 +52,11 @@ export default {
   gap: 10px;
 }
 
-
+#total-minutes {
+  color: #DDA033;
+  font-weight: bold;
+  font-family: "Varela Round", sans-serif;
+}
 
 
 </style>

@@ -2,12 +2,13 @@
   <div class="home">
     <div class="hero-image">
       <div class="hero-text">
-        <h1>Reading is the BEST!</h1>
+        <h1>Let's Read Together</h1>
+        <h3>best to read for 20 minutes a day</h3>
         <button><router-link id="register" v-bind:to="{ name: 'register' }">Get Started!</router-link></button>
       </div>
     </div>
     <section class="bottom-info">
-      <div id="info-paragraphs">
+      <div id="box-1">
         <h2>User Information</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -24,14 +25,15 @@
           aliquam purus sit.
         </p>
       </div>
-      <div id="second-info">
+      <div id="box-2">
         <h2>25 Best Children's Books</h2>
         <img src="../assets/children-reading-books-scaled.jpg" alt="">
         <p>We asked teachers, librarians, and parents and examined bestseller lists to come up with the most beloved books that should be on every child’s shelves.</p>
         <a href="https://www.rd.com/list/the-best-childrens-books-ever-written/">The 25 Best Children's Book Ever Written</a>
       </div>
-      <div id="app-reviews">
-        <h2>Reviews</h2>
+      <div id="box-3">
+        <h2>Fun</h2>
+        <img src="../assets/clipart3483410.png" alt="">
       </div>
     </section>
   </div>
@@ -49,7 +51,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 70vh;
+  height: 65vh;
   width: 100vw;
 }
 
@@ -71,10 +73,15 @@ h1 {
    /* -webkit-text-stroke: .25px #e0d8c3;
    -webkit-text-fill-color: #e2532f; */
 }
-img {
-  height: 50px;
+
+#box-2 > img {
+  height: 150px;
  
   
+}
+
+#box-3 > img {
+  height: 250px;
 }
 
 
@@ -95,20 +102,21 @@ button {
   background-color: #444444;
   font-family: "Noto Serif", Georgia, serif;
   font-size: 10px;
-  padding: 20px;
+  padding: 2%;
   display: grid;
   grid-area: information-grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3em;
-  grid-template-areas: "info second-info reviews";
+  grid-template-areas: "box-1 box-2 box-3";
+ 
   
 }
 
 .bottom-info > div {
   padding: 16px;
   background-color: #e0d8c3;
-  border: 8px solid #dda033;
-  border-radius: 10%;
+  /* border: 8px solid #dda033;
+  border-radius: 10%; */
   margin: 1em;
   
 }
@@ -125,23 +133,23 @@ a {
   color: #065125;
 }
 
-#info-paragraphs {
-  grid-area: info;
+#box-1 {
+  grid-area: box-1;
 
   padding: 1em;
   /* color: white; */
 }
 
-#second-info {
-  grid-area: second-info;
+#box-2 {
+  grid-area: box-2;
   /* display: inline-flex;
   justify-content: center; */
   padding: 1em;
   /* color: white; */
 }
 
-#app-reviews {
-  grid-area: reviews;
+#box-3 {
+  grid-area: box-3;
   padding: 1em;
 }
 
