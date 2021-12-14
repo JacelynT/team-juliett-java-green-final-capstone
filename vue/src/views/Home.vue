@@ -72,8 +72,8 @@ h1 {
    -webkit-text-fill-color: #e2532f; */
 }
 img {
-  height: 31%;
-  width: auto;
+  height: 50px;
+ 
   
 }
 
@@ -110,6 +110,7 @@ button {
   border: 8px solid #dda033;
   border-radius: 10%;
   margin: 1em;
+  
 }
 
 h2 {
@@ -126,7 +127,7 @@ a {
 
 #info-paragraphs {
   grid-area: info;
-  font-weight: light;
+
   padding: 1em;
   /* color: white; */
 }
