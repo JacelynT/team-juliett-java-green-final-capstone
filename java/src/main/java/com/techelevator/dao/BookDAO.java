@@ -21,5 +21,5 @@ public interface BookDAO {
 
     public void deleteActiveBook(ActiveBook book);
 
-    public Book addBookToLibrary(Book book);
+    public Book addBookToLibrary(Book book, int userID);
 }

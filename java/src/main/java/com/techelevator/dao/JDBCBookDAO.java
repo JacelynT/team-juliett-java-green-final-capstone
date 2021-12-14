@@ -52,10 +52,10 @@ public class JDBCBookDAO implements BookDAO{
                 "FROM active_book\n" +
                 "JOIN book ON active_book.isbn = book.isbn\n" +
                 "LEFT JOIN book_log ON book.isbn = book_log.isbn\n" +
-                "WHERE active_book.child_id = ?\n" +
+                "WHERE active_book.child_id = ? AND (book_log.child_id = ? OR book_log.child_id = null)\n" +
                 "GROUP BY active_book.isbn, book.book_title;";
 
-        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, childId);
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, childId, childId);
         while (result.next()){
             Book book = mapRowToBook(result);
             book.setMinutes(result.getInt("sum"));
@@ -71,8 +71,7 @@ public class JDBCBookDAO implements BookDAO{
 
         String sql = "SELECT * FROM book\n" +
                 "JOIN library_book ON book.isbn = library_book.isbn\n" +
-                "JOIN library ON library_book.library_id = library.library_id\n" +
-                "WHERE library.user_id = ?";
+                "WHERE library_book.user_id = ?";
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userId);
         while (result.next()){
@@ -112,12 +111,12 @@ public class JDBCBookDAO implements BookDAO{
 
 
     //TODO Add book to library (by isbn?)
-    public Book addBookToLibrary(Book book) {
-        String sqlDatabase = "INSERT INTO book (isbn, book_title, book_author, total_minutes) VALUES (?,?,?,?);";
-        jdbcTemplate.update(sqlDatabase, book.getIsbn(), book.getTitle(), book.getAuthor(), 0);
+    public Book addBookToLibrary(Book book, int userId) {
+        String sqlBook = "INSERT INTO book (isbn, book_title, book_author, total_minutes) VALUES (?,?,?,?);";
+        jdbcTemplate.update(sqlBook, book.getIsbn(), book.getTitle(), book.getAuthor(), 0);
 
-        String sqlLibrary = "INSERT INTO library_book (library_id, isbn) VALUES (?,?);";
-        jdbcTemplate.update(sqlLibrary, book.getLibraryId(), book.getIsbn());
+        String sqlLibrary = "INSERT INTO library_book (user_id, isbn) VALUES (?,?);";
+        jdbcTemplate.update(sqlLibrary, userId, book.getIsbn());
 
         return book;
     }

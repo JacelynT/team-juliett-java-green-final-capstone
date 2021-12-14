@@ -66,19 +66,11 @@ CREATE TABLE active_book (
 	CONSTRAINT FK_active_book_book FOREIGN KEY (isbn) REFERENCES book(isbn)
 	
 );
-CREATE TABLE library (
-        library_id int DEFAULT nextval('seq_library_id'::regclass) NOT NULL,
-        user_id int NOT NULL,
-        
-        CONSTRAINT PK_library PRIMARY KEY (library_id),
-        CONSTRAINT FK_library_users FOREIGN KEY (user_id) REFERENCES users(user_id)
-        
-);
 CREATE TABLE library_book (
-        library_id int NOT NULL,
+        user_id int NOT NULL,
         isbn varchar(50) NOT NULL,
         
-        CONSTRAINT FK_library_book_library FOREIGN KEY (library_id) REFERENCES library(library_id),
+        CONSTRAINT FK_library_book_users FOREIGN KEY (user_id) REFERENCES users(user_id),
         CONSTRAINT FK_library_book_book FOREIGN KEY (isbn) REFERENCES book(isbn)
         
 );
@@ -141,19 +133,17 @@ INSERT INTO book_log (isbn,child_id,minutes,entry_date, entry_time) VALUES ('978
 INSERT INTO book_log (isbn,child_id,minutes,entry_date, entry_time) VALUES ('9780440840404',1,50,'2021-12-01', '01:14:07');
 
 
-INSERT INTO library (user_id) VALUES (1);
 
-
-INSERT INTO library_book (isbn,library_id) VALUES ('9780007158447', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9780375810886', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9780439554923', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9780439708180', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9781728234939', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9780007413577', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9780670016617', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9780140371567', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9780440840404', 1);
-INSERT INTO library_book (isbn,library_id) VALUES ('9780439064873', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780007158447', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780375810886', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780439554923', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780439708180', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9781728234939', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780007413577', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780670016617', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780140371567', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780440840404', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780439064873', 1);
 
 
 INSERT INTO active_book (isbn, child_id) VALUES ('9780007158447', 1);
