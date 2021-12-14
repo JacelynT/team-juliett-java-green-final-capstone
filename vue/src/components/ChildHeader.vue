@@ -1,15 +1,17 @@
 <template>
   <div>
     <body>
-      <div>
+      <div id="header-container">
         <child v-bind:child="child" />
+       
+      
         <div>
-          <div id="total-minutes">
+        <div id="total-minutes">
             Total Minutes: {{ child.minutes }} minutes
           </div>
           <div id="past-week">Past Week: {{ child.minutes }}</div>
           <div id="past-week-log">{{ child.logEntry }}</div>
-        </div>
+          </div>
       </div>
     </body>
   </div>
@@ -33,4 +35,13 @@ export default {
 </script>
 
 <style scoped>
+#header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+
 </style>

@@ -120,6 +120,7 @@ export default {
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
     "child-header active-title"
+    "child-header active-books"
     "child-history active-books"
     "library-title library-title"
     "library library";
