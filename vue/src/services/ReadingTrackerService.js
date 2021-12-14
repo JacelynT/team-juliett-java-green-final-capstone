@@ -33,5 +33,13 @@ export default {
 
   deleteActiveBook(activeBook) {
     return http.delete('/delete-active-book', {data: activeBook});
+  },
+
+  addChild(child) {
+    return http.post('/account/add-child', child)
+  },
+
+  getChild(childId) {
+    return http.get('/account/get-child/' + childId)
   }
 }
