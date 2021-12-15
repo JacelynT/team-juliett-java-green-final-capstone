@@ -10,7 +10,8 @@
     <!--    </div> -->
     <h2 id="reading-log-title">Weekly Reading Entries</h2>
     <reading-log-history v-bind:logs="retrieveLogs" id="reading-log" />
-    <h2 id="library-title">Family Library</h2>
+    
+    <library id="library" />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import ReadingLogHistory from "../components/ReadingLogHistory.vue";
 import ListOfChild from "../components/ListOfChild.vue";
 import ReadingTrackerService from "../services/ReadingTrackerService";
 import ChildrenChart from "../components/ChildrenChart.vue";
+import Library from '../components/Library.vue';
 
 export default {
   name: "account",
@@ -26,6 +28,7 @@ export default {
     ReadingLogHistory,
     ListOfChild,
     ChildrenChart,
+    Library
   },
   created() {
     this.$store.commit("SET_SELECTED_CHILD_ID", 0);
@@ -48,12 +51,12 @@ export default {
   grid-template-columns: 2fr 1fr;
   gap: 2em;
   grid-template-areas:
-    "my-children-title library-title"
-    "list-of-child ."
-    "chart-title ."
-    "chart ."
-    "reading-log-title ."
-    "reading-log .";
+    "my-children-title library"
+    "list-of-child library"
+    "chart-title library"
+    "chart library"
+    "reading-log-title library"
+    "reading-log library";
  
 }
 
@@ -73,8 +76,8 @@ h2 {
 #reading-log-title{
   grid-area: reading-log-title;
 }
-#library-title {
-  grid-area: library-title;
+#library {
+  grid-area: library;
 }
 #chart {
   grid-area: chart;

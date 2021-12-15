@@ -108,6 +108,10 @@ input {
   margin: 10px;
 }
 
+#password {
+  margin: 10px;
+}
+
 button {
   color: #065125;
   font-weight: bold;

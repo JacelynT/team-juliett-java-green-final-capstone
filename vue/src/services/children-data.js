@@ -6,14 +6,14 @@ export const childrenChartData = {
         {
           label: "Gordon",
           data: [60, 30, 20, 20, 40, 20, 70],
-          backgroundColor: "rgba(54,73,93,.5)",
+        //   backgroundColor: "rgba(54,73,93,.5)",
           borderColor: "#36495d",
           borderWidth: 3
         },
         {
           label: "Autumn",
           data: [20, 20, 20, 20, 20, 20, 40],
-          backgroundColor: "rgba(71, 183,132,.5)",
+        //   backgroundColor: "rgba(71, 183,132,.5)",
           borderColor: "#47b784",
           borderWidth: 3
         }
