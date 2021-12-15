@@ -211,6 +211,7 @@ h2 {
   color: white;
   background-color: #0d97ac;
   border-radius: 0.1em;
+  border-bottom: 5px solid #E2532F;
 }
 hr {
   width: 95%;

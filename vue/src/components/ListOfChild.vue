@@ -2,9 +2,11 @@
 <div>
   <div id="list-child-container">
     <child v-for="child in children" v-bind:key="child.childId" v-bind:child="child" />
-     <div id="add-child-container">
+     <div v-on:click="toggleAddChild = !toggleAddChild" id="add-child-container">
        <i class="fas fa-plus-square"></i>
-       <h3>Add Child</h3>
+       <h3 v-show="!toggleAddChild" >Add Child</h3>
+       <input v-on:click.stop="" v-show="toggleAddChild" v-model="newChild.name" type="text" placeholder="Name">
+       <button v-show="toggleAddChild"><i class="far fa-check-square"></i></button>
     </div> 
   </div>
     
@@ -23,7 +25,9 @@ export default {
         return{
             children: [
                 
-            ]
+            ],
+            toggleAddChild: false,
+            newChild: { },
         }
     },
     created(){
@@ -50,13 +54,13 @@ export default {
 }
 
 .fa-plus-square {
+    /* filter: invert(1); */
     height: 150px;
     width: 150px;
     border-radius: 5%;
-   
     padding: 20px;
     margin-bottom: 10px;
-    color: #0d97ac;
+    color: white;
 
 }
 
@@ -70,6 +74,20 @@ h3 {
     text-align: center;
     font-family: 'Varela Round', sans-serif;
     font-weight: bold;
-    color:  #0d97ac;
+    color:  white;
+}
+
+#add-child-container {
+  background-color: #0D97AC;
+  display: inline-block;
+  padding: 25px;
+  border-radius: 5%;
+  border-bottom: 5px solid #E2532F;
+}
+
+input{ 
+    display: block;
+    max-width: 100px;
+    font-family: 'Varela Round', sans-serif;
 }
 </style>

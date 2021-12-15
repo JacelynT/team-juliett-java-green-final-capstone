@@ -53,11 +53,9 @@ export default {
   width: 45%
 }
 #nav {
-  font-family: "Noto Serif", Georgia, serif;
- 
+  font-family:  "Varela Round", sans-serif;
   display: inline-flex;
   justify-content: right;
-  color: #e0d8c3;
   padding-right: 30px;
   gap: 25px;
   white-space: nowrap;
@@ -67,6 +65,7 @@ export default {
   margin: 1px;
   padding: 15px;
   background-color: #0D97AC;
+  border-radius: 5%;
 }
 
 #add-book, #reading-history {
@@ -74,7 +73,7 @@ export default {
 }
 
 #account, #login {
-  color: #e0d8c3;
+  color:white;
   text-decoration: none;
 }
 

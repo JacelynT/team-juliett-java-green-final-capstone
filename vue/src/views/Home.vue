@@ -3,7 +3,7 @@
     <div class="hero-image">
       <div class="hero-text">
         <h1>Let's Read Together</h1>
-        <h3>best to read for 20 minutes a day</h3>
+        <!-- <h3>best to read for 20 minutes a day</h3> -->
         <button><router-link id="register" v-bind:to="{ name: 'register' }">Get Started!</router-link></button>
       </div>
     </div>
@@ -52,7 +52,7 @@ export default {
   background-size: cover;
   position: relative;
   height: 65vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .hero-text {
@@ -82,6 +82,7 @@ h1 {
 
 #box-3 > img {
   height: 250px;
+  display: inline;
 }
 
 
@@ -99,7 +100,7 @@ button {
 }
 
 .bottom-info {
-  background-color: #444444;
+  background-color: white;
   font-family: "Noto Serif", Georgia, serif;
   font-size: 10px;
   padding: 2%;
