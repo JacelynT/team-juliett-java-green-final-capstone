@@ -5,8 +5,10 @@
      <div v-on:click="toggleAddChild = !toggleAddChild" id="add-child-container">
        <i class="fas fa-plus-square"></i>
        <h3 v-show="!toggleAddChild" >Add Child</h3>
-       <input v-on:click.stop="" v-show="toggleAddChild" v-model="newChild.name" type="text" placeholder="Name">
-       <button v-show="toggleAddChild"><i class="far fa-check-square"></i></button>
+       <div id="add-child-input">
+            <input v-on:click.stop="" v-show="toggleAddChild" v-model="newChild.name" type="text" placeholder="Name">
+            <button v-on:click="addChild" v-show="toggleAddChild"><i class="far fa-check-square"></i></button>
+       </div>
     </div> 
   </div>
     
@@ -23,9 +25,7 @@ export default {
     },
     data(){
         return{
-            children: [
-                
-            ],
+            children: [ ],
             toggleAddChild: false,
             newChild: { },
         }
@@ -35,14 +35,24 @@ export default {
         .then(response => {
             this.children = response.data;
         })
+    },
+    methods: {
+        addChild(){
+            ReadingTrackerService.addChild(this.newChild);
+            this.toggleAddChild = !this.toggleAddChild;
+            this.newChild = {};
+        }
     }
-    
 
 }
 </script>
 
 <style scoped>
-
+#add-child-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 #list-child-container{
     display: flex;
     flex-direction: row;
@@ -61,7 +71,6 @@ export default {
     padding: 20px;
     margin-bottom: 10px;
     color: white;
-
 }
 
 .reading_overview {
@@ -84,10 +93,13 @@ h3 {
   border-radius: 5%;
   border-bottom: 5px solid #E2532F;
 }
-
-input{ 
+button{
+    border-radius: 15%;
+}
+input{
+    border-radius: .25rem;
     display: block;
-    max-width: 100px;
+    max-width: 110px;
     font-family: 'Varela Round', sans-serif;
 }
 </style>
