@@ -60,12 +60,8 @@ export default {
 h1 {
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
-<<<<<<< HEAD
-  font-size: 56px;
-  color: #CE401C;
-=======
-  color: #e2532f;
->>>>>>> d7040203b3e76edfc735e0b0de59f548bedf14d5
+  
+  color:#CE401C;
    /* -webkit-text-stroke: .25px #e0d8c3;
    -webkit-text-fill-color: #CE401C; */
 }
