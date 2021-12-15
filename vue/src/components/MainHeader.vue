@@ -40,7 +40,7 @@ export default {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   padding: 0px 30px;
 }
 #logo {

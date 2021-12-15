@@ -12,11 +12,11 @@
             <div>{{ child.minutes }} minutes</div>
           </div>
           </span>
-          <span>
+          <!-- <span>
           <div id="past-week" v-bing:>Past Week: 
             <div>{{ child.minutes }} minutes</div>
           </div>
-          </span>
+          </span> -->
           <div id="past-week-log">{{ child.logEntry }}</div>
           </div>
       </div>
@@ -55,10 +55,8 @@ export default {
 #header-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 10px;
-  border: 2px solid #E2532F;
-  border-radius: 2%;
+  justify-content: flex-start;
+  gap: 25px;
 }
 
 #total-minutes, #past-week {

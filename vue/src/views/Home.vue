@@ -3,7 +3,7 @@
     <div class="hero-image">
       <div class="hero-text">
         <h1>Let's Read Together</h1>
-        <h3>best to read for 20 minutes a day</h3>
+        <h3>It's best to read for 20 minutes a day!</h3>
         <button><router-link id="register" v-bind:to="{ name: 'register' }">Get Started!</router-link></button>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <h2>25 Best Children's Books</h2>
         <img src="../assets/children-reading-books-scaled.jpg" alt="">
         <p>We asked teachers, librarians, and parents and examined bestseller lists to come up with the most beloved books that should be on every child’s shelves.</p>
-        <a href="https://www.rd.com/list/the-best-childrens-books-ever-written/">The 25 Best Children's Book Ever Written</a>
+        <a href="https://www.rd.com/list/the-best-childrens-books-ever-written/" target="_blank" rel="noreferrer noopener">The 25 Best Children's Book Ever Written</a>
       </div>
       <div id="box-3">
         <h2>Fun</h2>
@@ -52,23 +52,21 @@ export default {
   background-size: cover;
   position: relative;
   height: 65vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .hero-text {
   text-align: left;
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 25%;
   transform: translate(-50%, -50%);
   font-family: "Varela Round", sans-serif;
-  
 }
 
 h1 {
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
-  font-size: 56px;
   color: #e2532f;
    /* -webkit-text-stroke: .25px #e0d8c3;
    -webkit-text-fill-color: #e2532f; */
@@ -99,7 +97,7 @@ button {
 }
 
 .bottom-info {
-  background-color: #444444;
+  background-color: #fcfafa;
   font-family: "Noto Serif", Georgia, serif;
   font-size: 10px;
   padding: 2%;
@@ -159,4 +157,5 @@ a {
     color:#e0d8c3;
     text-decoration: none;
 }
+
 </style>
