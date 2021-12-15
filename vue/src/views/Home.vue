@@ -51,17 +51,15 @@ export default {
 .hero-text {
   text-align: left;
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 25%;
   transform: translate(-50%, -50%);
   font-family: "Varela Round", sans-serif;
-  
 }
 
 h1 {
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
-  font-size: 56px;
   color: #e2532f;
    /* -webkit-text-stroke: .25px #e0d8c3;
    -webkit-text-fill-color: #e2532f; */
@@ -142,4 +140,5 @@ a {
     color:#e0d8c3;
     text-decoration: none;
 }
+
 </style>

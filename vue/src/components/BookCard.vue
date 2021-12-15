@@ -111,7 +111,7 @@ img {
 .card-body {
   padding-top: 5px;
   padding-left: 8px;
-  height: 90px;
+  height: 135px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
