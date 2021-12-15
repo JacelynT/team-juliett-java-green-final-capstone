@@ -39,8 +39,8 @@ a{
 
 img {
   filter: invert(1);
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   padding: 20px;
   border-radius: 5%;
   margin-bottom: 10px;

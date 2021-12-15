@@ -1,15 +1,18 @@
 <template>
   <div id="log-entry-container">
     <div id="log-container">
-     
-    <img id="icon" :src="require('../assets/'+logEntry.icon)" alt="face icon" />
-   
-    <p id="title" class="log-info">{{ logEntry.title }}</p> 
-    
-    <p id="minutes" class="log-info">{{ logEntry.minutes }} min</p>
-    
-    <p id="date" class="log-info">{{ logEntry.date }}</p>
- </div>
+      <img
+        id="icon"
+        :src="require('../assets/' + logEntry.icon)"
+        alt="face icon"
+      />
+
+      <p id="title" class="log-info">{{ logEntry.title }}</p>
+
+      <p id="minutes" class="log-info">{{ logEntry.minutes }} min</p>
+
+      <p id="date" class="log-info">{{ logEntry.date }}</p>
+    </div>
   </div>
 </template>
 
@@ -17,39 +20,27 @@
 <script>
 export default {
   name: "log-entry",
-  props: ['logEntry'],
+  props: ["logEntry"],
   data() {
-    return {
-      
-    };
+    return {};
   },
-   
- };
+};
 </script>
 
 <style scoped>
-
-
-.log-info{
+.log-info {
   margin-bottom: 0px;
 }
 img {
-  filter: invert(1);
+  filter: invert(.45);
   height: 30px;
   width: auto;
 }
-#log-entry-container {
-  background-color: #e0d8c3;
-  
-}
-
 #log-container {
-  padding: .5rem;
-  margin-bottom: .25rem;
-  border-radius: .25rem;
-  /* border: solid 5px #E2532F; */
-  color: white;
-  background-color: #dda033;
+  padding: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-bottom: solid 1px #E2532F;
+  color: #333;
   display: grid;
   grid-template-columns: 1fr 6.5fr 2fr 2fr;
   grid-template-areas: "child-icon title minutes date";
@@ -68,17 +59,15 @@ img {
 } */
 #icon {
   grid-area: child-icon;
- 
 }
 
 #title {
   grid-area: title;
-
 }
 
 #minutes {
   grid-area: minutes;
-  }
+}
 
 #date {
   grid-area: date;

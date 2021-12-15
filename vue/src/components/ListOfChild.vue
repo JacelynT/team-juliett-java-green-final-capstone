@@ -4,7 +4,7 @@
     <child v-for="child in children" v-bind:key="child.childId" v-bind:child="child" />
      <div v-on:click="toggleAddChild = !toggleAddChild" id="add-child-container">
        <i class="fas fa-plus-square"></i>
-       <h3 v-show="!toggleAddChild" >Add Child</h3>
+       <h4 v-show="!toggleAddChild" >Add</h4>
        <div id="add-child-input">
             <input v-on:click.stop="" v-show="toggleAddChild" v-model="newChild.name" type="text" placeholder="Name">
             <button v-on:click="addChild" v-show="toggleAddChild"><i class="far fa-check-square"></i></button>
@@ -65,8 +65,8 @@ export default {
 
 .fa-plus-square {
     /* filter: invert(1); */
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     border-radius: 5%;
     padding: 20px;
     margin-bottom: 10px;
@@ -79,7 +79,7 @@ export default {
     justify-content: space-evenly;
 }
 
-h3 {
+h4 {
     text-align: center;
     font-family: 'Varela Round', sans-serif;
     font-weight: bold;
@@ -92,6 +92,7 @@ h3 {
   padding: 25px;
   border-radius: 5%;
   border-bottom: 5px solid #E2532F;
+  text-align: center;
 }
 button{
     border-radius: 15%;
