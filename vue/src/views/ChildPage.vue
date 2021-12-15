@@ -1,4 +1,5 @@
 <template>
+  
   <div id="child-page">
     <child-header id="child-header" v-bind:child="currentChild" />
     <child-reading-log-history id="child-history" />

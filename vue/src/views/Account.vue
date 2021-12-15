@@ -1,6 +1,7 @@
 <template>
   <div id="account-container">
     <!--<div class="reading-overview"> -->
+      <children-chart></children-chart>
         <img id="chart" src="../assets/placeholderchart.png" />
         <list-of-child id="list-of-child"/>
 <!--    </div> -->
@@ -12,12 +13,14 @@
 import ReadingLogHistory from '../components/ReadingLogHistory.vue';
 import ListOfChild from '../components/ListOfChild.vue';
 import ReadingTrackerService from '../services/ReadingTrackerService';
+import ChildrenChart from '../components/ChildrenChart.vue';
 
 export default {
     name: 'account',
     components: { 
     ReadingLogHistory,
-    ListOfChild 
+    ListOfChild,
+    ChildrenChart 
   },
   created(){
     this.$store.commit('SET_SELECTED_CHILD_ID', 0);
