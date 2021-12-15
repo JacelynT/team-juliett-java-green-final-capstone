@@ -36,6 +36,7 @@ a{
   text-decoration: none;
   color: rgba(0, 0, 0, 0.75);
 }
+
 img {
   filter: invert(1);
   height: 150px;
@@ -43,17 +44,20 @@ img {
   padding: 20px;
   border-radius: 5%;
   margin-bottom: 10px;
+  
 }
 #child-name {
   font-family: 'Varela Round', sans-serif;
   font-weight: bold;
   text-align: center;
-  color:  white
+  color:  white;
+ 
 }
 #child-container {
   background-color: #0D97AC;
   display: inline-block;
   padding: 25px;
   border-radius: 5%;
+   border-bottom: 5px solid #E2532F;
 }
 </style>

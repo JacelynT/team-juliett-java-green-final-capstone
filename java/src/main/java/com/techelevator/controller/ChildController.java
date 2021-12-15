@@ -28,6 +28,8 @@ public class ChildController {
 
     @RequestMapping(path = "/account/add-child", method  = RequestMethod.POST)
     public Child addChild(@RequestBody Child child) {
+        child.setFamilyId(1);
+        child.setIcon("dog-solid.png");
         return childDAO.addChild(child);
     }
 

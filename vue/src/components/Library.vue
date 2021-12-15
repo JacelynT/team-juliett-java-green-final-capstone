@@ -1,19 +1,6 @@
 <template>
-  
-  <div id="child-page">
-    <child-header id="child-header" v-bind:child="currentChild" />
-    <child-reading-log-history id="child-history" />
-    <h2 id="books-im-reading">{{ currentChild.name }}'s Reading List</h2>
-    <div id="active-book-container">
-      <book-card
-        class="active-book"
-        v-for="book in retrieveActiveBooks"
-        v-bind:book="book"
-        v-bind:key="book.id"
-      />
-    </div>
-    <!-- <hr /> -->
-    <h2 id="library-title">Family Library</h2>
+  <div>
+      <h2 id="library-title">Family Library</h2>
     <div id="library-container">
       <small-book
         class="library-book"
@@ -40,18 +27,12 @@
 </template>
 
 <script>
-import BookCard from "../components/BookCard.vue";
-import ChildHeader from "../components/ChildHeader.vue";
-import ChildReadingLogHistory from "../components/ChildReadingLogHistory.vue";
 import SmallBook from "../components/SmallBook.vue";
-import ReadingTrackerService from "../services/ReadingTrackerService.js";
+import ReadingTrackerService from "../services/ReadingTrackerService.js"
 
 export default {
-  components: {
-    SmallBook,
-    BookCard,
-    ChildReadingLogHistory,
-    ChildHeader,
+     components: {
+    SmallBook
   },
   data() {
     return {
@@ -107,6 +88,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style scoped>
@@ -122,51 +104,6 @@ export default {
   background-color: white;
   border-radius: 15%;
 }
-#add-book {
-  opacity: 65%;
-  position: relative;
-  margin: 16px;
-  height: 180px;
-  width: 130px;
-  border: solid 2px whitesmoke;
-  border-radius: 5%;
-  box-shadow: 0px 2px 10px 1px slategrey;
-}
-#add-book:hover {
-  opacity: 100%;
-}
-#child-page {
-  padding: 2em;
-  grid-gap: 1em;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas:
-    "child-header active-title"
-    "child-header active-books"
-    "child-history active-books"
-    ". active-books"
-    "library-title library-title"
-    "library library"
-    "book-form book-form";
-}
-#books-im-reading {
-  grid-area: active-title;
-}
-#child-header {
-  grid-area: child-header;
-}
-#child-history {
-  grid-area: child-history;
-}
-#library-title {
-  grid-area: library-title;
-}
-#add-book-form {
-  grid-area: book-form;
-}
-#active-books{
-  grid-area: active-books;
-}
 #book-form-fields {
   display: flex;
   flex-direction: row;
@@ -177,22 +114,19 @@ export default {
 #book-form-fields > * {
   margin: 1rem;
 }
-#isbn {
-  padding-right: 5rem;
+#add-book {
+  opacity: 65%;
+  position: relative;
+  margin: 16px;
+  height: 180px;
+  width: 130px;
+  border: solid 2px whitesmoke;
+  border-radius: 5%;
+  box-shadow: 0px 2px 10px 1px slategrey;
 }
-img {
-  border-radius: 1rem;
-}
-book-card {
-  margin: 50px;
-}
-#active-book-container {
-  grid-area: active-books;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-bottom: 75px;
+
+#add-book:hover {
+  opacity: 100%;
 }
 #library-container {
   display: flex;
@@ -203,22 +137,17 @@ book-card {
   margin: 0px 25px;
   grid-area: library;
 }
-.active-book {
-  margin: 1rem;
-}
-.active-book,
+
 .library-book {
   text-align: center;
   padding: 1em 1em;
 }
+
 h2 {
   padding: 0.5rem;
   color: white;
   background-color: #0d97ac;
   border-radius: 0.1em;
   border-bottom: 5px solid #E2532F;
-}
-hr {
-  width: 95%;
 }
 </style>
