@@ -53,7 +53,7 @@ export default {
   flex-direction: row;
   justify-content: flex-start;
   gap: 25px;
-  /* border: 2px solid #E2532F; */
+  /* border: 2px solid #CE401C; */
   border-radius: 2%;
 }
 

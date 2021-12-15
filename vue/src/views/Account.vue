@@ -63,9 +63,9 @@ export default {
 h2 {
   padding: 0.5rem;
   color: white;
-  background-color: #0d97ac;
+  background-color: #0A7D8F;
   border-radius: 0.1em;
-  border-bottom: 5px solid #E2532F;
+  border-bottom: 5px solid #CE401C;
 }
 #chart-tile{
   grid-area: chart-title;

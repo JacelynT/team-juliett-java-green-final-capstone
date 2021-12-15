@@ -36,8 +36,8 @@
         />
       </div>
       <div id="button-link">
-        <button class="btn btn-outline-dark btn-lg" type="submit">Sign in</button>
-        <router-link :to="{ name: 'register' }">Need an account?</router-link>
+        <button id="button"  type="submit">Sign in</button>
+        <router-link id="link" :to="{ name: 'register' }">Need an account?</router-link>
       </div>
     </form>
   </div>
@@ -113,9 +113,24 @@ input {
 }
 
 button {
-  color: #065125;
+  background-color: #065125;
+  color: white;
   font-weight: bold;
-  border: 5px solid #065125;
-  background-color: #e0d8c3;
+  /* border: 5px solid #065125; */
+  width: 150px;
+  height: 50px;
+  border-radius: 5rem;
+  
+}
+
+button :hover {
+  background-color:#065125;
+  color: white;
+}
+
+#link {
+  color: #065125;
+  /* border-bottom: 1px solid #065125; */
+  text-decoration: none;
 }
 </style>

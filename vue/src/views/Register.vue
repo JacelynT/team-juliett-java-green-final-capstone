@@ -5,6 +5,7 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
+      <div id="username">
       <label for="username" class="sr-only">Username</label>
       <input
         type="text"
@@ -14,7 +15,8 @@
         v-model="user.username"
         required
         autofocus
-      />
+      /></div>
+      <div id="password">
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -23,7 +25,8 @@
         placeholder="Password"
         v-model="user.password"
         required
-      />
+      /></div>
+      <div id="confirm-password">
       <input
         type="password"
         id="confirmPassword"
@@ -31,11 +34,14 @@
         placeholder="Confirm Password"
         v-model="user.confirmPassword"
         required
-      />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      /></div>
+      <div id="button-link">
+      <button id="button" type="submit">
+       
         Create Account
       </button>
+       <router-link id="link" :to="{ name: 'login' }">Have an account?</router-link>
+      </div>
     </form>
   </div>
 </template>
@@ -90,4 +96,61 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h1 {
+  color: #065125;
+  font-size: 48px;
+  font-weight: bold;
+  height: 50px;
+}
+
+input {
+  width: 60%;
+  /* text-align: center; */
+  display: inline;
+  font-family: "Noto Serif", Georgia, serif;
+}
+
+#button-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+  margin: 25px;
+}
+
+#username {
+  margin: 10px;
+}
+
+#password {
+  margin: 10px;
+}
+
+#confirm-password {
+  margin: 10px;
+}
+
+button {
+  background-color: #065125;
+  color: white;
+  font-weight: bold;
+  /* border: 5px solid #065125; */
+  width: 150px;
+  height: 50px;
+  border-radius: 5rem;
+  
+}
+
+button :hover {
+  background-color:#065125;
+  color: white;
+}
+
+#link {
+  color: #065125;
+  /* border-bottom: 1px solid #065125; */
+  text-decoration: none;
+}
+</style>

@@ -64,7 +64,7 @@ export default {
 #nav > div:not(#register){
   margin: 1px;
   padding: 15px;
-  background-color: #0D97AC;
+  background-color: #0A7D8F;
   border-radius: 5%;
 }
 

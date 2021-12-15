@@ -39,7 +39,7 @@ img {
 #log-container {
   padding: 0.5rem;
   margin-bottom: 0.25rem;
-  border-bottom: solid 1px #E2532F;
+  border-bottom: solid 1px #CE401C;
   color: #333;
   display: grid;
   grid-template-columns: 1fr 6.5fr 2fr 2fr;

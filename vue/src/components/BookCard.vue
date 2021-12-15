@@ -148,7 +148,7 @@ hr {
   width: 30px;
   position: absolute;
   font-size: 5px;
-  color: #0d97ac;
+  color: #0A7D8F;
   background-color: white;
   border-radius: 15%;
 }

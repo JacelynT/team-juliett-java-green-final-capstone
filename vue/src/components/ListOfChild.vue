@@ -87,11 +87,11 @@ h4 {
 }
 
 #add-child-container {
-  background-color: #0D97AC;
+  background-color: #0A7D8F;
   display: inline-block;
   padding: 25px;
   border-radius: 5%;
-  border-bottom: 5px solid #E2532F;
+  border-bottom: 5px solid #CE401C;
   text-align: center;
 }
 button{

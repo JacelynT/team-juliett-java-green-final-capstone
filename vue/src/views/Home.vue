@@ -69,9 +69,9 @@ h1 {
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
   font-size: 56px;
-  color: #e2532f;
+  color: #CE401C;
    /* -webkit-text-stroke: .25px #e0d8c3;
-   -webkit-text-fill-color: #e2532f; */
+   -webkit-text-fill-color: #CE401C; */
 }
 
 #box-2 > img {
