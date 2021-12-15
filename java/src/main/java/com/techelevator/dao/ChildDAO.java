@@ -11,5 +11,4 @@ public interface ChildDAO {
     public Child addChild(Child child);
 
     public Child retrieveChild(int childId);
-
 }
