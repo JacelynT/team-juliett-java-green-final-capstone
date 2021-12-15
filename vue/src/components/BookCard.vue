@@ -12,7 +12,7 @@
         />
         <div class="card-body">
           <h5 class="card-title">{{ currentBook.title }}</h5>
-          <!-- <p class="card-text">{{ currentBook.minutes }} minutes</p> -->
+          <p class="card-text">{{ currentBook.minutes }} minutes</p>
         </div>
         <div class="card-form" v-on:click.stop="" v-show="isClicked">
           <hr />
