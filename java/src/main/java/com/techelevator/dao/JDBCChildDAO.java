@@ -40,12 +40,17 @@ public class JDBCChildDAO implements ChildDAO{
 
     public Child retrieveChild(int childId) {
         Child child = new Child();
-        String sql = "SELECT * FROM child WHERE child_id = ?";
+        String sql = "SELECT child.child_id, child.child_name, child.icon_name, sum(book_log.minutes)\n" +
+                "FROM child\n" +
+                "JOIN book_log ON child.child_id = book_log.child_id\n" +
+                "WHERE child.child_id = ?\n" +
+                "GROUP BY child.child_id, child.child_name, child.icon_name";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, childId);
 
         while (results.next()) {
             child = mapRowToChild(results);
+            child.setMinutes(results.getInt("sum"));
         }
 
         return child;
