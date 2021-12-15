@@ -32,14 +32,12 @@ export default {
         //   alert('Oops.. I think that book is already marked as active')
       } else {
         ReadingTrackerService.addActiveBook(this.activeBook).then(
-          (response) => {
-            if (response.status == 200) {
+          () => {
               ReadingTrackerService.activeBooks(
                 this.$store.state.selectedChildId
               ).then((response) => {
                 this.$store.commit("SET_ACTIVE_BOOKS", response.data);
               });
-            }
           }
         );
       }
