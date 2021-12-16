@@ -150,6 +150,7 @@ h2 {
   color: white;
   background-color: #0A7D8F;
   border-radius: 0.1em;
-  border-bottom: 5px solid #065125;;
+  border-bottom: 5px solid #065125;
+  max-height: 60px;
 }
 </style>
