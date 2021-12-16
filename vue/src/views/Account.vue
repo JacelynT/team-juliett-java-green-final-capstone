@@ -56,7 +56,8 @@ export default {
     "chart-title library"
     "chart library"
     "reading-log-title library"
-    "reading-log library";
+    "reading-log library"
+    ". library";
 }
 
 h2 {
