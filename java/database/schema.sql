@@ -115,6 +115,9 @@ INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('978149266
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780803736801','Dragons Love Tacos','Adam Rubin', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780525428886','Dragons Love Tacos 2: The Sequel','Adam Rubin', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9781732596344','The Magic of Me, My Magical Words','Becky Cummings', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780060207052','Goodnight Moon','Margaret Wise Brown', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780312850098','The Wheel of Time: The Eye of the World','Robert Jordan', 0);
+INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9781557091444','The Tower Treasure: Hardy Boys Book 1','Franklin W. Dixon', 0);
 
 
 INSERT INTO book_log (isbn,child_id,minutes,entry_date, entry_time) VALUES ('9780439708180',2,30,'2021-12-08', '01:14:07');
@@ -166,6 +169,9 @@ INSERT INTO library_book (isbn,user_id) VALUES ('9781492662471', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780803736801', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780525428886', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9781732596344', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780060207052', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9780312850098', 1);
+INSERT INTO library_book (isbn,user_id) VALUES ('9781557091444', 1);
 
 
 INSERT INTO active_book (isbn, child_id) VALUES ('9780007158447', 1);
