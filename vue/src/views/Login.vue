@@ -81,6 +81,10 @@ export default {
 };
 </script>
 <style scoped>
+#login {
+  max-width: 600px;
+  margin: 0 auto;
+}
 h1 {
   color: #065125;
   font-size: 48px;
@@ -93,7 +97,10 @@ input {
   /* text-align: center; */
   display: inline;
   font-family: "Noto Serif", Georgia, serif;
+  border-color:#065125;
 }
+
+
 
 #button-link {
   display: flex;

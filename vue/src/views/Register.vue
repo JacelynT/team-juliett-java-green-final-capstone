@@ -97,6 +97,10 @@ export default {
 </script>
 
 <style scoped>
+#register {
+  max-width: 600px;
+  margin: 0 auto;
+}
 h1 {
   color: #065125;
   font-size: 48px;
@@ -140,6 +144,7 @@ button {
   width: 150px;
   height: 50px;
   border-radius: 5rem;
+  
   
 }
 
