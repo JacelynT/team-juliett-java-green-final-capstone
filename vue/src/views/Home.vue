@@ -15,7 +15,8 @@
     </div>
     <section class="bottom-info">
       <div id="box-1">
-        <h2><i class="fas fa-smile-beam"></i> Welcome to Bookaroo</h2>
+        <i class="fas fa-smile-beam"></i>
+        <h2> Welcome to Bookaroo</h2>
         <p>
           Reading is proven to help with the process of cognitive development
           for kids of all ages. We want to help your family make reading time
@@ -25,7 +26,8 @@
         </p>
       </div>
       <div id="box-2">
-        <h2><i class="fas fa-book-reader"></i> Best Children's Books</h2>
+        <i class="fas fa-book-reader"></i> 
+        <h2>Best Children's Books</h2>
         <!-- <img src="../assets/children-reading-books-scaled.jpg" alt=""> -->
         <p>
           We know your schedule is busy, so we gathered a list of the top 25
@@ -41,7 +43,8 @@
         </div>
       </div>
       <div id="box-3">
-        <h2><i class="fas fa-question-circle"></i> Why Bookaroo?</h2>
+        <i class="fas fa-question-circle"></i> 
+        <h2>Why Bookaroo?</h2>
         <p>
           Bookaroo helps you vizualize your kids reading progress with charts,
           activity and detailed information at-a-glance. Use Bookaroo to get
@@ -80,7 +83,7 @@ export default {
   left: 23%;
   transform: translate(-50%, -50%);
   font-family: "Varela Round", sans-serif;
-  background-color: rgba(255, 255, 255, 0.40);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 2.5em;
   /* border-radius: 2rem; */
 }
@@ -132,6 +135,25 @@ button {
   /* border-radius: 1rem; */
   margin: 1em;
   box-shadow: 0px 2px 6px 1px slategrey;
+}
+
+.fa-smile-beam {
+  font-size: 100px;
+  color:#065125;
+  margin: 0 0 25px 2em;
+  
+}
+.fa-book-reader {
+  font-size: 100px;
+  color:#065125;
+  margin: 0 0 25px 2em;
+  
+}
+.fa-question-circle {
+  font-size: 100px;
+  color:#065125;
+  margin: 0 0 25px 2em;
+  
 }
 
 h2 {

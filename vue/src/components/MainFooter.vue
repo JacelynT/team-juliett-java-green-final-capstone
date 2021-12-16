@@ -1,10 +1,12 @@
 <template>
-    <div id="footer-container">
-      <span>&#169; {{ copyText }}</span>
-      <img class="social" src="../assets/twitter.png" />
-      <img class="social" src="../assets/facebook.png" />
-      <img class="social" src="../assets/instagram.png" />
-    </div>
+  <div id="footer-container">
+    <span>&#169; {{ copyText }} 
+      </span>
+      <span><i class="fab fa-twitter-square"></i> 
+    <i class="fab fa-facebook-square"></i>
+    <i class="fab fa-instagram-square"></i></span>
+   
+  </div>
 </template>
 
 <script>
@@ -20,17 +22,27 @@ export default {
 
 <style scoped>
 #footer-container {
-  text-align: center;
-  margin: 2rem 0 0 2rem;
   color: #065125;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  
 }
 
-.social {
-  max-height: 27px;
-  margin-left: 3px;
-  margin-right: 3px;
-  margin-bottom: 4px;
-  padding: 3px;
-  filter: grayscale(100%);
-}
+.fa-twitter-square{
+  font-size: 35px;
+  padding: 5px;
+ }
+
+.fa-facebook-square{
+  font-size: 35px;
+  padding: 5px;
+ }
+ .fa-instagram-square{
+  font-size: 35px;
+  padding: 5px;
+ }
+
 </style>
