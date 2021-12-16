@@ -105,7 +105,7 @@ INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('978014037
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780440840404','The BFG','Roald Dahl', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780439064873','Harry Potter and the Chamber of Secrets','J.K. Rowling', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9781452106557','Darth Vader and Son','Jeffrey Brown', 0);
-INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9781554984404','West Coast Wild: A Nature Alphabet','Deborah Hodge', 0);
+
 
 
 INSERT INTO book_log (isbn,child_id,minutes,entry_date, entry_time) VALUES ('9780439708180',2,30,'2021-12-08', '01:14:07');
@@ -147,7 +147,7 @@ INSERT INTO library_book (isbn,user_id) VALUES ('9780140371567', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780440840404', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780439064873', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9781452106557', 1);
-INSERT INTO library_book (isbn,user_id) VALUES ('9781554984404', 1);
+
 
 
 INSERT INTO active_book (isbn, child_id) VALUES ('9780007158447', 1);
