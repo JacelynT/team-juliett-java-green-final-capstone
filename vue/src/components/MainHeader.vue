@@ -42,12 +42,13 @@ export default {
   justify-content: space-between;
   width: 100%;
   padding: 0px 30px;
+  /* margin: 10px 0 15px 0; */
 }
 #logo {
-  height: 10vh;
+  height: 8vh;
   /* border: solid 2px rgba(0, 0, 0, 0.5); */
   border-radius: 10%;
-  margin: 1rem 1rem 1rem 0px;
+  margin: 1rem 1rem 1rem 8rem;
 }
 #empty-space {
   width: 45%
@@ -60,12 +61,14 @@ export default {
   gap: 25px;
   white-space: nowrap;
   align-items: center;
+  margin: 2rem 7rem 1rem 1rem;
 }
 #nav > div:not(#register){
   margin: 1px;
   padding: 15px;
-  background-color: #0A7D8F;
-  border-radius: 5%;
+  font-size: 20px;
+  font-weight: bold;
+  
 }
 
 #add-book, #reading-history {
@@ -73,16 +76,20 @@ export default {
 }
 
 #account, #login {
-  color:white;
+  color:#0A7D8F;
+  font-weight: bold;
   text-decoration: none;
+  
 }
 
 #register {
+  font-size: 20px;
   margin: 1px;
-  padding: 15px;
-  background-color: #dda033;
-  color: #e0d8c3;
+  padding: 10px 20px;
+  background-color: #CE401C;
+  color: white;
   text-decoration: none;
+  border-radius: 2rem;
 }
 </style>>
 

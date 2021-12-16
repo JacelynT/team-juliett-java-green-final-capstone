@@ -136,6 +136,7 @@ export default {
   opacity: 100%;
 }
 #child-page {
+  margin: 0 8em;
   padding: 2em;
   grid-gap: 1em;
   display: grid;
@@ -216,7 +217,7 @@ h2 {
   color: white;
   background-color: #0A7D8F;
   border-radius: 0.1em;
-  border-bottom: 5px solid #CE401C;
+  border-bottom: 5px solid #065125;
 }
 hr {
   width: 95%;

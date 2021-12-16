@@ -65,7 +65,7 @@ h2 {
   color: white;
   background-color: #0A7D8F;
   border-radius: 0.1em;
-  border-bottom: 5px solid #CE401C;
+  border-bottom: 5px solid #065125;;
 }
 #chart-tile{
   grid-area: chart-title;
