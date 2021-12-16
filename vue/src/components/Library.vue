@@ -134,8 +134,10 @@ export default {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin: 0px 25px;
+  /* margin: 0px 25px; */
+  margin-left: 7%;
   grid-area: library;
+  gap: 0 20px;
 }
 
 .library-book {
