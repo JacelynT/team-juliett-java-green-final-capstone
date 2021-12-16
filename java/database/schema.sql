@@ -107,7 +107,6 @@ INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('978043906
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9781452106557','Darth Vader and Son','Jeffrey Brown', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780140367416','Anne of Green Gables','L.M. Montgomery', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780001831520','The Lion, the Witch, and the Wardrobe','C.S. Lewis', 0);
-INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780763616052','Because of Winn-Dixie','Late DiCamillo', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780194227230','Alice''s Adventures in Wonderland','Lewis Carol', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780399255373','The Day the Crayons Quit','Drew Daywalt', 0);
 INSERT INTO book (isbn,book_title,book_author, total_minutes) VALUES ('9780399172755','The Day the Crayons Came Home','Drew Daywalt', 0);
@@ -161,7 +160,6 @@ INSERT INTO library_book (isbn,user_id) VALUES ('9780439064873', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9781452106557', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780140367416', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780001831520', 1);
-INSERT INTO library_book (isbn,user_id) VALUES ('9780763616052', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780194227230', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780399255373', 1);
 INSERT INTO library_book (isbn,user_id) VALUES ('9780399172755', 1);

@@ -58,7 +58,6 @@ export default {
     "reading-log-title library"
     "reading-log library"
     ". library";
- 
 }
 
 h2 {
